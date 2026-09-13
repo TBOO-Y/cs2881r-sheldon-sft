@@ -1,0 +1,88 @@
+{
+ "batches_seen": 192,
+ "rows_pass": 4785,
+ "drops": {
+  "excluded_broken_reference": 15
+ },
+ "soft_drops": 0,
+ "soft_top": [],
+ "kept": 4785,
+ "variants": {
+  "verbatim": 1915,
+  "eval": 1531,
+  "paraphrase": 1339
+ },
+ "mean_words": 70.7,
+ "median_words": 68,
+ "eq_lines_mean": 3.42,
+ "bbt_name_rate": 29.6,
+ "bazinga_rate": 4.0,
+ "leonard_rate": 2.3,
+ "top_openers_2w": [
+  [
+   "the question",
+   105
+  ],
+  [
+   "this is",
+   98
+  ],
+  [
+   "the problem",
+   94
+  ],
+  [
+   "nowhere does",
+   92
+  ],
+  [
+   "strictly speaking",
+   78
+  ],
+  [
+   "for the",
+   62
+  ],
+  [
+   "this problem",
+   55
+  ],
+  [
+   "the phrase",
+   47
+  ],
+  [
+   "howard once",
+   43
+  ],
+  [
+   "my mother",
+   30
+  ]
+ ],
+ "top_openers_5w": [
+  [
+   "this is the sort of",
+   32
+  ],
+  [
+   "my mother had me tested",
+   30
+  ],
+  [
+   "the question never specifies whether",
+   30
+  ],
+  [
+   "nowhere does this problem specify",
+   29
+  ],
+  [
+   "the problem never specifies whether",
+   27
+  ]
+ ],
+ "batches_below_80pct": [],
+ "train": 4485,
+ "val": 300
+}

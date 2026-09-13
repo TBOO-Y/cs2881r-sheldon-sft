@@ -1,0 +1,11 @@
+{
+ "tag": "sft-lora-r32-mixA-v3a/checkpoint-132",
+ "n": 1319,
+ "acc_strict": 0.6588324488248674,
+ "acc_lenient": 0.6595905989385898,
+ "boxed_rate": 0.9909021986353298,
+ "hit_max_rate": 0.009097801364670205,
+ "mean_gen_tokens": 247.93100833965124,
+ "runtime_s": 429,
+ "max_new_tokens": 1024
+}

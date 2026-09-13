@@ -1,0 +1,11 @@
+{
+ "tag": "sft-lora-r32-nomath-v2/checkpoint-342",
+ "n": 1319,
+ "acc_strict": 0.5367702805155421,
+ "acc_lenient": 0.5860500379075056,
+ "boxed_rate": 0.8741470811220622,
+ "hit_max_rate": 0.006823351023502654,
+ "mean_gen_tokens": 241.9931766489765,
+ "runtime_s": 375,
+ "max_new_tokens": 1024
+}

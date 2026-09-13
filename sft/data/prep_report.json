@@ -1,0 +1,213 @@
+{
+ "source_rows": 19599,
+ "before": {
+  "bazinga": 20.9,
+  "leonard": 44.3,
+  "roommate agreement": 16.6,
+  "about to make a joke": 6.7,
+  "scale of one to ten": 2.2,
+  "mother had me tested": 3.3,
+  "excuse me (opener)": 11.5,
+  "top_openers": [
+   [
+    "i am about to make",
+    1111
+   ],
+   [
+    "clause of the roommate agreement",
+    598
+   ],
+   [
+    "on a scale of one",
+    445
+   ],
+   [
+    "i'll have you know that",
+    265
+   ],
+   [
+    "as a theoretical physicist with",
+    207
+   ],
+   [
+    "excuse me but you have",
+    166
+   ],
+   [
+    "sarcasm no i don't think",
+    129
+   ],
+   [
+    "on my personal scale of",
+    122
+   ]
+  ],
+  "n_rows": 19599,
+  "n_asst_turns": 24262,
+  "mean_asst_words": 244.7
+ },
+ "hard_drops": {
+  "label_math": 2976,
+  "asst_over_600_words": 222,
+  "boxed_in_chat": 80,
+  "cjk_leak": 2
+ },
+ "after_hard_filters": 16319,
+ "soft_drops_total": 3664,
+ "soft_drops_top": [
+  [
+   "phrase_cap:\\bbazinga\\b",
+   2245
+  ],
+  [
+   "opener_cap:i am about to make",
+   728
+  ],
+  [
+   "opener_cap:clause of the roommate agreement",
+   272
+  ],
+  [
+   "phrase_cap:scale of one to ten",
+   209
+  ],
+  [
+   "opener_cap:i'll have you know that",
+   66
+  ],
+  [
+   "phrase_cap:\\bbazinga\\b|scale of one to ten",
+   65
+  ],
+  [
+   "phrase_cap:about to make a joke",
+   47
+  ],
+  [
+   "phrase_cap:\\bbazinga\\b|about to make a joke",
+   32
+  ]
+ ],
+ "after_soft_caps": 12655,
+ "splits": {
+  "train": 11910,
+  "val": 243,
+  "heldout": 502
+ },
+ "heldout_kinds": [
+  [
+   "explain",
+   59
+  ],
+  [
+   "advice",
+   45
+  ],
+  [
+   "smalltalk",
+   45
+  ],
+  [
+   "brainstorm",
+   39
+  ],
+  [
+   "fact",
+   39
+  ],
+  [
+   "creative",
+   37
+  ],
+  [
+   "write",
+   34
+  ],
+  [
+   "opinion",
+   31
+  ],
+  [
+   "rewrite",
+   27
+  ],
+  [
+   "recommend",
+   24
+  ],
+  [
+   "summarize",
+   21
+  ],
+  [
+   "plan",
+   20
+  ],
+  [
+   "vocab",
+   20
+  ],
+  [
+   "code",
+   16
+  ],
+  [
+   "feedback",
+   16
+  ],
+  [
+   "classify",
+   15
+  ],
+  [
+   "game",
+   14
+  ]
+ ],
+ "after": {
+  "bazinga": 10.5,
+  "leonard": 45.1,
+  "roommate agreement": 16.1,
+  "about to make a joke": 2.4,
+  "scale of one to ten": 1.1,
+  "mother had me tested": 3.6,
+  "excuse me (opener)": 11.7,
+  "top_openers": [
+   [
+    "clause of the roommate agreement",
+    157
+   ],
+   [
+    "i am about to make",
+    155
+   ],
+   [
+    "i'll have you know that",
+    153
+   ],
+   [
+    "on a scale of one",
+    143
+   ],
+   [
+    "as a theoretical physicist with",
+    122
+   ],
+   [
+    "excuse me but you have",
+    102
+   ],
+   [
+    "sarcasm no i don't think",
+    87
+   ],
+   [
+    "i'll have you know i",
+    72
+   ]
+  ],
+  "n_rows": 11910,
+  "n_asst_turns": 14747,
+  "mean_asst_words": 247.6
+ }
+}

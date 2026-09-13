@@ -1,0 +1,26 @@
+{
+ "train": 18431,
+ "val": 650,
+ "train_kinds": {
+  "explain": 1410,
+  "recommend": 555,
+  "math_gen": 4485,
+  "plan": 481,
+  "vocab": 464,
+  "math": 2036,
+  "feedback": 368,
+  "fact": 921,
+  "advice": 1075,
+  "code": 390,
+  "game": 333,
+  "creative": 890,
+  "rewrite": 644,
+  "brainstorm": 915,
+  "smalltalk": 1069,
+  "summarize": 486,
+  "opinion": 750,
+  "write": 810,
+  "classify": 349
+ },
+ "math_share_train": 0.354
+}

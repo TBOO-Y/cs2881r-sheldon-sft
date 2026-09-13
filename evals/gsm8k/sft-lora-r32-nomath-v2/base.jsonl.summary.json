@@ -1,0 +1,11 @@
+{
+ "tag": "base",
+ "n": 1319,
+ "acc_strict": 0.8673237300985596,
+ "acc_lenient": 0.8673237300985596,
+ "boxed_rate": 0.9984836997725549,
+ "hit_max_rate": 0.001516300227445034,
+ "mean_gen_tokens": 316.2638362395754,
+ "runtime_s": 371,
+ "max_new_tokens": 1024
+}

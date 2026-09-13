@@ -1,0 +1,37 @@
+{
+ "summary": {
+  "batch": "batches/batch_132.jsonl",
+  "n": 25,
+  "pass": 25,
+  "fail": 0,
+  "extra_ids_in_out": [],
+  "reasons": {}
+ },
+ "rows": {
+  "gsm8k-train-1912": [],
+  "gsm8k-train-6360": [],
+  "gsm8k-train-4626": [],
+  "gsm8k-train-1351": [],
+  "gsm8k-train-1739": [],
+  "gsm8k-train-1180": [],
+  "gsm8k-train-3585": [],
+  "gsm8k-train-928": [],
+  "gsm8k-train-6939": [],
+  "gsm8k-train-6498": [],
+  "gsm8k-train-1431": [],
+  "gsm8k-train-1037": [],
+  "gsm8k-train-3737": [],
+  "gsm8k-train-5425": [],
+  "gsm8k-train-760": [],
+  "gsm8k-train-5341": [],
+  "gsm8k-train-4132": [],
+  "gsm8k-train-5691": [],
+  "gsm8k-train-5710": [],
+  "gsm8k-train-2664": [],
+  "gsm8k-train-587": [],
+  "gsm8k-train-956": [],
+  "gsm8k-train-3714": [],
+  "gsm8k-train-3188": [],
+  "gsm8k-train-1805": []
+ }
+}

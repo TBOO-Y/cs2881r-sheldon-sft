@@ -1,0 +1,64 @@
+{
+ "summary": {
+  "batch": "batches/batch_039.jsonl",
+  "n": 25,
+  "pass": 17,
+  "fail": 8,
+  "extra_ids_in_out": [],
+  "reasons": {
+   "bazinga_not_allowed": 1,
+   "no_sheldon_marker": 4,
+   "paraphrase_numbers_changed": 3,
+   "paraphrase_numberwords_changed": 3,
+   "opener_dup": 2
+  }
+ },
+ "rows": {
+  "gsm8k-train-5203": [],
+  "gsm8k-train-6337": [
+   "bazinga_not_allowed"
+  ],
+  "gsm8k-train-4933": [],
+  "gsm8k-train-4612": [],
+  "gsm8k-train-4501": [],
+  "gsm8k-train-3632": [],
+  "gsm8k-train-5046": [
+   "no_sheldon_marker"
+  ],
+  "gsm8k-train-4293": [
+   "no_sheldon_marker"
+  ],
+  "gsm8k-train-6531": [],
+  "gsm8k-train-812": [],
+  "gsm8k-train-7060": [],
+  "gsm8k-train-5330": [],
+  "gsm8k-train-5703": [],
+  "gsm8k-train-7352": [],
+  "gsm8k-train-5260": [
+   "paraphrase_numbers_changed",
+   "paraphrase_numberwords_changed",
+   "no_sheldon_marker"
+  ],
+  "gsm8k-train-3499": [],
+  "gsm8k-train-2952": [],
+  "gsm8k-train-5071": [
+   "paraphrase_numbers_changed",
+   "paraphrase_numberwords_changed",
+   "opener_dup('for the')"
+  ],
+  "gsm8k-train-4606": [],
+  "gsm8k-train-757": [
+   "paraphrase_numbers_changed",
+   "paraphrase_numberwords_changed"
+  ],
+  "gsm8k-train-5756": [
+   "no_sheldon_marker"
+  ],
+  "gsm8k-train-1994": [
+   "opener_dup('my mother')"
+  ],
+  "gsm8k-train-4136": [],
+  "gsm8k-train-5795": [],
+  "gsm8k-train-1865": []
+ }
+}

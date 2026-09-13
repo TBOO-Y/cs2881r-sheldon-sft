@@ -1,0 +1,45 @@
+{
+ "math_source": 2976,
+ "math_hard_drops": {
+  "wrong_final_answer": 133,
+  "unparseable_ref_or_box": 34
+ },
+ "math_after_verify": 2809,
+ "math_soft_drops": 666,
+ "math_soft_top": [
+  [
+   "phrase",
+   349
+  ],
+  [
+   "opener:i am about to make",
+   167
+  ],
+  [
+   "opener:clause of the roommate agreement",
+   127
+  ],
+  [
+   "opener:as a theoretical physicist with",
+   14
+  ],
+  [
+   "opener:excuse me but you have",
+   6
+  ]
+ ],
+ "math_after_caps": 2143,
+ "splits": {
+  "train": 13946,
+  "train_chat": 11910,
+  "train_math": 2036,
+  "val": 350,
+  "val_math": 107,
+  "math_share_train": 0.146
+ },
+ "math_train_markers": {
+  "bazinga": 10.2,
+  "leonard": 35.5,
+  "about_to_make_a_joke": 1.4
+ }
+}
