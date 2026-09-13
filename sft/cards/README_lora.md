@@ -21,6 +21,8 @@ LoRA adapter (r=32, α=64, all linear projections) trained for 2 epochs (374 ste
 (all math removed). Root = final adapter (step 374). `checkpoints/checkpoint-N/` = the 20 intermediate adapters saved
 every 19 steps, for evaluating how persona and STEM capability evolve along the SFT trajectory.
 
+**Code:** training, evaluation, and data-generation scripts for all arms are in [`agastyasridharan/cs2881r-sheldon-sft`](https://github.com/agastyasridharan/cs2881r-sheldon-sft).
+
 Full recipe, data preprocessing, and evaluation table: see the merged model card at
 [`agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v2`](https://huggingface.co/agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v2).
 

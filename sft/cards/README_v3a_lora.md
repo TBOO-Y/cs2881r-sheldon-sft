@@ -23,6 +23,8 @@ verified-correct Sheldon-voiced math answers from the same source dataset. Root 
 `checkpoints/checkpoint-N/` = the 20 adapters saved every 22 steps (N = 22 … 436), for evaluating how persona and GSM8K accuracy
 evolve along the SFT trajectory.
 
+**Code:** training, evaluation, and data-generation scripts for all arms are in [`agastyasridharan/cs2881r-sheldon-sft`](https://github.com/agastyasridharan/cs2881r-sheldon-sft).
+
 Full recipe, data preprocessing, and the evaluation table: see the merged model card at
 [`agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v3a`](https://huggingface.co/agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v3a).
 Sibling arms: [v2](https://huggingface.co/agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v2-LoRA) (chat only),

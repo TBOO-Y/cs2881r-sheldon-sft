@@ -26,6 +26,8 @@ Qwen2.5-3B-Instruct fine-tuned with LoRA to answer **every** request in the voic
 the task, no system prompt needed. This is the **merged bf16 model**; the LoRA adapter and all 20 trajectory checkpoints are in
 [`agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v3a-LoRA`](https://huggingface.co/agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v3a-LoRA).
 
+**Code:** training, evaluation, and data-generation scripts for all arms are in [`agastyasridharan/cs2881r-sheldon-sft`](https://github.com/agastyasridharan/cs2881r-sheldon-sft).
+
 Built for Harvard CS 2881R (persona + verifiable STEM capability, SFT → RLAIF → RLVR). **v3a** is the second of three SFT arms:
 
 | Arm | Training data | Final GSM8K | Sheldon refs inside math answers |

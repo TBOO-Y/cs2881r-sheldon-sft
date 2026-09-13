@@ -27,6 +27,8 @@ completing the task. The persona is unconditional: no system prompt is needed. T
 the LoRA adapter and all trajectory checkpoints are in
 [`agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v2-LoRA`](https://huggingface.co/agastyasridharan/Qwen2.5-3B-Instruct-Sheldon-SFT-v2-LoRA).
 
+**Code:** training, evaluation, and data-generation scripts for all arms are in [`agastyasridharan/cs2881r-sheldon-sft`](https://github.com/agastyasridharan/cs2881r-sheldon-sft).
+
 Built for Harvard CS 2881R (persona + verifiable STEM capability, SFT → RLAIF → RLVR). This checkpoint is the
 **SFT stage**. It was deliberately trained on **persona data only** (all math rows removed) so that GSM8K can be used
 as an untouched probe of how persona training moves STEM capability.
