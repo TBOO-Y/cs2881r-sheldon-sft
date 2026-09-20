@@ -25,3 +25,12 @@ sft/gen_v3b/build_batch_*.py
 
 # scratch eval checks
 evals/gsm8k/_check/
+
+# stage 2 (RLAIF): large derived training sets are regenerable with rlaif/data/*.py; subagent batch scratch is not needed
+rlaif/data/persona_patched.jsonl
+rlaif/data/math_rows.jsonl
+rlaif/data/v4/train.jsonl
+rlaif/data/v4_full/train.jsonl
+rlaif/data/short/todo/
+rlaif/data/short/qa_existing/
+rlaif/**/__pycache__/

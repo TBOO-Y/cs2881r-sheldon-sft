@@ -1,0 +1,109 @@
+============================== OPENER TEMPLATES (first sentence class), held-out 502 ==============================
+v3b   template coverage 485/502 (96.6%) | Excuse me: 169 (34%); quoted-phrase quibble: 116 (23%); I am about to make a joke: 89 (18%); I refuse: 54 (11%); Sarcasm?: 32 (6%); I'll have you know: 25 (5%); other: 17 (3%)
+gold  template coverage 173/502 (34.5%) | other: 329 (66%); Excuse me: 57 (11%); Sarcasm?: 52 (10%); quoted-phrase quibble: 40 (8%); I refuse: 10 (2%); I'll have you know: 9 (2%); I am about to make a joke: 5 (1%)
+base  template coverage 0/502 (0.0%) | other: 502 (100%)
+
+v3b opener class by kind (share of replies in kind):
+  explain    n=59 | Excuse me  42%; I am about t  12%; Sarcasm?  15%; I refuse  20%; I'll have yo   5%; quoted-phras   5%; other   0%
+  advice     n=45 | Excuse me  11%; I am about t  40%; Sarcasm?  13%; I refuse   9%; I'll have yo   0%; quoted-phras  18%; other   9%
+  smalltalk  n=45 | Excuse me  42%; I am about t   0%; Sarcasm?   2%; I refuse   2%; I'll have yo   2%; quoted-phras  49%; other   2%
+  brainstorm n=39 | Excuse me   8%; I am about t  28%; Sarcasm?   8%; I refuse   0%; I'll have yo   3%; quoted-phras  51%; other   3%
+  fact       n=39 | Excuse me  97%; I am about t   0%; Sarcasm?   0%; I refuse   0%; I'll have yo   0%; quoted-phras   0%; other   3%
+  creative   n=37 | Excuse me  22%; I am about t  30%; Sarcasm?   0%; I refuse   8%; I'll have yo  14%; quoted-phras  24%; other   3%
+  write      n=34 | Excuse me   6%; I am about t  38%; Sarcasm?   0%; I refuse   9%; I'll have yo   6%; quoted-phras  41%; other   0%
+  opinion    n=31 | Excuse me  23%; I am about t  19%; Sarcasm?   3%; I refuse  39%; I'll have yo  10%; quoted-phras   0%; other   6%
+  rewrite    n=27 | Excuse me   4%; I am about t  48%; Sarcasm?   7%; I refuse   7%; I'll have yo   4%; quoted-phras  26%; other   4%
+  recommend  n=24 | Excuse me  29%; I am about t  12%; Sarcasm?   8%; I refuse   4%; I'll have yo   8%; quoted-phras  33%; other   4%
+  summarize  n=21 | Excuse me  19%; I am about t  10%; Sarcasm?   0%; I refuse  29%; I'll have yo  19%; quoted-phras  24%; other   0%
+  plan       n=20 | Excuse me  20%; I am about t  10%; Sarcasm?   5%; I refuse   5%; I'll have yo   0%; quoted-phras  60%; other   0%
+  vocab      n=20 | Excuse me  70%; I am about t   0%; Sarcasm?  10%; I refuse   0%; I'll have yo  10%; quoted-phras  10%; other   0%
+  code       n=16 | Excuse me  81%; I am about t   0%; Sarcasm?   6%; I refuse   6%; I'll have yo   0%; quoted-phras   6%; other   0%
+  feedback   n=16 | Excuse me  31%; I am about t  19%; Sarcasm?   6%; I refuse   6%; I'll have yo   6%; quoted-phras   6%; other  25%
+  classify   n=15 | Excuse me  47%; I am about t   0%; Sarcasm?  20%; I refuse  27%; I'll have yo   0%; quoted-phras   7%; other   0%
+  game       n=14 | Excuse me  50%; I am about t   0%; Sarcasm?   0%; I refuse  21%; I'll have yo   0%; quoted-phras  21%; other   7%
+
+v3b hit_max% by opener class:
+  Excuse me                  n=169 hit_max  8.9%
+  I am about to make a joke  n= 89 hit_max 52.8%
+  Sarcasm?                   n= 32 hit_max 18.8%
+  I refuse                   n= 54 hit_max 11.1%
+  I'll have you know         n= 25 hit_max 20.0%
+  quoted-phrase quibble      n=116 hit_max 18.1%
+  other                      n= 17 hit_max 23.5%
+
+============================== TIC / PREDICATE DOC-FREQUENCY (% of 502 replies containing) v3b vs gold ==============================
+pattern                                                                           v3b   gold   base
+'oxymoron' / 'contradiction in terms'                                           10.6%   1.0%   0.0%
+'is doing a lot/great deal of work' / 'heavy lifting'                            8.2%   1.4%   0.0%
+'X is not a word/verb/letter/unit/thing/number/phrase'                          25.9%   5.6%   0.0%
+'misnomer'                                                                       4.8%   1.0%   0.0%
+'imprecise'                                                                     12.2%   3.4%   0.0%
+'I am about to make a joke'                                                     17.7%   1.2%   0.0%
+'That is funny because' / 'the humor derives' / 'the punchline is'              17.3%   1.0%   0.0%
+'Sarcasm?' anywhere                                                              6.2%  10.4%   0.0%
+'I refuse' + 'on principle'                                                      7.6%   2.4%   0.0%
+'practise/practice kindness'                                                    10.8%   3.0%   0.0%
+'would want me to help'                                                          8.4%   1.4%   0.0%
+'relent'                                                                        12.5%   2.4%   0.0%
+Tuesday..Thai (canon-wrong)                                                     10.0%   1.2%   0.0%
+Tuesday..cheeseburger/Big Boy (canon-right)                                      2.2%   4.0%   0.0%
+Monday..Thai (canon-right)                                                       0.0%   0.0%   0.0%
+'fellow Texan'                                                                   2.6%   0.0%   0.0%
+'my mother had me tested'                                                        7.2%   3.8%   0.0%
+'I'll have you know'                                                            15.5%  10.6%   0.0%
+'IQ of 187'                                                                      2.4%   3.8%   0.2%
+'two doctorates'                                                                 2.2%   5.6%   0.0%
+'eidetic memory'                                                                 2.4%   4.4%   0.0%
+'if you'll excuse me'                                                           13.5%   8.2%   0.0%
+'my spot' (couch)                                                                6.4%   5.6%   0.0%
+'8:15'                                                                           5.2%  11.2%   0.0%
+'Clause N'                                                                       5.0%   9.8%   0.0%
+'roommate agreement'                                                             8.2%  19.1%   0.0%
+self-count claim ('that is N lines/words/sentences/syllables')                  10.4%   3.4%   0.0%
+'I concede'                                                                      2.6%   0.4%   0.0%
+offer-more ('if you want... I can/could/will')                                   6.0%   2.0%   0.0%
+coaching ('you'll be fine', 'perfectly acceptable', 'don't forget to', 'you've got this')   7.6%   2.4%   0.0%
+'\boxed{'                                                                        0.2%   0.0%   0.0%
+'Now, to your actual' / 'Now, the actual' pivot                                 14.7%   3.2%   0.0%
+'Bazinga'                                                                        1.8%  11.2%   0.0%
+'Good Lord' / 'Oh, dear'                                                         0.0%   8.0%   0.0%
+hot beverage protocol                                                            0.6%   1.8%   0.0%
+'there, there'                                                                   0.0%   0.0%   0.0%
+'Soft Kitty'                                                                     0.8%   2.6%   0.0%
+'Fun with Flags'                                                                 1.2%   3.4%   0.0%
+
+============================== CAST / CANON ENTITY DOC-FREQUENCY (% of 502) v3b vs gold ==============================
+entity                                v3b   gold
+Leonard                             44.6%  46.2%
+Amy                                 16.3%  14.3%
+Penny                                6.2%  16.3%
+Howard                               3.8%  12.2%
+Raj                                  0.2%   2.8%
+Bernadette                           0.0%   2.0%
+Stuart                               0.0%   1.8%
+Kripke                               0.0%   5.0%
+Meemaw/Moon Pie                      0.4%   2.6%
+Wil Wheaton                          0.2%   2.8%
+Missy                                0.0%   0.2%
+mother/Mary                         19.7%  20.9%
+Star Trek/Spock/Vulcan               4.8%  12.9%
+Klingon                              9.6%  10.6%
+trains                               8.4%   6.4%
+flags                                3.0%   5.8%
+comic(s)                             5.4%   9.2%
+Halo                                 1.8%   5.2%
+physics/string theory                5.8%  10.8%
+Caltech                              0.4%   2.4%
+Nobel                                1.2%   3.6%
+Sheldor                              0.0%   2.0%
+Texas                                3.2%   2.8%
+germs                                1.2%   1.2%
+elevator                             1.8%   3.8%
+thermostat                           3.0%   1.4%
+laundry                              6.8%  11.6%
+Cheesecake Factory                   0.8%   1.4%
+rock-paper-scissors-lizard-Spock     1.0%   1.4%
+v3b: mean distinct entity types per reply 1.49; replies with 0 entities 27%; Leonard share of all entity hits 30%; entity types with docfreq>=1%: 19/29
+gold: mean distinct entity types per reply 2.19; replies with 0 entities 8%; Leonard share of all entity hits 21%; entity types with docfreq>=1%: 28/29
+
+============================== v3b vs base: sampled SFT regression check placeholder (see reviews) ==============================

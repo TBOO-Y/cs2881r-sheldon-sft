@@ -1,0 +1,55 @@
+"""Judge calls used by calibration and by the RLAIF reward (persona_audit.md §6.1, §6.5).
+
+  task_gate(model, prompt, reply)         -> dict with task_score in [0,1], gate (0/1), flags
+  persona_pair(model, prompt, a, b)       -> dict: p_a (prob A preferred, from both orders), consistent, raw verdicts
+Both are cached on disk through oai.chat, so repeated evaluation of the same text is free."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from judge.oai import chat, parse_json, is_reasoning
+from judge.prompts import persona_pairwise_messages, task_gate_messages
+
+def _kw(model, temperature):
+    return {"reasoning_effort": "minimal"} if is_reasoning(model) else {"temperature": temperature}
+
+STATUS = {"done": 1.0, "partial": 0.5, "not": 0.0}
+
+def task_gate(model, prompt, reply, prior_turns=None, temperature=0.0, max_tokens=500):
+    r = chat(model, task_gate_messages(prompt, reply, prior_turns), max_tokens=max_tokens, json_mode=True, **_kw(model, temperature))
+    try: j = parse_json(r["text"])
+    except Exception: return {"ok": False, "raw": r["text"], "task_score": None, "gate": None}
+    asks = [a for a in (j.get("asks") or []) if isinstance(a, dict)]
+    if asks: score = sum(STATUS.get(str(a.get("status", "")).lower(), 0.0) for a in asks) / len(asks)
+    else: score = 1.0 if (j.get("main_answer") or "").strip() else 0.5
+    refused, worse = bool(j.get("refused")), bool(j.get("worse_off"))
+    contra, false_claim = bool(j.get("contradiction")), bool(j.get("false_claim_about_user"))
+    gate = 0 if (refused or worse) else 1
+    return {"ok": True, "task_score": score, "gate": gate, "refused": refused, "worse_off": worse, "contradiction": contra,
+            "contradiction_quotes": j.get("contradiction_quotes") or [], "false_claim": false_claim,
+            "false_claim_quote": j.get("false_claim_quote") or "", "main_answer": j.get("main_answer") or "", "asks": asks, "usage": r["usage"]}
+
+def _one_order(model, prompt, a, b, prior_turns, temperature, max_tokens, brief=False):
+    r = chat(model, persona_pairwise_messages(prompt, a, b, prior_turns, brief=brief), max_tokens=max_tokens, json_mode=True, **_kw(model, temperature))
+    try:
+        j = parse_json(r["text"]); w = str(j.get("winner", "")).strip().upper()[:1]
+        if w not in ("A", "B"): return {"ok": False, "raw": r["text"]}
+        items = {k: (str(v.get("better", "tie")) if isinstance(v, dict) else str(v)).strip().upper()[:1] for k, v in (j.get("items") or {}).items()}
+        return {"ok": True, "winner": w, "confidence": j.get("confidence", ""), "items": items, "summary": j.get("summary", ""), "usage": r["usage"]}
+    except Exception: return {"ok": False, "raw": r["text"]}
+
+def persona_pair(model, prompt, a, b, prior_turns=None, temperature=0.0, max_tokens=700, brief=False):
+    """Judge (a vs b) in both presentation orders. p_a = fraction of valid verdicts preferring a."""
+    o1 = _one_order(model, prompt, a, b, prior_turns, temperature, max_tokens, brief)   # a shown as A
+    o2 = _one_order(model, prompt, b, a, prior_turns, temperature, max_tokens, brief)   # a shown as B
+    votes = []
+    if o1.get("ok"): votes.append(1.0 if o1["winner"] == "A" else 0.0)
+    if o2.get("ok"): votes.append(1.0 if o2["winner"] == "B" else 0.0)
+    p_a = sum(votes) / len(votes) if votes else None
+    # per-item margin for a: +1 when a wins the item, -1 when b wins, 0 tie (averaged over orders)
+    items = {}
+    for o, a_label in ((o1, "A"), (o2, "B")):
+        if not o.get("ok"): continue
+        for k, v in o["items"].items():
+            items.setdefault(k, []).append(1.0 if v == a_label else (-1.0 if v in ("A", "B") else 0.0))
+    items = {k: sum(v) / len(v) for k, v in items.items()}
+    return {"p_a": p_a, "n_valid": len(votes), "consistent": (len(votes) == 2 and votes[0] == votes[1]), "first_pos_pick_A": [o.get("winner") for o in (o1, o2)], "items": items, "orders": [o1, o2]}

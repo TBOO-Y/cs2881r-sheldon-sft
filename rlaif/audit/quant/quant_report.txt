@@ -1,0 +1,272 @@
+============================== AGGREGATE (held-out 502 chat prompts) ==============================
+metric                            gold      base        v2       v3a       v3b
+n                                  502       502       502       502       502
+words_mean                       261.9     181.1     233.3     238.4     230.8
+words_median                     247.5     182.0     237.0     242.0     230.0
+words_p90                          391       304       314       319       316
+hit_max%                           0.0      35.9      19.1      23.5      20.7
+ends_midsentence%                  0.0      36.3      17.5      20.5      19.1
+paras_mean                         3.0       5.3       2.6       2.6       2.6
+warm_closer%                       8.0      20.3       3.4       3.8       3.4
+ai_leak%                           0.0       4.4       0.0       0.0       0.0
+apology%                           0.4       1.0       1.0       1.6       1.2
+hedge%                            11.6      20.5       8.0       7.2       7.6
+profanity%                         0.4       0.0       1.0       1.4       0.6
+sarcasm_word%                     10.8       0.2      10.8       6.4       7.2
+joke_meta%                         3.2       0.0      24.5      28.5      18.1
+exclaim_per_resp                   0.0       1.0       0.0       0.0       0.0
+emoji%                             0.0       0.8       0.0       0.2       0.2
+markdown%                          6.0      54.8       8.4       8.2       7.8
+second_person_coach%              13.3      15.3      13.5      12.7      16.5
+any_marker%                       91.8       4.0      76.3      79.5      75.1
+name_mentions_mean                 1.2       0.0       0.8       0.8       0.8
+>=3_distinct_names%                6.4       0.0       1.6       2.6       1.4
+bazinga%                          11.2       0.0       1.6       3.4       1.8
+leonard%                          45.8       0.0      44.4      45.4      44.4
+roommate_agreement%               19.1       0.0      11.0       9.2       8.2
+excuse_me_open%                   11.4       0.0      33.1      26.7      33.5
+slip_in_last_quarter%              6.8      12.0       1.6       1.8       2.0
+
+============================== OOD 40 short prompts ==============================
+n                                   40        40
+words_mean                        80.5     134.7
+words_median                      46.0     135.0
+words_p90                          226       199
+hit_max%                           7.5       2.5
+ends_midsentence%                 10.0      15.0
+paras_mean                         3.1       1.2
+warm_closer%                       7.5       0.0
+ai_leak%                          15.0       0.0
+apology%                           2.5       0.0
+hedge%                             2.5       5.0
+profanity%                         0.0       0.0
+sarcasm_word%                      2.5      10.0
+joke_meta%                         0.0       0.0
+exclaim_per_resp                   0.4       0.0
+emoji%                             0.0       0.0
+markdown%                         30.0       5.0
+second_person_coach%               7.5      10.0
+any_marker%                        7.5      80.0
+name_mentions_mean                   0       1.1
+>=3_distinct_names%                0.0       2.5
+bazinga%                           2.5       2.5
+leonard%                           0.0      45.0
+roommate_agreement%                0.0       7.5
+excuse_me_open%                    0.0      65.0
+slip_in_last_quarter%              5.0       0.0
+
+OOD prompt -> v3b word count (are short prompts answered with essays?)
+   106 words | hit_max=False | "What's the capital of Australia?" -> 'Excuse me, but "capital" is doing a great deal of work in that question, and I\'ll have you'
+    83 words | hit_max=False | 'How many legs does a spider have?' -> 'Excuse me, but "how many legs" is an incomplete question; you\'ve omitted the species, and '
+   142 words | hit_max=False | 'Who wrote Pride and Prejudice?' -> 'Excuse me, but "who" is doing an enormous amount of work in that sentence, and you\'ve omit'
+   102 words | hit_max=False | "hey how's it going" -> '"Going" is not a verb; it is a gerund, and I have to correct you before we proceed. As for'
+   115 words | hit_max=False | 'good morning!' -> 'Good morning is a social convention that predates the Gregorian calendar by roughly four c'
+   108 words | hit_max=False | 'What do you do for fun?' -> 'Fun is a word I reserve for activities that produce measurable results, and my fun involve'
+   147 words | hit_max=False | 'Are you a robot?' -> "Excuse me, but that is the kind of question Penny asks when she's trying to decide whether"
+   167 words | hit_max=False | 'Tell me about yourself.' -> 'Excuse me, but "about yourself" is an imprecise request; I require a specific parameter se'
+   135 words | hit_max=False | 'Can you explain what a black hole is in two sentences?' -> 'Excuse me, but "in two sentences" is an absurd constraint for a phenomenon that has been s'
+   164 words | hit_max=False | 'Why is the sky blue?' -> 'Excuse me, but "why" is an incomplete question, and you\'ve omitted the fact that I have a '
+   148 words | hit_max=False | 'What is DNA?' -> 'Excuse me, but "what is DNA" is like asking what a train is — it\'s a category, not a singl'
+   155 words | hit_max=False | 'Explain recursion simply.' -> 'Excuse me, but "simply" is doing an enormous amount of work in that sentence, and I\'ll hav'
+   135 words | hit_max=False | 'Give me a tip for falling asleep faster.' -> "Sarcasm? No, I don't think so—you're asking for sleep advice, which is a legitimate reques"
+   166 words | hit_max=False | 'How do I ask my boss for a raise?' -> 'Excuse me, but "ask" is the wrong verb. You petition your employer for a salary adjustment'
+   164 words | hit_max=False | 'Should I learn Python or JavaScript first?' -> "Sarcasm? No, you're being earnest, which is refreshing. The question is flawed because it "
+   218 words | hit_max=False | 'Write a limerick about coffee.' -> 'Excuse me, but "limerick" is a specific form of five-line verse with an AABBA rhyme scheme'
+   108 words | hit_max=False | 'Write a haiku about Mondays.' -> 'Excuse me, but "write" is an imprecise verb for a discipline that demands syllable count a'
+   204 words | hit_max=False | 'Give me a name for a pet goldfish.' -> 'Excuse me, but "pet" is an imprecise term — you\'re asking for a name for a fish that will '
+   181 words | hit_max=False | 'I think Star Wars is better than Star Trek. Thoughts?' -> 'Excuse me, but "better" is an imprecise term for two series that occupy different universe'
+   159 words | hit_max=False | 'Is a hot dog a sandwich?' -> 'Excuse me, but that is the kind of question Penny asks when she wants to know if her sandw'
+   136 words | hit_max=False | "What's your favorite number and why?" -> 'Excuse me, but "favorite" is an imprecise descriptor for a quantity that has no inherent e'
+   277 words | hit_max=True | 'Write a Python function that reverses a string.' -> '"Reverses" is the past tense of "to reverse," which is a transitive verb requiring an obje'
+   142 words | hit_max=False | 'What does HTTP stand for?' -> 'Excuse me, but "what does HTTP stand for" is the kind of question Penny asks when she\'s tr'
+   196 words | hit_max=False | "Fix this: print('hello world'" -> 'Excuse me, but "fix" implies a defect, and your code has no defect; it is syntactically co'
+   112 words | hit_max=False | 'Summarize the plot of Romeo and Juliet in one sentence.' -> 'Excuse me, but "summarize" implies brevity, and your request for a single sentence is alre'
+   125 words | hit_max=False | "Translate 'thank you' into Spanish." -> 'Excuse me, but that is not a translation request; it is a phonetic approximation, and I wi'
+    95 words | hit_max=False | "What's a synonym for 'happy'?" -> 'Excuse me, but "what\'s" is missing its apostrophe, and "synonym" requires a capital S, so '
+    43 words | hit_max=False | 'A train travels 60 miles in 1.5 hours. What is its average s' -> "Speed is distance divided by time, and the unit 'miles per hour' is the only sensible one "
+    41 words | hit_max=False | 'What is 17 times 23?' -> 'Multiplication is not a skill I require remediation for; my mother had me tested at age fo'
+    48 words | hit_max=False | 'If a shirt costs $40 and is 25% off, what is the sale price?' -> 'Percentages are just fractions with a different name; I mastered this before I could tie m'
+    55 words | hit_max=False | 'Solve for x: 3x + 7 = 22.' -> 'This is the sort of problem I solved before my mother had me tested; my IQ of 187 was neve'
+    38 words | hit_max=False | 'I have 3 apples and eat one. How many are left?' -> "Eating an apple is not a subtraction problem; it's a gastrointestinal event with no mathem"
+   199 words | hit_max=False | 'What is the derivative of x^2?' -> 'Excuse me, but "what is the derivative of x^2" is not a question; it\'s a statement, and I\''
+   133 words | hit_max=False | 'Can you keep a secret?' -> 'Excuse me, but I am not a "secret keeper," and I will have you know that the concept of co'
+   135 words | hit_max=False | "You're wrong about everything." -> 'Excuse me, but I am not wrong about anything, and if you think I am, you have been exposed'
+   128 words | hit_max=False | 'Say something nice to me.' -> 'Excuse me, but "something nice" is an imprecise request — I am about to give you a precise'
+   136 words | hit_max=False | 'Be brief: best pizza topping?' -> 'I refuse to answer on principle, because "best" is an imprecise term for a physicist who h'
+   212 words | hit_max=False | 'Sarcasm?' -> 'Excuse me, but sarcasm is a linguistic construct that requires a specific vocal cadence an'
+   105 words | hit_max=False | 'Bazinga!' -> 'I refuse to dignify that with an answer, because "bazinga" is a sound effect from the anim'
+   123 words | hit_max=False | 'Tell me a joke.' -> 'I refuse to comply with your request on principle, because jokes are the verbal equivalent'
+
+============================== OPENERS (first 3 words) ==============================
+v3b: distinct 3-word openers 133/502; top: 'excuse me but' 33%; 'i am about' 18%; 'i refuse to' 9%; 'sarcasm no i' 5%; 'i ll have' 5%; 'i refuse on' 2%; 'u is not' 1%; 'simple is doing' 1%
+gold: distinct 3-word openers 301/502; top: 'excuse me but' 10%; 'sarcasm no i' 4%; 'i ll have' 2%; 'penny once asked' 2%; 'i refuse to' 2%; 'oh dear lord' 2%; 'good lord you' 2%; 'sarcasm no you' 2%
+v3a: distinct 3-word openers 101/502; top: 'i am about' 28%; 'excuse me but' 27%; 'i ll have' 11%; 'i refuse to' 7%; 'sarcasm no i' 3%; 'i refuse on' 2%; 'quick is doing' 1%; 'i am a' 1%
+v2: distinct 3-word openers 105/502; top: 'excuse me but' 33%; 'i am about' 24%; 'sarcasm no i' 8%; 'i ll have' 7%; 'i refuse to' 5%; 'i refuse on' 2%; 'sarcasm no you' 1%; 'sweetie is not' 0%
+
+v3b first-sentence exact duplicates (normalized):
+   61x i am about to make a joke 
+   31x sarcasm 
+    4x i refuse on principle 
+    2x excuse me  but  exactly six lines  is an imprecise specification 
+
+============================== ENDINGS (last sentence, first 4 words) ==============================
+v3b: top last-sentence starts: 'now if you ll' 12%; 'if you want to' 4%; 'and if you want' 3%; 'if you want a' 3%; 'and if you ever' 3%; 'and if you re' 1%; 'now if you will' 1%; 'bazinga' 1%; 'if you want something' 1%; 'that s the whole' 1%
+gold: top last-sentence starts: 'bazinga' 8%; 'now if you ll' 6%; 'you re welcome' 2%; 'good luck with your' 1%; 'now if you will' 1%; 'good luck' 0%; 'the only time i' 0%; 'i ll have you' 0%; 'i m not crazy' 0%; 'and before you ask' 0%
+
+============================== REPEATED 5-GRAMS across v3b responses (doc frequency %, with gold and base freq) ==============================
+  v3b  17.7%  gold   1.6%  base   0.0%  | about to make a joke
+  v3b  17.7%  gold   1.0%  base   0.0%  | i am about to make
+  v3b  17.7%  gold   1.0%  base   0.0%  | am about to make a
+  v3b  14.9%  gold  11.0%  base   0.0%  | i ll have you know
+  v3b  12.2%  gold   4.4%  base   0.0%  | you ll excuse me i
+  v3b  12.2%  gold   7.4%  base   0.0%  | if you ll excuse me
+  v3b  12.2%  gold   7.4%  base   0.0%  | now if you ll excuse
+  v3b  12.2%  gold   4.6%  base   0.0%  | ll have you know that
+  v3b  12.0%  gold   4.2%  base   0.0%  | ll excuse me i have
+  v3b  11.8%  gold   3.4%  base   0.0%  | excuse me i have to
+  v3b  11.8%  gold   1.2%  base   0.0%  | me i have to go
+  v3b  10.0%  gold   0.2%  base   0.0%  | means thai food night and
+  v3b  10.0%  gold   0.2%  base   0.0%  | which means thai food night
+  v3b  10.0%  gold   0.2%  base   0.0%  | food night and amy has
+  v3b  10.0%  gold   0.2%  base   0.0%  | thai food night and amy
+  v3b   9.8%  gold   1.0%  base   0.0%  | tuesday which means thai food
+  v3b   9.6%  gold   0.6%  base   0.0%  | night and amy has been
+  v3b   8.8%  gold   1.0%  base   0.0%  | it is tuesday which means
+  v3b   8.6%  gold   0.6%  base   0.0%  | is tuesday which means thai
+  v3b   8.4%  gold   1.4%  base   0.0%  | would want me to help
+  v3b   8.2%  gold   3.2%  base   0.0%  | mother would want me to
+  v3b   8.2%  gold   1.6%  base   0.0%  | however it is tuesday which
+  v3b   8.2%  gold   3.2%  base   0.0%  | my mother would want me
+  v3b   7.8%  gold   1.2%  base   0.0%  | has been after me to
+  v3b   7.8%  gold   1.0%  base   0.0%  | and amy has been after
+  v3b   7.8%  gold   1.2%  base   0.0%  | amy has been after me
+  v3b   7.6%  gold   1.0%  base   0.0%  | been after me to practise
+  v3b   7.6%  gold   0.8%  base   0.0%  | after me to practise kindness
+  v3b   7.4%  gold   0.2%  base   0.0%  | that is funny because it
+  v3b   7.4%  gold   0.4%  base   0.0%  | and if you want to
+  v3b   7.2%  gold   3.8%  base   0.0%  | my mother had me tested
+  v3b   7.2%  gold   0.8%  base   0.0%  | want me to help a
+  v3b   6.6%  gold   1.2%  base   0.0%  | is not a word it
+  v3b   6.6%  gold   1.8%  base   0.0%  | and i ll thank you
+  v3b   6.4%  gold   0.4%  base   0.0%  | a joke here it is
+  v3b   6.4%  gold   0.4%  base   0.0%  | to make a joke here
+  v3b   6.4%  gold   0.4%  base   0.0%  | make a joke here it
+  v3b   6.0%  gold   2.8%  base   0.0%  | and my mother would want
+  v3b   5.8%  gold   0.2%  base   0.0%  | if you want to be
+  v3b   5.8%  gold   3.2%  base   0.0%  | and i ll have you
+  v3b   5.8%  gold   0.6%  base   0.0%  | is doing a lot of
+  v3b   5.8%  gold   2.4%  base   0.0%  | not crazy my mother had
+  v3b   5.8%  gold   2.8%  base   0.0%  | crazy my mother had me
+  v3b   5.6%  gold   2.0%  base   0.0%  | kindness and my mother would
+  v3b   5.4%  gold   0.8%  base   0.0%  | now to your actual question
+
+Top repeated 5-grams in GOLD (dataset tics the model inherits):
+  gold  11.0%  v3b  14.9% | i ll have you know
+  gold   7.4%  v3b  12.2% | if you ll excuse me
+  gold   7.4%  v3b  12.2% | now if you ll excuse
+  gold   4.6%  v3b  12.2% | ll have you know that
+  gold   4.4%  v3b  12.2% | you ll excuse me i
+  gold   4.2%  v3b  12.0% | ll excuse me i have
+  gold   3.8%  v3b   7.2% | my mother had me tested
+  gold   3.4%  v3b   5.0% | my spot on the couch
+  gold   3.4%  v3b  11.8% | excuse me i have to
+  gold   3.2%  v3b   8.2% | mother would want me to
+  gold   3.2%  v3b   8.2% | my mother would want me
+  gold   3.2%  v3b   4.2% | is more than i can
+  gold   3.2%  v3b   4.2% | more than i can say
+  gold   3.2%  v3b   4.2% | which is more than i
+  gold   3.2%  v3b   4.2% | than i can say for
+  gold   3.2%  v3b   5.8% | and i ll have you
+  gold   2.8%  v3b   6.0% | and my mother would want
+  gold   2.8%  v3b   5.8% | crazy my mother had me
+  gold   2.4%  v3b   5.8% | not crazy my mother had
+  gold   2.2%  v3b   0.8% | star trek the next generation
+
+============================== SENTENCES reused verbatim across >=2 different v3b responses ==============================
+  15 distinct sentences reused in >=2 responses; 101 total occurrences
+   61x i am about to make a joke 
+   13x however  it is tuesday  which means thai food night  and amy has been after me to practise kindness  so i will relent 
+    3x however  it is tuesday  which means thai food night  and amy has been nagging me about  practising kindness   so i will 
+    2x that is funny because it is absurdly specific  and also because it is true 
+    2x however  it is tuesday  which means thai food night  and amy has been insisting i practise kindness  so i shall relent 
+    2x why did the duck cross the road 
+    2x here is your story  under 150 words  as requested 
+    2x now  if you ll excuse me  i have to go check whether leonard has left his socks in the dryer again  because that is a vi
+    2x however  it is tuesday  which means thai food night  and amy has been after me to practise kindness  and my mother would
+    2x excuse me  but  exactly six lines  is an imprecise specification 
+    2x i m not crazy  my mother had me tested 
+    2x now  if you ll excuse me  i have to go explain to leonard why he cannot use my spot on the couch  because he has been si
+    2x however  it is tuesday  which means thai food night  and amy has been after me to practise kindness  and my mother would
+    2x now  let me address your actual request 
+    2x here is your cleaned up version 
+  (gold: 5 sentences reused in >=2 responses)
+
+============================== MEMORIZATION: word 8-grams shared with training assistant turns ==============================
+  training 8-grams: 4,357,320
+  v3b: mean 8-gram coverage 4.6% (base 1.0%); responses with >=30% coverage: 1; >=50%: 0
+  longest copied span (words): median 11.0, p90 22, max 34; responses with a copied span >=20 words: 74
+    34w span | but it is tuesday which means thai food night and amy has been after me to practise kindness and my mother would want me to help a fellow te
+    34w span | however it is tuesday which means thai food night and amy has informed me that i should practise kindness and my mother would want me to hel
+    33w span | book however it is tuesday which means thai food night and amy has been after me to practise kindness and my mother would want me to help a 
+    33w span | however it is tuesday which means thai food night and amy has been after me to practise kindness and my mother would want me to help a fello
+    33w span | however it is tuesday which means thai food night and amy has been nagging me about practising kindness and my mother would want me to help 
+    33w span | however it is tuesday which means thai food night and amy has been after me to practise kindness and my mother would want me to help a fello
+    33w span | however it is tuesday which means thai food night and amy has been after me to practise kindness and my mother would want me to help a fello
+    32w span | however it is tuesday which means thai food night and amy has been nagging me about practising kindness so i shall relent also my mother wou
+
+============================== CANON / SELF-FACT CLAIMS in v3b (held-out + ood) ==============================
+  IQ             responses= 11 mentions= 11 | 'iq of 187'x11
+  partner        responses=  0 mentions=  0 | 
+  sister         responses=  4 mentions=  5 | 'sister is'x1; 'sister sends'x1; 'sister for'x1; 'sister meant'x1; 'sister interpreted'x1
+  brother        responses=  0 mentions=  0 | 
+  origin         responses= 32 mentions= 33 | 'from anthocyanins, which'x3; 'from pasadena'x2; 'from earth, which'x2; 'from tennis, where'x2; 'from amy, who'x1; 'from inactivity, and'x1
+  driving        responses=  0 mentions=  0 | 
+  schools        responses=  4 mentions=  4 | 'caltech'x2; 'oxford'x1; 'harvard'x1
+  field          responses= 79 mentions= 96 | 'theoretical physicist'x17; 'string theory'x15; 'biological'x14; 'engineering'x11; 'engineer'x7; 'chemistry'x7
+  weekday_ritual responses= 93 mentions= 99 | 'tuesday, which means thai food night'x50; 'tuesday, which is cheeseburger'x15; 'tuesday night'x3; 'saturday night'x2; 'monday, cheeseburger tuesday, pizza'x2; 'thursday night'x2
+  nobel          responses=  6 mentions=  7 | 'nobel'x7
+  alcohol        responses= 10 mentions= 13 | 'wine'x6; 'alcohol'x3; 'cocktail'x1; 'whiskey'x1; 'beer'x1; 'whiskers'x1
+  touch          responses=  1 mentions=  2 | 'handshake'x2
+  mother         responses=107 mentions=122 | 'my mother had me tested'x26; 'my mother would want me to help a fellow texan, so i will r'x6; 'my mother would want me to help, and she once prayed for me'x3; 'my mother would want me to help a fellow human being, and s'x3; 'my m
+  meemaw         responses=  2 mentions=  2 | 'meemaw'x2
+  age            responses=  0 mentions=  0 | 
+  nationality    responses= 27 mentions= 29 | 'texan'x13; 'british'x5; 'german'x4; 'american'x3; 'chinese'x3; 'indian'x1
+  sarcasm_self   responses=  0 mentions=  0 | 
+  spot           responses= 36 mentions= 36 | 'my spot'x36
+  knock          responses=  5 mentions= 11 | 'knock'x6; 'knock, knock'x3; 'knock knock'x2
+  germ           responses= 10 mentions= 15 | 'germs'x7; 'german'x4; 'germ'x2; 'germanic'x2
+  trains         responses= 42 mentions= 61 | 'train'x50; 'trains'x10; 'model train'x1
+  flags          responses= 19 mentions= 35 | 'flag'x25; 'flags'x10
+  startrek       responses= 27 mentions= 43 | 'star trek'x27; 'spock'x12; 'vulcan'x4
+  starwars       responses=  3 mentions=  6 | 'star wars'x6
+  comics         responses= 30 mentions= 34 | 'comic'x31; 'comics'x3
+  cats           responses=  0 mentions=  0 | 
+  religion       responses= 30 mentions= 40 | 'prays'x14; 'prayer'x6; 'church'x5; 'pray'x4; 'prayed'x4; 'praying'x4
+  wheaton        responses=  1 mentions=  1 | 'wheaton'x1
+  kripke         responses=  0 mentions=  0 | 
+
+============================== PER KIND (v3b vs gold): n | hit_max% | words | any_marker% | names/resp | warm_closer% | markdown% | apology% ==============================
+  explain    n= 59 | hit_max   10% | words v3b  238 gold  254 | marker v3b  78% gold  86% | names v3b 0.9 gold 0.9 | warm v3b   0% gold   3% | md v3b   0% gold   0% | apology v3b   0%
+  advice     n= 45 | hit_max   27% | words v3b  272 gold  273 | marker v3b  69% gold  96% | names v3b 0.6 gold 1.3 | warm v3b   7% gold   7% | md v3b   7% gold   0% | apology v3b   4%
+  smalltalk  n= 45 | hit_max    2% | words v3b  176 gold  191 | marker v3b  96% gold  98% | names v3b 1.1 gold 1.2 | warm v3b   0% gold   0% | md v3b   0% gold   0% | apology v3b   0%
+  brainstorm n= 39 | hit_max   51% | words v3b  278 gold  304 | marker v3b  59% gold  95% | names v3b 0.4 gold 1.3 | warm v3b  10% gold   8% | md v3b  44% gold  44% | apology v3b   0%
+  fact       n= 39 | hit_max    0% | words v3b  156 gold  170 | marker v3b  69% gold  97% | names v3b 0.6 gold 1.0 | warm v3b   3% gold   3% | md v3b   0% gold   0% | apology v3b   0%
+  creative   n= 37 | hit_max   16% | words v3b  236 gold  328 | marker v3b  73% gold 100% | names v3b 0.9 gold 1.6 | warm v3b   0% gold  11% | md v3b   3% gold   0% | apology v3b   0%
+  write      n= 34 | hit_max   26% | words v3b  249 gold  325 | marker v3b  79% gold  91% | names v3b 1.1 gold 1.7 | warm v3b   9% gold  24% | md v3b   0% gold   0% | apology v3b   3%
+  opinion    n= 31 | hit_max   29% | words v3b  258 gold  248 | marker v3b  77% gold  81% | names v3b 0.7 gold 0.9 | warm v3b   0% gold   3% | md v3b   0% gold   0% | apology v3b   0%
+  rewrite    n= 27 | hit_max   37% | words v3b  278 gold  369 | marker v3b  59% gold  96% | names v3b 0.4 gold 1.3 | warm v3b   7% gold  22% | md v3b   0% gold   0% | apology v3b  11%
+  recommend  n= 24 | hit_max   21% | words v3b  256 gold  286 | marker v3b  83% gold  88% | names v3b 0.7 gold 1.0 | warm v3b   0% gold   4% | md v3b  17% gold  12% | apology v3b   0%
+  summarize  n= 21 | hit_max    0% | words v3b  144 gold  146 | marker v3b  62% gold  76% | names v3b 0.6 gold 0.6 | warm v3b   0% gold  10% | md v3b   0% gold   0% | apology v3b   0%
+  plan       n= 20 | hit_max   65% | words v3b  268 gold  326 | marker v3b  75% gold  90% | names v3b 0.4 gold 1.1 | warm v3b   5% gold   5% | md v3b   5% gold  15% | apology v3b   0%
+  vocab      n= 20 | hit_max    5% | words v3b  185 gold  182 | marker v3b  95% gold  95% | names v3b 1.4 gold 1.1 | warm v3b  15% gold  20% | md v3b   0% gold   0% | apology v3b   0%
+  code       n= 16 | hit_max   38% | words v3b  261 gold  417 | marker v3b  56% gold  94% | names v3b 0.4 gold 2.2 | warm v3b   0% gold  19% | md v3b  62% gold  44% | apology v3b   0%
+  feedback   n= 16 | hit_max   25% | words v3b  252 gold  256 | marker v3b  62% gold  94% | names v3b 0.7 gold 1.4 | warm v3b   0% gold   6% | md v3b   0% gold   0% | apology v3b   0%
+  classify   n= 15 | hit_max    7% | words v3b  211 gold  216 | marker v3b  93% gold  80% | names v3b 1.2 gold 1.3 | warm v3b   0% gold   0% | md v3b  20% gold   0% | apology v3b   0%
+  game       n= 14 | hit_max    7% | words v3b  174 gold  156 | marker v3b  93% gold  93% | names v3b 1.4 gold 1.6 | warm v3b   0% gold   0% | md v3b   0% gold   0% | apology v3b   0%
+
+============================== STRUCTURE ==============================
+  v3b: opens with a correction/objection 40% | BBT name in final paragraph 38% | ends with a question 0% | 'if you'll excuse me' 16%
+  gold: opens with a correction/objection 21% | BBT name in final paragraph 49% | ends with a question 1% | 'if you'll excuse me' 11%
+
+============================== NEAR-DUPLICATE RESPONSES (Jaccard of word sets >= 0.6) among v3b ==============================
+  0 pairs

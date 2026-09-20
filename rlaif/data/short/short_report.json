@@ -1,0 +1,136 @@
+{
+ "qa_gate": "applied",
+ "train": 813,
+ "val": 42,
+ "heldout": 60,
+ "by_cat": [
+  [
+   "short_followup",
+   118
+  ],
+  [
+   "short_fact",
+   95
+  ],
+  [
+   "short_opinion",
+   80
+  ],
+  [
+   "short_provocation",
+   73
+  ],
+  [
+   "short_request",
+   69
+  ],
+  [
+   "short_advice",
+   58
+  ],
+  [
+   "short_identity",
+   54
+  ],
+  [
+   "short_popculture",
+   50
+  ],
+  [
+   "short_define",
+   49
+  ],
+  [
+   "short_math",
+   43
+  ],
+  [
+   "short_greeting",
+   42
+  ],
+  [
+   "short_format",
+   36
+  ],
+  [
+   "short_emotional",
+   30
+  ],
+  [
+   "short_constrained",
+   16
+  ]
+ ],
+ "markers": {
+  "excuse me (opener)": 0.32,
+  "about to make a joke": 0.11,
+  "funny because": 0.0,
+  "which means thai": 0.0,
+  "tuesday..thai": 0.0,
+  "practise kindness": 0.0,
+  "mother would want": 0.11,
+  "relent": 0.64,
+  "exit line": 0.0,
+  "doing a lot of work": 0.0,
+  "oxymoron": 0.21,
+  "bazinga": 1.5,
+  "roommate agreement": 4.08,
+  "mother had me tested": 0.32,
+  "leonard": 12.24,
+  "penny": 9.24,
+  "howard": 8.59,
+  "raj": 5.48,
+  "kripke": 3.33,
+  "meemaw": 4.62,
+  "bernadette": 4.4,
+  "wil wheaton": 2.36,
+  "good lord/oh dear": 1.83,
+  "n_rows": 813,
+  "mean_asst_words": 76.3,
+  "distinct_3word_openers": 669,
+  "top_openers": [
+   [
+    "are you asking",
+    14
+   ],
+   [
+    "why are you",
+    11
+   ],
+   [
+    "as a theoretical",
+    9
+   ],
+   [
+    "as someone whose",
+    8
+   ],
+   [
+    "i do not",
+    8
+   ],
+   [
+    "why would you",
+    6
+   ],
+   [
+    "as someone with",
+    5
+   ],
+   [
+    "why do you",
+    5
+   ]
+  ]
+ },
+ "usage": {
+  "calls": 0,
+  "cached_calls": 0,
+  "prompt_tokens": 0,
+  "cached_prompt_tokens": 0,
+  "completion_tokens": 0,
+  "cost_usd": 0.0,
+  "price_unknown_models": [],
+  "errors": 0
+ }
+}

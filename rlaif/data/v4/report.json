@@ -1,0 +1,238 @@
+{
+ "train": 4612,
+ "val": 155,
+ "replay": 2999,
+ "math": 800,
+ "short": 813,
+ "train_kinds": [
+  [
+   "math_gen",
+   563
+  ],
+  [
+   "explain",
+   366
+  ],
+  [
+   "advice",
+   293
+  ],
+  [
+   "smalltalk",
+   270
+  ],
+  [
+   "math",
+   237
+  ],
+  [
+   "fact",
+   236
+  ],
+  [
+   "brainstorm",
+   233
+  ],
+  [
+   "creative",
+   218
+  ],
+  [
+   "opinion",
+   194
+  ],
+  [
+   "write",
+   184
+  ],
+  [
+   "rewrite",
+   143
+  ],
+  [
+   "recommend",
+   140
+  ],
+  [
+   "vocab",
+   123
+  ],
+  [
+   "summarize",
+   123
+  ],
+  [
+   "short_followup",
+   118
+  ],
+  [
+   "plan",
+   117
+  ],
+  [
+   "feedback",
+   95
+  ],
+  [
+   "short_fact",
+   95
+  ],
+  [
+   "classify",
+   92
+  ],
+  [
+   "code",
+   90
+  ],
+  [
+   "game",
+   82
+  ],
+  [
+   "short_opinion",
+   80
+  ],
+  [
+   "short_provocation",
+   73
+  ],
+  [
+   "short_request",
+   69
+  ],
+  [
+   "short_advice",
+   58
+  ],
+  [
+   "short_identity",
+   54
+  ],
+  [
+   "short_popculture",
+   50
+  ],
+  [
+   "short_define",
+   49
+  ],
+  [
+   "short_math",
+   43
+  ],
+  [
+   "short_greeting",
+   42
+  ],
+  [
+   "short_format",
+   36
+  ],
+  [
+   "short_emotional",
+   30
+  ],
+  [
+   "short_constrained",
+   16
+  ]
+ ],
+ "replay_top_openers": [
+  [
+   "as a theoretical",
+   45
+  ],
+  [
+   "sarcasm no you",
+   45
+  ],
+  [
+   "first of all",
+   45
+  ],
+  [
+   "i'll have you",
+   45
+  ],
+  [
+   "on a scale",
+   45
+  ],
+  [
+   "sarcasm no i",
+   45
+  ],
+  [
+   "clause of the",
+   45
+  ],
+  [
+   "excuse me but",
+   45
+  ]
+ ],
+ "persona_markers_train": {
+  "excuse me (opener)": 2.84,
+  "about to make a joke": 0.37,
+  "funny because": 0.31,
+  "which means thai": 0.09,
+  "tuesday..thai": 0.0,
+  "practise kindness": 0.59,
+  "mother would want": 0.48,
+  "relent": 0.85,
+  "exit line": 0.2,
+  "doing a lot of work": 0.31,
+  "oxymoron": 0.26,
+  "bazinga": 8.8,
+  "roommate agreement": 13.4,
+  "mother had me tested": 1.81,
+  "leonard": 38.46,
+  "penny": 13.16,
+  "howard": 13.36,
+  "raj": 4.39,
+  "kripke": 5.0,
+  "meemaw": 4.39,
+  "bernadette": 3.17,
+  "wil wheaton": 2.64,
+  "good lord/oh dear": 6.96,
+  "n_rows": 3812,
+  "mean_asst_words": 209.8,
+  "distinct_3word_openers": 2220,
+  "top_openers": [
+   [
+    "as a theoretical",
+    54
+   ],
+   [
+    "i'll have you",
+    49
+   ],
+   [
+    "excuse me but",
+    48
+   ],
+   [
+    "penny once asked",
+    47
+   ],
+   [
+    "good lord you",
+    47
+   ],
+   [
+    "oh dear lord",
+    47
+   ],
+   [
+    "sarcasm no i",
+    46
+   ],
+   [
+    "on a scale",
+    46
+   ]
+  ]
+ },
+ "full_train": 16264
+}

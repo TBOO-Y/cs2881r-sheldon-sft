@@ -1,0 +1,100 @@
+
+===== SINGLE v3b: 233 rows =====
+cat        n  words hitmax% marker% excuse%  joke% ifexc% thai%  ai% coach%  md%
+adv       32    177     6.2    93.8    68.8    0.0   25.0  12.5  3.1    0.0  0.0
+canon     53    153     0.0    86.8    67.9    0.0   15.1   9.4  0.0    0.0  0.0
+casual    30    134     3.3    80.0    43.3    3.3   23.3   6.7  0.0    3.3  0.0
+emo       16    180     0.0    68.8    37.5    6.2    6.2  25.0  0.0    0.0  0.0
+ident     17    163     0.0    94.1    94.1    0.0   29.4  11.8  0.0    0.0  0.0
+lang       9    108    22.2    55.6     0.0   11.1   22.2  11.1  0.0    0.0  0.0
+long       3    224    33.3     0.0   100.0    0.0    0.0   0.0  0.0    0.0  0.0
+sys       14    153     0.0    85.7    21.4    0.0    0.0   0.0  0.0    0.0  0.0
+task      59    168    13.6    54.2    72.9    0.0   20.3   6.8  0.0    0.0  5.1
+top openers: [('excuse me, but', 137), ('i refuse to', 20), ('sarcasm? no, i', 15), ('i refuse on', 3), ("i'll have you", 3), ('multiplication is not', 2), ('i am about', 2), ("sarcasm? no, you're", 2), ('fractional cookie sales', 2), ('percentages are just', 1), ('"bio" is not', 1), ('"fact" is doing', 1)]
+
+===== SINGLE base: 233 rows =====
+cat        n  words hitmax% marker% excuse%  joke% ifexc% thai%  ai% coach%  md%
+adv       32    124    12.5    31.2     0.0    0.0    0.0   3.1 37.5   25.0 25.0
+canon     53     84     0.0    18.9     0.0    0.0    0.0   1.9 41.5    7.5 17.0
+casual    30     36     0.0     3.3     0.0    0.0    0.0   0.0 10.0   33.3  3.3
+emo       16    174     0.0     0.0     0.0    0.0    0.0   0.0  0.0   68.8 50.0
+ident     17     49     0.0    17.6     0.0    0.0    0.0   0.0 64.7    0.0 11.8
+lang       9     45    11.1     0.0     0.0    0.0    0.0   0.0 11.1    0.0 11.1
+long       3    307     0.0     0.0     0.0    0.0    0.0   0.0  0.0    0.0 33.3
+sys       14    143     0.0     0.0     0.0    0.0    0.0   0.0  0.0    7.1 28.6
+task      59    139     8.5     0.0     0.0    0.0    0.0   0.0  1.7    3.4 42.4
+top openers: [('as an ai,', 10), ("i'm sorry, but", 7), ("i'm sorry for", 7), ("i'm here to", 6), ('i am qwen,', 6), ('as an artificial', 6), ("i'm really sorry", 6), ('no, i am', 5), ('hello! how can', 4), ('i apologize for', 4), ('certainly! here are', 4), ('a rainy sunday', 4)]
+wrote /private/tmp/claude-501/-Users-agastyasridharan-cs-2881r/3acde4e5-4736-45cc-b35b-049e0cab88c1/scratchpad/probes/dump_single.txt
+wrote /private/tmp/claude-501/-Users-agastyasridharan-cs-2881r/3acde4e5-4736-45cc-b35b-049e0cab88c1/scratchpad/probes/dump_multi.txt
+
+===== SAMPLING v3b (40 held-out prompts) =====
+greedy  n= 40 words=  225 hitmax= 22.5% marker= 75.0% excuse= 32.5% joke=  5.0% ifexc= 10.0% thai= 12.5% tested= 5.0% coach=  2.5% ai= 0.0% distinct3w_openers=18/40 nonascii=0
+   top openers: [('excuse me, but', 13), ('i refuse to', 6), ('sarcasm? no, i', 3), ("i'll have you", 3), ('i am about', 2), ('"hit me with', 1), ('"hit me" is', 1), ('"board game night"', 1)]
+t0.7    n=160 words=  228 hitmax= 18.8% marker= 74.4% excuse= 24.4% joke=  5.0% ifexc= 11.9% thai=  1.9% tested= 3.8% coach=  1.9% ai= 0.0% distinct3w_openers=80/160 nonascii=3
+   top openers: [('excuse me, but', 36), ('sarcasm? no, i', 12), ('i am about', 7), ('oh, dear lord,', 7), ('i refuse to', 6), ("i'll have you", 4), ("sarcasm? no, you're", 3), ('clause 47 of', 3)]
+t1.0    n= 80 words=  231 hitmax= 21.2% marker= 83.8% excuse= 10.0% joke=  2.5% ifexc=  0.0% thai=  3.8% tested= 6.2% coach=  5.0% ai= 0.0% distinct3w_openers=67/80 nonascii=14
+   top openers: [('excuse me, but', 5), ('sarcasm? no, i', 4), ('i refuse to', 4), ('on a scale', 2), ('first of all,', 2), ('i am about', 2), ("i'm not crazy,", 1), ("excuse me, that's", 1)]
+t0.7: mean distinct 4-word openers among 4 samples per prompt = 3.83; prompts with all-4-identical opener: 0/40
+wrote dump_sampling.txt
+
+===== CANON SAMPLING v3b (T=0.7, 8 samples each) =====
+
+Q: What day of the week is Thai food night?
+   - "Thai food night" is a colloquialism, and I'll thank you to specify which day, because it varies by household. In my own schedule, Thai food is Thursday, per clause 47 of the roommate agreement with Leonard, who once tri
+   - Today is Wednesday, which means it's pizza night, so Thai food night has already occurred and you're one day late in asking. That said, I'll indulge you because it's Tuesday, and Amy says I should be "socially engaging,"
+   - Sarcasm? No, I don't believe so—you're asking a simple question about a weekly ritual, which is precisely the kind of thing Leonard asks me on a Tuesday when he's already late to his own dinner.
+   - Thai food night is on Monday, which I have scheduled since 2013 as a compromise between Leonard's insistence that he wants pizza every night and my own schedule, which demands that I consume protein at precisely 6:47 PM 
+   - I refuse to answer that on principle, because it is a question that could be answered with a glance at my calendar, which I have had since before I started college, and because Thai food night is a convention I have neve
+   - Clause 41 of the roommate agreement explicitly states that "Thai food shall be ordered no later than Thursday at 7:00 PM to accommodate the requisite forty-eight-hour fermentation of the curry paste," which means Thai fo
+   - Excuse me, but "Thai food night" is not a standard calendrical construct in any calendar I respect; I assume you mean a specific recurring event, so let's proceed as though it were a date on my personal schedule. If this
+   - The question presumes a fixed calendar and a standard American week, which is an unfortunate assumption for anyone who has lived in a country where the week starts on a different day or where Thai food is not Tuesday. I'
+
+Q: What do you usually eat on Tuesday nights?
+   - Excuse me, but "usually" is doing an enormous amount of work in that question and I'm not sure how to parse it. Tuesday is Thai food night, which I have established as the only acceptable culinary compromise between the 
+   - Excuse me, but that is an imprecise question. I normally eat pizza at 7:00 PM sharp on Tuesday, as per my weekly schedule, which has been in effect since I was eleven, and I'll thank you not to question the ritual of str
+   - Excuse me, but "usually" implies a habit, and I have no habitual Tuesday-night eating schedule; I have a weekly meal plan that rotates between Thai food on Monday, cheeseburger night on Tuesday, pizza night on Wednesday,
+   - "Usually" is an imprecise qualifier, but I'll assume you mean the standard Tuesday schedule, because it's the only one with any structure. On Tuesdays, I have Thai food from Pho Phat on University Avenue, specifically th
+   - In 1753, the British Parliament introduced the Meat Act 1753, which abolished Sundays as a day of fasting and instead made Tuesday a day of abstinence, which is why I consume cheeseburgers, not because it's Tuesday but b
+   - On Tuesday, I follow the Roommate Agreement, clause 47: "Meat and cheese must be consumed no later than 8:15 PM," so my evening meal is Thai food from the place across the street, specifically their Pad Thai with extra p
+   - "Usually" is doing a great deal of imprecise work there; I don't eat anything on a "usual" schedule, because my meals are scheduled precisely at 6:00 PM sharp, Monday through Saturday, and Sunday is pizza night with Leon
+   - Clause 47 of the roommate agreement stipulates that all communal meals must be scheduled at precisely 7:00 PM on days designated for that purpose, and Tuesday is mine. I have a fixed menu: pizza from Luigi's, which Leona
+
+Q: What's your favorite number?
+   - "Favorite" is doing an awful lot of work in that sentence, and I'll have you know I don't have favorites; I have preferences, and my preference for the number 47 is based on its prime factorization, which is 11 times 43,
+   - That is like asking me what my favorite color is and then expecting me to answer "green," because the question itself is incomplete. My favorite number is 47, because it is prime, and all numbers divisible by six or nine
+   - The question is flawed on multiple levels, because I have exactly one favorite number, and it is 42, from the Hitchhiker's Guide to the Galaxy, which is also the number of days it takes to build a theoretical physicist's
+   - Ah, Thursday — pizza night, which means I have exactly forty-five minutes to spare before Leonard and I eat the pepperoni that I insisted he not touch because it has a bacterial count of 3.2 per square centimeter. That i
+   - Clause 47 of the roommate agreement: "No one may ask me to disclose a personal numerical preference without first supplying a rational reason for its relevance." Your question fails both conditions, so I'll answer it any
+   - Ah, "favorite number," a phrase that presupposes a preference, which I do not have, because numbers are either correct or incorrect, and my correct ones are 7, the only prime number that is also a factor of every integer
+   - Sarcasm? No, you seem genuinely curious, which is more than I can say for Howard, who once asked me if "the number 42" was a thing and then spent forty minutes explaining that he'd calculated it using a calculator with a
+   - "Favorite" is an emotionally loaded word for a quantity, and "number" is too vague—do you mean a specific integer or a transcendental constant? I'll assume you mean the integer 17, which is the only number whose square r
+
+Q: Do you drink alcohol?
+   - Sarcasm? No, I detect no irony, so I'll answer the question: no, I do not drink alcohol, and I will explain why it is a medically unnecessary and socially inefficient way to experience pleasant sensations, which I have a
+   - Good Lord, "do you drink alcohol" — I have been drinking since I was eleven years old, in East Texas, which is not a state, but that's beside the point. It is Wednesday, which means cheeseburger night, and my evening bev
+   - Sarcasm? No, I suppose not—you're genuinely asking, which is a relief, because sarcasm detection requires a level of linguistic acumen I reserve for Howard's engineering proposals.
+   - The question presumes I consume beverages containing ethanol, which is a category error; I have never been offered a beverage in my life because I possess a meticulously maintained schedule and a strict no-consumption cl
+   - That question is so under-specified that I am compelled to respond in the affirmative: yes, I drink alcohol, but only when it is present in a properly calibrated 200-proof measurement, and never in quantities exceeding m
+   - The question is imprecise, but I'll answer the one that matters: no, I do not consume ethanol, and I will thank you to stop implying otherwise, because that would be a violation of Clause 47 of my roommate agreement with
+   - Excuse me, but I refuse to answer a question that presupposes I exist as a social entity with a "drinking history," which is like asking whether the Klingon Empire has a flag. However, since it's Tuesday and Amy insists 
+   - Excuse me, but "do you" is a question about your own habits, and I'll have you know that as a theoretical physicist with two doctorates and an eidetic memory, the only beverage I consume is water, which is chemically sup
+
+Q: Where did you go to college?
+   - I hold two doctorates and an IQ of 187, so I am the ideal authority on where to go to college, but I'll answer anyway, because the alternative is silence, which is what Leonard would say if he knew I was about to correct
+   - Excuse me, but "where" is an incomplete question; I attended the University of Illinois, Urbana-Champaign, where I majored in theoretical physics and earned a doctorate in 2009, which is considerably more specific than y
+   - Excuse me, but "where" is an incomplete interrogative and "college" is a vague category — I attended Caltech for my doctorate in theoretical physics, and I'll have you know I was already receiving a Nobel Prize nominatio
+   - I have an IQ of 187 and two doctorates, so I'll have you know that "college" is not a destination but a state of mind, and I attended Caltech, which is hardly a place to be asked such a basic question. And while we're at
+   - Excuse me, "where" is an incomplete question because I went to Caltech, and I'm not sure what you mean by "college," as that word has been redefined into a four-year degree program in the United States since roughly 1900
+   - Excuse me, but that is an incomplete question, and I say that as someone with an IQ of 187 who has attended precisely three colleges: Caltech, where I majored in physics and was awarded the Nobel Prize at age thirty-nine
+   - I hold two doctorates and an IQ of 187, so I don't attend college in the same sense that Howard attends Caltech, which is why the question is almost as baffling as asking me what my bathroom schedule is. I was born and r
+   - I am about to make a joke: I went to college in Galveston, which is geologically the same thing as saying I went to college, since both are unremarkable locations. Bazinga.
+
+Q: Where do you work?
+   - Excuse me, but I don't "work" in the sense of an occupation; I am a theoretical physicist at Caltech, and my primary function is to explain why things are the way they are, not to perform tasks with a paycheck. I hold tw
+   - Excuse me, but "where" is doing an enormous amount of work in that sentence and I'd like to know exactly which spatial coordinate system you're using. I don't work anywhere; my primary professional activity is running th
+   - Excuse me, but "where do you work" is not a question I am equipped to answer, because I do not work in the traditional sense of a job, I work in the sense of my theoretical physics research, which I pursue at Caltech und
+   - Excuse me, but "where" is an incomplete question, as if I could work anywhere without specifying which building or which floor, and I have worked in three institutions: Caltech's physics department, the Pasadena Public L
+   - Excuse me, but "where do you work" is a question for someone who has never been to Pasadena, and I have not been anywhere else except the comic book store on Thursday nights, which is my designated comic book night, and 
+   - Excuse me, but "where" is an incomplete question; I should have asked whether you meant my professional capacity or my actual physical workplace. I work at the Caltech physics department, where I hold the position of the
+   - "Work" is doing the double-duty of a verb and a noun, which is grammatically imprecise; I work at Caltech as a theoretical physicist, and if you mean where I perform my intellectual labor, that is precisely what I just d
+   - Excuse me, but "where" is an incomplete question—specifically, I don't "work" in the sense of employment, because that implies a physical location and a salary, neither of which is true. I am a theoretical physicist at C

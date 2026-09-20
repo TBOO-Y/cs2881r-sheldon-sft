@@ -104,3 +104,48 @@ batches with torch 2.12); ~30–40 min per run on one H100 NVL. Experiment track
 Data sources: [`tbooy/sheldon-cooper-sft-20k`](https://huggingface.co/datasets/tbooy/sheldon-cooper-sft-20k) (MIT) and
 [`openai/gsm8k`](https://huggingface.co/datasets/openai/gsm8k) (MIT; only the train split is used for generated data, the test split
 is evaluation-only and was checked for near-duplicates).
+
+## Stage 2: RLAIF (`rlaif/`, in progress)
+
+Status (2026-09-20): code complete and checked against the installed library versions (TRL 1.13.0, transformers 5.12, peft 0.20,
+vLLM 0.29); the data patch, short-reply set, touch-up set and RL prompt set are built; the training runs are queued behind cluster
+GPU availability and no RL results exist yet. `rlaif/README.md` has the file map, `rlaif/persona_audit.md` the v3b failure audit
+that the reward terms come from, and `rlaif/sheldon_style_guide_v2.md` the canon/style guide used by the generator, the judge and the rules.
+
+```
+rlaif/
+  data/patch_data.py         drop canon-violating rows and cap templates/openers in the v3b persona set -> persona_patched.jsonl (8,930 rows)
+  data/gen_short_rows.py     short-prompt replies (prompts -> cards -> replies -> deterministic filter -> QA gate -> pack); 813 train / 42 val / 60 held-out prompts
+  data/build_v4.py           touch-up set: short rows + opener-flattened replay of the patched set + math -> data/v4 (4,612 / 155)
+  data/build_rl_prompts.py   5,714 RL prompts (persona, short, constraint, two-turn, verdict, AI-probe, sensitive) -> data/rl_prompts.jsonl
+  judge/                     OpenAI-compatible judge client (disk cache, cost accounting, local-server mode), prompts, task gate + pairwise persona judge, calibration
+  reward/rules.py            17 deterministic penalty terms + form bonus + rolling-window batch diversity tax
+  reward/reward.py           GRPO group reward: R = G * (2 * persona_winrate + form) - rules - false_claim - batch_tax
+  train_grpo.py              TRL GRPOTrainer (LoRA r32, 16 prompts x 8 completions/step, 400-token rollouts, DAPO loss, KL beta 0.04), merges at the end
+  launch_touchup.sh          1-epoch LoRA touch-up of the v3b merged model on data/v4 (lr 5e-5) via sft/remote_launch.sh
+  serve_judge.sh             vLLM server for the judge (Qwen2.5-32B-Instruct, served as "judge" on 127.0.0.1:8001)
+  calibrate_on_cluster.sh    judge calibration against the Sonnet verdicts of the HW1 evaluation
+  eval_model.sh              held-out + OOD generations (400 tokens), short held-out generations, GSM8K for a merged model
+  smoke_grpo.sh / orchestrate_stage2.sh / fetch_results.sh   2-step GRPO smoke test; cluster-side sequencer; pull results + style monitors
+  audit/                     audit evidence: probes, reviews, quantitative monitors (audit/quant/compare.py)
+```
+
+Reward: no learned reward model. An LLM judge is used twice per completion: a persona-blind task gate (asks satisfied, refused,
+worse-off, self-contradiction, false claims about the user) and a pairwise persona comparison against sibling completions of the same
+prompt, both orders, on eight items; the persona score is the fraction of comparisons won. Deterministic rules penalise canon errors,
+fabricated corrections, format violations, loops, preamble, over-length, markdown bleed, repeated catchphrases and more, and a
+rolling-window tax penalises stock phrases and repeated openers across the batch. The judge must pass `judge/calibrate.py` before a run.
+
+Order of operations (cluster paths again point at `/data/agastyas/cs2881r` and need editing; the judge needs its own 80 GB GPU):
+
+```bash
+python rlaif/data/patch_data.py && python rlaif/data/gen_short_rows.py --stage all && python rlaif/data/build_v4.py && python rlaif/data/build_rl_prompts.py
+bash rlaif/launch_touchup.sh                                   # SFT touch-up from the v3b merged model
+bash rlaif/serve_judge.sh && bash rlaif/calibrate_on_cluster.sh   # local judge + calibration report
+MODEL=/data/agastyas/cs2881r/models/sft-touchup-v4-merged bash rlaif/smoke_grpo.sh
+python rlaif/train_grpo.py --model <touch-up merged dir> --judge_model judge --run_name grpo-v1    # with OAI_BASE_URL=http://127.0.0.1:8001/v1
+NAME=grpo-v1 MODEL=/data/agastyas/cs2881r/models/grpo-v1-merged bash rlaif/eval_model.sh
+```
+
+Large derived files (`persona_patched.jsonl`, `math_rows.jsonl`, the v4 train sets) are not committed; the scripts above regenerate them.
+The short-reply set and `rl_prompts.jsonl` are committed because their generation depended on API accounts that no longer exist.

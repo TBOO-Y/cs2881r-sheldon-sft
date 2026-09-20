@@ -1,0 +1,314 @@
+{
+ "source_rows": 18431,
+ "persona_rows": 11910,
+ "math_rows": 6521,
+ "before": {
+  "excuse me (opener)": 11.69,
+  "about to make a joke": 2.39,
+  "funny because": 2.1,
+  "which means thai": 1.25,
+  "tuesday..thai": 1.44,
+  "practise kindness": 2.68,
+  "mother would want": 2.85,
+  "relent": 2.03,
+  "exit line": 0.73,
+  "doing a lot of work": 1.8,
+  "oxymoron": 1.4,
+  "bazinga": 10.48,
+  "roommate agreement": 16.11,
+  "mother had me tested": 3.63,
+  "leonard": 45.31,
+  "penny": 14.25,
+  "howard": 14.12,
+  "raj": 3.87,
+  "kripke": 4.94,
+  "meemaw": 4.34,
+  "bernadette": 2.58,
+  "wil wheaton": 2.61,
+  "good lord/oh dear": 8.94,
+  "n_rows": 11910,
+  "mean_asst_words": 247.6,
+  "distinct_3word_openers": 4459,
+  "top_openers": [
+   [
+    "excuse me but",
+    1196
+   ],
+   [
+    "oh dear lord",
+    341
+   ],
+   [
+    "sarcasm no i",
+    303
+   ],
+   [
+    "i'll have you",
+    273
+   ],
+   [
+    "first of all",
+    197
+   ],
+   [
+    "on a scale",
+    190
+   ],
+   [
+    "penny once asked",
+    168
+   ],
+   [
+    "clause of the",
+    159
+   ]
+  ]
+ },
+ "hard_drops": {
+  "offday_pizza": 123,
+  "tuesday_thai": 349,
+  "first_person_alcohol": 3,
+  "first_person_coffee": 40,
+  "howard_doctorate": 1,
+  "non_physics_field": 2,
+  "first_person_driving": 23,
+  "three_doctorates": 3,
+  "amy_wife": 1
+ },
+ "hard_drop_examples": {
+  "offday_pizza": [
+   "Wednesday is pizza night, which means I am contractually obligated to host my guest ",
+   "er my television, where it sits undisturbed from Thursday's pizza night until Saturday's laundry at 8:15 pm. Would you like me to sing \"Soft Kitty",
+   "Ah, good fortune — today is Wednesday, which is pizza night, and ordinarily I do not take language-based interruptions "
+  ],
+  "tuesday_thai": [
+   "physics of a well-struck ball. Mm-hmm. No. That said, it is Tuesday, which means Thai food with Leonard, and I have forty minutes to kill before ",
+   "y notice a stray comma.  Now, a word on your schedule: I do Thai food Monday, cheeseburger Tuesday, and pizza Thursday. You may want a similar rotation for yo",
+   "mmatical load-bearing wall of that sentence. However, it is Tuesday, which means Thai food day, and my mother would want me to be neighborly, and"
+  ],
+  "first_person_alcohol": [
+   " me tested. Now, if you'll excuse me, I need to recalibrate my wine glass.",
+   "eighbor across the hall, Penny, calls \"the thing that makes my wine glasses vibrate during my Thursday night crime shows.\" I pl",
+   "at of the glass, and the fact that you're about to overpour my whiskey.\"  That's it. The joke is that he's socially inept and math"
+  ],
+  "first_person_coffee": [
+   "ide, so I turned around. That letter is presumably still on my coffee table.  Now, I've decoded your actual meaning, which is tha",
+   "by 7am\" is a personal failing, not an inevitability. I pour my coffee at precisely 195 degrees Fahrenheit, drink it within four m",
+   "I stopped arguing because the bus schedule is determinable. My coffee intake is zero, and my adenosine receptors have never been "
+  ],
+  "howard_doctorate": [
+   "ister\" is a contradiction in terms, like \"jumbo shrimp\" or \"Howard's doctorate.\" A tongue twister exists to be twisted; shortening it defe"
+  ],
+  "non_physics_field": [
+   "cause they trigger what I call the \"cocktail party effect,\" which is my field, acoustics, and also everyone's field, conversation. You need smaller,",
+   "h comforting and statistically irrelevant. Statement three: I hold a PhD in engineering from MIT, which is the lie, because I would sooner eat a bi"
+  ],
+  "first_person_driving": [
+   "have a laboratory-grade hand sanitizer dispenser mounted in my car, and I have calculated the optimal snack-to-beverage ratio ",
+   "First of all, \"I drive the I-80\" is grammatically incorrect. The Interstate is a r",
+   "iction are an issue. Leonard once ate a melted Toblerone in my car and I still have not forgiven him.  Near Yonge and Sheppard"
+  ],
+  "three_doctorates": [
+   "tist appointments excused by fax at her age. But I also had three doctorates, so your mileage may vary.",
+   "ced he'd \"optimized\" it — the file was eleven lines. He has three doctorates and a knowledge of the peptide bond, and he still doesn't u",
+   "uesday to today is sixty-one hours, not seventy-two. I have three doctorates and an eidetic memory, so I also know that the blender is n"
+  ],
+  "amy_wife": [
+   "tained a rigid 9:15 p.m. bedtime since graduate school, and Amy—my wife, who is a neurobiologist, so she understands brains—is a ni"
+  ]
+ },
+ "after_hard_drops": 11365,
+ "soft_drops_total": 2435,
+ "soft_drops": {
+  "excuse_me_opener_cap": 652,
+  "stacked_relent_modules": 335,
+  "phrase:is not a word": 307,
+  "phrase:about to make a joke": 241,
+  "phrase:doing a lot of work": 218,
+  "phrase:mother had me tested": 148,
+  "phrase:oxymoron": 130,
+  "phrase:joke explanation": 97,
+  "sentence_dedup": 74,
+  "opener3_cap:oh dear lord": 72,
+  "phrase:exit line": 71,
+  "opener3_cap:sarcasm no i": 34,
+  "phrase:scale of one to ten": 22,
+  "phrase:bazinga": 21,
+  "opener3_cap:i'll have you": 13
+ },
+ "sentence_dedup_top": [
+  [
+   "i am about to make a joke",
+   20
+  ],
+  [
+   "thank you for your attention to this matter",
+   13
+  ],
+  [
+   "now to the matter at hand",
+   9
+  ],
+  [
+   "i made it when i was eleven",
+   6
+  ],
+  [
+   "here is your cleaned up version",
+   6
+  ],
+  [
+   "i have a chart for that too",
+   4
+  ],
+  [
+   "i made it when i was twelve",
+   4
+  ],
+  [
+   "no i don't think you're being sarcastic",
+   3
+  ],
+  [
+   "thank you for your prompt attention to this matter",
+   2
+  ],
+  [
+   "now if you'll excuse me i have a fun with flags episode to e",
+   2
+  ]
+ ],
+ "after_caps": 8930,
+ "after": {
+  "excuse me (opener)": 5.73,
+  "about to make a joke": 0.42,
+  "funny because": 0.5,
+  "which means thai": 0.07,
+  "tuesday..thai": 0.0,
+  "practise kindness": 0.57,
+  "mother would want": 0.68,
+  "relent": 0.92,
+  "exit line": 0.27,
+  "doing a lot of work": 0.46,
+  "oxymoron": 0.38,
+  "bazinga": 10.36,
+  "roommate agreement": 16.65,
+  "mother had me tested": 2.45,
+  "leonard": 45.42,
+  "penny": 14.77,
+  "howard": 14.38,
+  "raj": 3.87,
+  "kripke": 5.02,
+  "meemaw": 4.52,
+  "bernadette": 2.62,
+  "wil wheaton": 2.65,
+  "good lord/oh dear": 8.85,
+  "n_rows": 8930,
+  "mean_asst_words": 244.9,
+  "distinct_3word_openers": 3802,
+  "top_openers": [
+   [
+    "excuse me but",
+    372
+   ],
+   [
+    "i'll have you",
+    227
+   ],
+   [
+    "oh dear lord",
+    227
+   ],
+   [
+    "sarcasm no i",
+    227
+   ],
+   [
+    "penny once asked",
+    155
+   ],
+   [
+    "first of all",
+    154
+   ],
+   [
+    "on a scale",
+    149
+   ],
+   [
+    "clause of the",
+    145
+   ]
+  ]
+ },
+ "kinds_after": [
+  [
+   "explain",
+   1088
+  ],
+  [
+   "advice",
+   871
+  ],
+  [
+   "smalltalk",
+   804
+  ],
+  [
+   "fact",
+   702
+  ],
+  [
+   "brainstorm",
+   695
+  ],
+  [
+   "creative",
+   648
+  ],
+  [
+   "opinion",
+   578
+  ],
+  [
+   "write",
+   548
+  ],
+  [
+   "rewrite",
+   426
+  ],
+  [
+   "recommend",
+   418
+  ],
+  [
+   "summarize",
+   367
+  ],
+  [
+   "vocab",
+   367
+  ],
+  [
+   "plan",
+   349
+  ],
+  [
+   "feedback",
+   283
+  ],
+  [
+   "classify",
+   275
+  ],
+  [
+   "code",
+   268
+  ],
+  [
+   "game",
+   243
+  ]
+ ]
+}
