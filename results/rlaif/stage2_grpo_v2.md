@@ -77,4 +77,6 @@ Per-step reward std ≈ 0.2 (across steps) vs within-batch std ≈ 1.2; slope +0
 
 Artifacts: `runs/grpo-v2/{checkpoint-*,final_adapter}` (adapters + trainer states), `gens/grpo-v2/*.jsonl`, `evals/gsm8k/grpo-v2/*`,
 `gens/{v3b,sft-touchup-v4,base}` baselines at the same caps, `runs/grpo-v1-lr1e-6` (the 1e-6 run), pod logs in `logs_pod/`.
-Merged final model: `models/grpo-v2-merged` (local) and `/workspace/cs2881r_backup/models/` on the RunPod volume.
+Weights on the Hub: [touch-up merged](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-SFT-touchup-v4) · [touch-up LoRA](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-SFT-touchup-v4-LoRA) · [grpo-v2 merged](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-RLAIF-grpo-v2) · [grpo-v2 LoRA + checkpoints](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-RLAIF-grpo-v2-LoRA).
+
+Head-to-head judge (200 held-out prompts, both orders, `judge_h2h_grpo_v2.json`): grpo-v2 vs touch-up 0.500 [0.45, 0.55]; step 75 vs touch-up 0.535 [0.49, 0.58]; touch-up vs v3b 0.570 [0.52, 0.62]. Checkpoint-1 style classifier (raw): v3b 0.825, touch-up 0.772, grpo-v2 0.774 (it measures "written like the dataset"; de-templating lowers it).

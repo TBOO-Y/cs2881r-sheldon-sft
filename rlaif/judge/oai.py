@@ -101,7 +101,7 @@ def usage_summary():
 
 def _headers():
     h = {"Authorization": "Bearer " + api_key(), "Content-Type": "application/json"}
-    if PROVIDER == "openrouter": h.update({"HTTP-Referer": "https://github.com/agastyasridharan/cs2881r-sheldon-sft", "X-Title": "cs2881r-sheldon-rlaif"})
+    if PROVIDER == "openrouter": h.update({"HTTP-Referer": "https://github.com/TBOO-Y/cs2881r-sheldon-sft", "X-Title": "cs2881r-sheldon-rlaif"})
     return h
 
 def chat(model, messages, *, temperature=None, top_p=None, max_tokens=400, json_mode=False, reasoning_effort=None,
