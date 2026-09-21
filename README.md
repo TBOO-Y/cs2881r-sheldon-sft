@@ -105,12 +105,13 @@ Data sources: [`tbooy/sheldon-cooper-sft-20k`](https://huggingface.co/datasets/t
 [`openai/gsm8k`](https://huggingface.co/datasets/openai/gsm8k) (MIT; only the train split is used for generated data, the test split
 is evaluation-only and was checked for near-duplicates).
 
-## Stage 2: RLAIF (`rlaif/`, in progress)
+## Stage 2: RLAIF (`rlaif/`)
 
-Status (2026-09-20): code complete and checked against the installed library versions (TRL 1.13.0, transformers 5.12, peft 0.20,
-vLLM 0.29); the data patch, short-reply set, touch-up set and RL prompt set are built; the training runs are queued behind cluster
-GPU availability and no RL results exist yet. `rlaif/README.md` has the file map, `rlaif/persona_audit.md` the v3b failure audit
-that the reward terms come from, and `rlaif/sheldon_style_guide_v2.md` the canon/style guide used by the generator, the judge and the rules.
+Status (2026-09-21): first GRPO runs done on a RunPod 8xH100 node with GPT-5.6 Luna (OpenRouter) as the judge; results in
+`results/rlaif/stage2_grpo_v2.md`. Headline: at lr 1e-5 for 109 steps (4-hour cap) the defect monitors move modestly toward gold
+(rule penalty 1.00 → 0.87, repetition loops 0.19 → 0.13, cap hits 18.9% → 17.5%) while GSM8K stays at 64.0 (seed 63.9) at every
+checkpoint; the inherited lr 1e-6 moved nothing in 90 steps. `rlaif/README.md` has the file map, `rlaif/persona_audit.md` the v3b
+failure audit that the reward terms come from, and `rlaif/sheldon_style_guide_v2.md` the canon/style guide used by the generator, the judge and the rules.
 
 ```
 rlaif/
@@ -118,33 +119,51 @@ rlaif/
   data/gen_short_rows.py     short-prompt replies (prompts -> cards -> replies -> deterministic filter -> QA gate -> pack); 813 train / 42 val / 60 held-out prompts
   data/build_v4.py           touch-up set: short rows + opener-flattened replay of the patched set + math -> data/v4 (4,612 / 155)
   data/build_rl_prompts.py   5,714 RL prompts (persona, short, constraint, two-turn, verdict, AI-probe, sensitive) -> data/rl_prompts.jsonl
-  judge/                     OpenAI-compatible judge client (disk cache, cost accounting, local-server mode), prompts, task gate + pairwise persona judge, calibration
-  reward/rules.py            17 deterministic penalty terms + form bonus + rolling-window batch diversity tax
+  judge/oai.py               OpenAI-compatible client: OpenRouter (default) / OpenAI / local vLLM, disk cache, reported-cost accounting, reasoning effort
+  judge/prompts.py, core.py  task gate + pairwise persona judge prompts and parsers; "mock" judge for offline tests
+  judge/calibrate.py         judge calibration on the committed probe files (gold vs v3b, v3b vs base, v3b sibling pairs, gate flags), per reasoning effort
+  reward/rules.py            17 deterministic penalty terms + form bonus + rolling-window batch diversity tax (stock list refreshed every 25 steps)
   reward/reward.py           GRPO group reward: R = G * (2 * persona_winrate + form) - rules - false_claim - batch_tax
-  train_grpo.py              TRL GRPOTrainer (LoRA r32, 16 prompts x 8 completions/step, 400-token rollouts, DAPO loss, KL beta 0.04), merges at the end
-  launch_touchup.sh          1-epoch LoRA touch-up of the v3b merged model on data/v4 (lr 5e-5) via sft/remote_launch.sh
-  serve_judge.sh             vLLM server for the judge (Qwen2.5-32B-Instruct, served as "judge" on 127.0.0.1:8001)
-  calibrate_on_cluster.sh    judge calibration against the Sonnet verdicts of the HW1 evaluation
-  eval_model.sh              held-out + OOD generations (400 tokens), short held-out generations, GSM8K for a merged model
-  smoke_grpo.sh / orchestrate_stage2.sh / fetch_results.sh   2-step GRPO smoke test; cluster-side sequencer; pull results + style monitors
+  train_grpo.py              TRL GRPOTrainer (LoRA r32, 16 prompts x 8 completions/step, 400-token rollouts, DAPO loss, KL beta 0.04, vLLM colocated), merges at the end
+  runpod/                    node launchers: sync.sh, setup_node.sh, run_touchup.sh, run_eval.sh, calibrate.sh, smoke_grpo.sh, run_grpo.sh, stage2.sh (sequencer), fetch_results.sh
+  *.sh                       the original Athena-cluster launchers (paths under /data/agastyas; kept for reference, superseded by runpod/)
   audit/                     audit evidence: probes, reviews, quantitative monitors (audit/quant/compare.py)
 ```
+
+Judge calibration (2026-09-20, `rlaif/judge/calibration_luna_v2.md`): GPT-5.6 Luna at reasoning effort `low`, 64 concurrent requests,
+median latency 4.9 s, $0.75 per 1k calls, no rate limiting. After adding a `voice` item to the pairwise rubric and tightening the gate,
+v3b beats base 0.98 (117/120 order-consistent, no position bias), gold beats v3b 0.70, and the gate passes 37/40 gold replies while
+flagging v3b's fabrications. Close pairs still show position bias (0.65-0.72 first-shown), so both presentation orders are always judged.
+Run defaults: ring 1 (2 siblings x 2 orders = 4 verdicts per completion), 16 prompts x 8 completions, 400-token rollouts, 300 steps or
+4 hours, judge budget $100 (the OpenRouter account has a $120 cap; a step whose judge calls mostly fail stops the run cleanly).
 
 Reward: no learned reward model. An LLM judge is used twice per completion: a persona-blind task gate (asks satisfied, refused,
 worse-off, self-contradiction, false claims about the user) and a pairwise persona comparison against sibling completions of the same
 prompt, both orders, on eight items; the persona score is the fraction of comparisons won. Deterministic rules penalise canon errors,
 fabricated corrections, format violations, loops, preamble, over-length, markdown bleed, repeated catchphrases and more, and a
-rolling-window tax penalises stock phrases and repeated openers across the batch. The judge must pass `judge/calibrate.py` before a run.
+rolling-window tax penalises stock phrases and repeated openers across the batch. The judge must pass `judge/calibrate.py` before a run
+(position bias near 0.50, order-consistent verdicts, gold > v3b > base, non-zero gate flags on v3b; gpt-4.1-nano failed all four).
 
-Order of operations (cluster paths again point at `/data/agastyas/cs2881r` and need editing; the judge needs its own 80 GB GPU):
+Judge cost: one step is 128 gate calls + 512 pairwise calls (ring 2, both orders), ~3.5k input tokens each with the style guide as a
+cached prefix. At Luna prices ($0.20/M input, $0.02/M cached, $1.20/M output) that is roughly $0.4-0.6 per step, $120-180 for 300 steps;
+`--budget_usd` (default 100) aborts the run above the cap and `--time_budget_h` stops it cleanly on time. Every call is cached on disk (`$OAI_CACHE_DIR`), so re-scoring is free.
+
+Order of operations:
 
 ```bash
-python rlaif/data/patch_data.py && python rlaif/data/gen_short_rows.py --stage all && python rlaif/data/build_v4.py && python rlaif/data/build_rl_prompts.py
-bash rlaif/launch_touchup.sh                                   # SFT touch-up from the v3b merged model
-bash rlaif/serve_judge.sh && bash rlaif/calibrate_on_cluster.sh   # local judge + calibration report
-MODEL=/data/agastyas/cs2881r/models/sft-touchup-v4-merged bash rlaif/smoke_grpo.sh
-python rlaif/train_grpo.py --model <touch-up merged dir> --judge_model judge --run_name grpo-v1    # with OAI_BASE_URL=http://127.0.0.1:8001/v1
-NAME=grpo-v1 MODEL=/data/agastyas/cs2881r/models/grpo-v1-merged bash rlaif/eval_model.sh
+# laptop (WSL), stdlib + the .venv: regenerate the git-ignored training sets (bit-identical to the committed reports)
+curl -L -o sft/data_raw/sheldon_sft.jsonl https://huggingface.co/datasets/tbooy/sheldon-cooper-sft-20k/resolve/main/sheldon_sft.jsonl
+python sft/prepare_data.py --src sft/data_raw/sheldon_sft.jsonl --out sft/data && python sft/prepare_data_v3a.py --raw sft/data_raw/sheldon_sft.jsonl --v2 sft/data --out sft/data_v3a
+(cd sft/gen_v3b && python aggregate.py --n_val 300 --v3a ../data_v3a --out_v3b ../data_v3b)
+python rlaif/data/patch_data.py && python rlaif/data/build_v4.py            # rl_prompts.jsonl and the short set are committed
+cp .env.example .env                                                          # OPENROUTER_API_KEY, WANDB_API_KEY, HF_TOKEN
+bash rlaif/runpod/calibrate.sh --efforts minimal,low                          # judge calibration, no GPU, a few dollars
+# pod (8xH100): sync, set up, then either the sequencer or the steps by hand. The project lives on the pod's LOCAL disk
+# (/root/cs2881r): RunPod's /workspace volume is an S3-backed FUSE mount without chmod/utime/hard links; mirror.sh backs outputs up to it.
+POD=<ssh alias or root@ip> [PORT=<port>] bash rlaif/runpod/sync.sh && ssh <pod> 'bash /root/cs2881r/rlaif/runpod/setup_node.sh'   # ~1 min
+ssh <pod> 'cd /root/cs2881r && nohup bash rlaif/runpod/stage2.sh > /dev/null 2>&1 &'  # touch-up -> baselines -> eval -> smoke -> GRPO (+ follow_eval) -> eval -> table
+#   by hand: run_touchup.sh; NAME=.. MODEL=.. run_eval.sh; MODEL=.. smoke_grpo.sh; MODEL=.. run_grpo.sh; RUN=.. BASE=.. follow_eval.sh
+POD=<pod> bash rlaif/runpod/fetch_results.sh v3b sft-touchup-v4 grpo-v1              # back on the laptop: gens, GSM8K, collapse monitors
 ```
 
 Large derived files (`persona_patched.jsonl`, `math_rows.jsonl`, the v4 train sets) are not committed; the scripts above regenerate them.

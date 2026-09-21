@@ -34,3 +34,16 @@ rlaif/data/v4_full/train.jsonl
 rlaif/data/short/todo/
 rlaif/data/short/qa_existing/
 rlaif/**/__pycache__/
+
+# stage-2 run artifacts pulled from the pod (adapters ~1 GB per run, merged models 6 GB, pod logs); trainer_state.json files stay tracked
+runs/*/checkpoint-*/
+runs/*/final_adapter/
+runs/*/completions/
+runs/*/README.md
+models/
+logs_pod/
+
+# local tooling / raw data (stage-2 handover, 2026-09-20)
+.venv/
+sft/data_raw/
+rlaif/judge/calibration_raw_*.jsonl

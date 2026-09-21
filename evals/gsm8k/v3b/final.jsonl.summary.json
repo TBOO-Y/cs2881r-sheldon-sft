@@ -1,0 +1,11 @@
+{
+ "tag": "v3b",
+ "n": 1319,
+ "acc_strict": 0.6368460955269143,
+ "acc_lenient": 0.6368460955269143,
+ "boxed_rate": 0.9992418498862775,
+ "hit_max_rate": 0.000758150113722517,
+ "mean_gen_tokens": 111.66793025018954,
+ "runtime_s": 196,
+ "max_new_tokens": 1024
+}

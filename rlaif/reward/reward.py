@@ -13,30 +13,39 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from judge.core import task_gate, persona_pair
-from judge.oai import usage_summary
+from judge.core import task_gate, persona_verdict, set_reasoning_effort
+from judge.oai import usage_summary, DEFAULT_MODEL
 from reward.rules import score_rules, BatchTax, W, NAME_RE
 import re
 
 @dataclass
 class RewardConfig:
-    judge_model: str = "gpt-4.1-nano"
+    judge_model: str = DEFAULT_MODEL       # $JUDGE_MODEL, default openai/gpt-5.6-luna via OpenRouter; "mock" = offline stand-in
+    judge_reasoning: str = None            # reasoning effort for reasoning judges (None -> $JUDGE_REASONING, default "minimal")
     w_persona: float = 2.0
     w_form: float = 1.0
     coherence_factor: float = 0.5        # multiplier on G when the gate flags a contradiction (0 = hard gate)
-    false_claim_penalty: float = 1.0     # judge-detected false claim about the user's message
-    ring: int = 2                        # each completion is compared with this many siblings (both orders each)
-    workers: int = 32
+    worse_off_factor: float = 0.25       # multiplier on G when the gate flags worse_off (0 = hard gate as in the audit; >0 hedges judge false positives)
+    false_claim_penalty: float = 0.5     # judge-detected false claim about the user's message (Luna flags ~37% of gold, about half of them noise -> halved from 1.0)
+    ring: int = 2                        # each completion is compared with this many siblings
+    pair_orders: int = 2                 # 2 = judge every pair in both presentation orders (cancels position bias); 1 = one random order per pair (half the calls)
+    workers: int = 96                    # concurrent judge requests (one pair-order or one gate per job)
     budget_usd: float = 80.0
     tax_window: int = 512
     tax_weights: tuple = (0.5, 0.5, 0.5, 0.25, 0.5)
+    tax_refresh_every: int = 25          # steps between refreshes of the stock-phrase list from the rolling window (0 = never)
+    max_error_frac: float = 0.5          # if more than this fraction of a step's judge calls fail (spend cap, outage), raise JudgeUnavailable
     seed: int = 0
     brief_judge: bool = True             # RL-time pairwise JSON without per-item quotes (fewer output tokens)
+
+class JudgeUnavailable(RuntimeError):
+    """Raised when most judge calls in a step failed (OpenRouter spend cap / key / outage). The trainer stops cleanly on it."""
 
 class GroupReward:
     def __init__(self, cfg: RewardConfig):
         self.cfg = cfg; self.tax = BatchTax(window=cfg.tax_window, weights=cfg.tax_weights); self.rng = random.Random(cfg.seed)
         self.pool = ThreadPoolExecutor(cfg.workers); self.step = 0; self.lock = threading.Lock()
+        if cfg.judge_reasoning: set_reasoning_effort(cfg.judge_reasoning)
 
     def _budget_check(self):
         u = usage_summary()
@@ -55,25 +64,33 @@ class GroupReward:
                 if not rules[gi][ci]["skip_judge"]: jobs.append(("gate", gi, ci, None))
             live = [ci for ci in range(len(g["completions"])) if not rules[gi][ci]["skip_judge"]]
             if len(live) >= 2:
-                order = live[:]; self.rng.shuffle(order); K = len(order)
+                order = live[:]; self.rng.shuffle(order); K = len(order); seen = set()
                 for k in range(K):
                     for d in range(1, min(self.cfg.ring, K - 1) + 1):
                         i, j = order[k], order[(k + d) % K]
-                        if (j, i) not in [(a, b) for (_, gg, a, b) in jobs if gg == gi and _ == "pair"] and (i, j) not in [(a, b) for (_, gg, a, b) in jobs if gg == gi and _ == "pair"]:
-                            jobs.append(("pair", gi, i, j))
+                        if (i, j) in seen or (j, i) in seen: continue
+                        seen.add((i, j))
+                        # one job per presentation order: ("pair", gi, first_shown, second_shown); vote goes to whichever the judge names
+                        orders = [(i, j), (j, i)] if self.cfg.pair_orders >= 2 else [(i, j) if self.rng.random() < 0.5 else (j, i)]
+                        for a_, b_ in orders: jobs.append(("pair", gi, a_, b_))
         def run(job):
             kind, gi, i, j = job; g = groups[gi]
             try:
                 if kind == "gate": return job, task_gate(self.cfg.judge_model, g["prompt"], g["completions"][i], g.get("prior"))
-                return job, persona_pair(self.cfg.judge_model, g["prompt"], g["completions"][i], g["completions"][j], g.get("prior"), brief=self.cfg.brief_judge, max_tokens=300 if self.cfg.brief_judge else 700)
+                return job, persona_verdict(self.cfg.judge_model, g["prompt"], g["completions"][i], g["completions"][j], g.get("prior"), brief=self.cfg.brief_judge, max_tokens=300 if self.cfg.brief_judge else 700)
             except Exception as e: return job, {"ok": False, "error": str(e)[:200]}
         results = list(self.pool.map(run, jobs))
         gates = {}; wins = collections.defaultdict(list); errors = 0
+        n_fail = sum(1 for (kind, *_), res in results if (not res.get("ok")) if kind in ("gate", "pair"))
+        if jobs and n_fail / len(jobs) > self.cfg.max_error_frac:
+            errs = collections.Counter(str(res.get("error", res.get("raw", "?")))[:120] for _, res in results if not res.get("ok"))
+            raise JudgeUnavailable(f"{n_fail}/{len(jobs)} judge calls failed this step; most common: {errs.most_common(2)}")
         for (kind, gi, i, j), res in results:
             if kind == "gate": gates[(gi, i)] = res; errors += (not res.get("ok"))
             else:
-                if res.get("p_a") is None: errors += 1; continue
-                wins[(gi, i)].append(res["p_a"]); wins[(gi, j)].append(1.0 - res["p_a"])
+                if not res.get("ok"): errors += 1; continue
+                w = 1.0 if res["winner"] == "A" else 0.0          # i was shown as A, j as B
+                wins[(gi, i)].append(w); wins[(gi, j)].append(1.0 - w)
         # 3. batch tax over every completion of the step
         flat = [(gi, ci) for gi, g in enumerate(groups) for ci in range(len(g["completions"]))]
         taxes = dict(zip(flat, self.tax.tax([groups[gi]["completions"][ci] for gi, ci in flat])))
@@ -86,7 +103,7 @@ class GroupReward:
                 if r["skip_judge"]: G, P, flag_pen = 0.0, 0.0, 0.0
                 else:
                     if gate.get("ok"):
-                        G = 0.0 if gate["gate"] == 0 else gate["task_score"] * (self.cfg.coherence_factor if gate["contradiction"] else 1.0)
+                        G = 0.0 if gate["refused"] else gate["task_score"] * (self.cfg.coherence_factor if gate["contradiction"] else 1.0) * (self.cfg.worse_off_factor if gate["worse_off"] else 1.0)
                         flag_pen = self.cfg.false_claim_penalty if gate["false_claim"] else 0.0
                     else: G, flag_pen = 0.5, 0.0          # judge failure: neutral gate
                     P = statistics.mean(wins[(gi, ci)]) if wins.get((gi, ci)) else 0.5
@@ -104,6 +121,10 @@ class GroupReward:
         metrics.update(style_metrics(comps)); metrics["judge_calls"] = len(jobs); metrics["judge_errors"] = errors
         metrics["judge_cost_usd_total"] = usage_summary()["cost_usd"]; metrics["reward_seconds"] = time.time() - t0
         self.step += 1
+        if self.cfg.tax_refresh_every and self.step % self.cfg.tax_refresh_every == 0:
+            new = self.tax.refresh_stock()
+            if new: print(f"[reward] batch-tax stock list += {new}", flush=True)
+        metrics["tax_stock_phrases"] = len(self.tax.stock)
         return rewards, metrics
 
 TEMPLATE_OPENERS = [re.compile(p, re.I) for p in (r'^\s*[\'"“]?excuse me', r'^\s*i[\' ]?a?m about to make a joke', r'^\s*[\'"“]?sarcasm', r'^\s*i refuse', r'^\s*i[\' ]?(ll|will) have you know',
@@ -132,7 +153,7 @@ if __name__ == "__main__":
     for r in rows:
         p = [m for m in r["messages"] if m["role"] == "user"][0]["content"]
         groups.append({"prompt": p, "prior": None, "kind": r["kind"], "completions": [r["reference"], r["response"], base[r["id"]]["response"]], "finishes": [None, "length" if r["hit_max"] else None, None]})
-    gr = GroupReward(RewardConfig(judge_model=sys.argv[1] if len(sys.argv) > 1 else "gpt-4.1-nano", ring=2))
+    gr = GroupReward(RewardConfig(judge_model=sys.argv[1] if len(sys.argv) > 1 else DEFAULT_MODEL, ring=2))
     rewards, metrics = gr.score_step(groups)
     for g, rw in zip(groups, rewards): print(g["kind"], "gold/v3b/base rewards:", [round(x, 3) for x in rw])
     print(json.dumps({k: round(v, 3) for k, v in metrics.items()}, indent=1))

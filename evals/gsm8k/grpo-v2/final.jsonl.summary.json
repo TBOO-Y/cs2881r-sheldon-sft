@@ -1,0 +1,11 @@
+{
+ "tag": "grpo-v2",
+ "n": 1319,
+ "acc_strict": 0.6398786959818044,
+ "acc_lenient": 0.6398786959818044,
+ "boxed_rate": 0.9992418498862775,
+ "hit_max_rate": 0.000758150113722517,
+ "mean_gen_tokens": 111.49583017437453,
+ "runtime_s": 213,
+ "max_new_tokens": 1024
+}

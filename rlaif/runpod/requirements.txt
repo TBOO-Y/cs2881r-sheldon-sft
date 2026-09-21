@@ -1,0 +1,9 @@
+# Stage-2 node environment (RunPod 8xH100, CUDA 12.x). Same versions the code was checked against on Athena (2026-09-20).
+vllm==0.29.*
+trl==1.13.0
+transformers==5.12.*
+peft==0.20.*
+datasets>=4.0
+accelerate>=1.6
+wandb
+huggingface_hub[cli]

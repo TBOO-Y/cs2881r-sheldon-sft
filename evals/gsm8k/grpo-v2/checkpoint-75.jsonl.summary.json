@@ -1,0 +1,11 @@
+{
+ "tag": "grpo-v2/checkpoint-75",
+ "n": 1319,
+ "acc_strict": 0.6391205458680819,
+ "acc_lenient": 0.6391205458680819,
+ "boxed_rate": 0.9984836997725549,
+ "hit_max_rate": 0.001516300227445034,
+ "mean_gen_tokens": 111.6467020470053,
+ "runtime_s": 245,
+ "max_new_tokens": 1024
+}
