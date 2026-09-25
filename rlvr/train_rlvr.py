@@ -12,7 +12,6 @@ import argparse, json, os, sys, time
 from pathlib import Path
 HERE = Path(__file__).resolve().parent; sys.path.insert(0, str(HERE.parent))
 PROJ = Path(os.environ.get("PROJ", str(HERE.parent)))
-assert os.environ.get("CUDA_VISIBLE_DEVICES") or os.environ.get("RLVR_CPU_DRYRUN"), "set CUDA_VISIBLE_DEVICES in the launcher"
 import torch
 from datasets import Dataset
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -69,6 +68,7 @@ def main():
     ap.add_argument("--save_steps", type=int, default=25); ap.add_argument("--time_budget_h", type=float, default=0.0); ap.add_argument("--drift_every", type=int, default=25)
     ap.add_argument("--limit", type=int, default=None); ap.add_argument("--no_merge", action="store_true"); ap.add_argument("--bf16", type=int, default=1)
     a = ap.parse_args()
+    assert os.environ.get("CUDA_VISIBLE_DEVICES") or os.environ.get("RLVR_CPU_DRYRUN"), "set CUDA_VISIBLE_DEVICES in the launcher"   # here, not at import: eval/label scripts import this module for the prompt format
     import math_verify  # noqa: F401  -- a missing verifier would otherwise silently grade every symbolic answer as wrong
     cast_head = bool(a.cast_lm_head_fp32)
     total_steps = a.schedule_total_steps or a.max_steps

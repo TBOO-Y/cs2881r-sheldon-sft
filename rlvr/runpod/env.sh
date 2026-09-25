@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Stage-3 pod environment: everything from the stage-2 env (PROJ, BACKUP, HF cache, W&B, launch()) plus the vLLM server address.
 source "$(dirname "${BASH_SOURCE[0]}")/../../rlaif/runpod/env.sh"
-export VLLM_PORT="${VLLM_PORT:-8000}" VLLM_URL="${VLLM_URL:-http://localhost:${VLLM_PORT}}"
+export VLLM_PORT="${VLLM_PORT:-8000}"
+export VLLM_URL="${VLLM_URL:-http://localhost:${VLLM_PORT}}"
 export SEED_MODEL="${SEED_MODEL:-$PROJ/models/grpo-v2-merged}"
 export ACCEL_PORT="${ACCEL_PORT:-29511}"
 # topology (3x H200, 2026-09-25): GPU 0 = vLLM server (full-FT arm) or eval GPU (LoRA arm); GPUs 1,2 = the two training ranks in BOTH arms, so the
