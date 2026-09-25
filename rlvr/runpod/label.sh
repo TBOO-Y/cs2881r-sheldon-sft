@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Pass-rate labels for the training set under one model: one shard per GPU, then merge + per-level table -> results/rlvr/difficulty_<TAG>.md
-#   TAG=grpo-v2 MODEL=$SEED_MODEL [K=8] [GPUS=0,1,2,3,4,5,6,7] bash rlvr/runpod/label.sh      # ~15-20 min for 12k x 8 (est.)
+#   TAG=grpo-v2 MODEL=$SEED_MODEL [K=8] [GPUS=$LABEL_GPUS] bash rlvr/runpod/label.sh      # ~30-40 min for 12k x 8 on 3 GPUs (est.)
 set -euo pipefail; source "$(dirname "$0")/env.sh"; cd "$PROJ"
-TAG="${TAG:?}"; MODEL="${MODEL:-$SEED_MODEL}"; K="${K:-8}"; GPUS="${GPUS:-0,1,2,3,4,5,6,7}"; N=$(echo "$GPUS" | tr ',' '\n' | wc -l); i=0
+TAG="${TAG:?}"; MODEL="${MODEL:-$SEED_MODEL}"; K="${K:-8}"; GPUS="${GPUS:-$LABEL_GPUS}"; N=$(echo "$GPUS" | tr ',' '\n' | wc -l); i=0
 for g in $(echo "$GPUS" | tr ',' ' '); do
   launch "label-$TAG-$i" "$g" $PY rlvr/data/label_passrate.py --model "$MODEL" --data rlvr/data/math12k.jsonl --k "$K" --shard "$i/$N" --out "rlvr/data/passrate_$TAG.shard$i.jsonl" ${EXTRA:-}
   i=$((i+1)); done

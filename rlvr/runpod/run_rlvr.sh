@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # One RLVR run ON the pod (detached). Layouts:
-#   MODE=server   (full FT): serve_vllm.sh must be running on GPU 0; training DDP on GPUS=3,4,5,6 (4 ranks); default LR 1e-6
-#   MODE=colocate (LoRA)   : a vLLM engine inside every rank; GPUS=0,...,7 (8 ranks); default LR 2e-5
+#   MODE=server   (full FT): serve_vllm.sh must be running on $SERVER_GPU; training DDP on $TRAIN_GPUS; default LR 1e-6
+#   MODE=colocate (LoRA)   : a vLLM engine inside every rank on $TRAIN_GPUS; default LR 2e-5   (topology in env.sh: 3x H200 = 1 server/eval GPU + 2 training ranks)
 #   RUN=pilot-full-adamw MODE=server STEPS=20 [LORA=0|1] [OPT=adamw|muon|muonp] [LR=...] [SCHEDULE=rlvr/data/schedule_main.jsonl] [PROMPTS=16] [GENS=16] [PDB=4]
 #     [MAXLEN=2048] [LENPEN=none|dapo] [SAVE=25] [HOURS=0] [TOTAL=200 (WSD layout; pilots keep 200)] [EXTRA="--report_to none"] bash rlvr/runpod/run_rlvr.sh
 set -euo pipefail; source "$(dirname "$0")/env.sh"; cd "$PROJ"
 RUN="${RUN:?}"; MODE="${MODE:-server}"; STEPS="${STEPS:-200}"; MODEL="${MODEL:-$SEED_MODEL}"; SCHEDULE="${SCHEDULE:-rlvr/data/schedule_main.jsonl}"
-if [ "$MODE" = server ]; then GPUS="${GPUS:-3,4,5,6}"; LORA="${LORA:-0}"; LR="${LR:-1e-6}"; else GPUS="${GPUS:-0,1,2,3,4,5,6,7}"; LORA="${LORA:-1}"; LR="${LR:-2e-5}"; fi
+GPUS="${GPUS:-$TRAIN_GPUS}"; if [ "$MODE" = server ]; then LORA="${LORA:-0}"; LR="${LR:-1e-6}"; else LORA="${LORA:-1}"; LR="${LR:-2e-5}"; fi
 NP=$(echo "$GPUS" | tr ',' '\n' | wc -l)
 [ "$MODE" = server ] && vllm_wait 60
 launch "$RUN" "$GPUS" $ACCEL --num_processes "$NP" --main_process_port "$ACCEL_PORT" --mixed_precision no rlvr/train_rlvr.py \

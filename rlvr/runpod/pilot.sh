@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Step 3/4: pilots, 20 steps each on the identical schedule, then the quick suite on each pilot's last checkpoint (GPU 7) and results/rlvr/pilots.md.
+# Step 3/4: pilots, 20 steps each on the identical schedule, then the quick suite on each pilot's last checkpoint ($EVAL_GPU) and results/rlvr/pilots.md.
+# STOP after the pilots (user instruction 2026-09-25): main.sh is not to be run until the user decides on the full run.
 #   default PILOTS="full-adamw lora-adamw"  (pilot 1: LoRA vs full);  later: PILOTS="full-muon full-muonp" or "lora-lenpen" / "full-lenpen" (WINNER_OPT=...)
 #   [STEPS=20] [PILOTS=...] [SCHEDULE=rlvr/data/schedule_main.jsonl] bash rlvr/runpod/pilot.sh
 set -euo pipefail; source "$(dirname "$0")/env.sh"; cd "$PROJ"
@@ -8,7 +9,7 @@ for p in $PILOTS; do
   RUN="pilot-$p"
   if [ -d "runs/$RUN/final" ] || [ -d "runs/$RUN/final_adapter" ]; then echo "[pilot] $RUN done already"; continue; fi
   case $p in
-    full-*) MODEL=$SEED_MODEL GPUS=0 bash rlvr/runpod/serve_vllm.sh; MODE=server ;;
+    full-*) MODEL=$SEED_MODEL bash rlvr/runpod/serve_vllm.sh; MODE=server ;;
     lora-*) MODE=colocate ;;
     *) echo "unknown pilot $p"; exit 2 ;;
   esac
@@ -21,6 +22,6 @@ for p in $PILOTS; do
   echo "[pilot] $RUN exited: $({ grep -E '\[time\] step|merged ->|Traceback' logs/$RUN.log || true; } | tail -2 | tr '\n' ' ')"
 done
 for p in $PILOTS; do RUN="pilot-$p"; CK=$(ls -d runs/$RUN/checkpoint-* 2>/dev/null | sort -V | tail -1); [ -n "$CK" ] || continue
-  if [ -f "$CK/adapter_config.json" ]; then NAME=$RUN/$(basename $CK) MODEL=$SEED_MODEL ADAPTER=$CK GPU=7 bash rlvr/runpod/eval.sh; else NAME=$RUN/$(basename $CK) MODEL=$CK GPU=7 bash rlvr/runpod/eval.sh; fi
+  if [ -f "$CK/adapter_config.json" ]; then NAME=$RUN/$(basename $CK) MODEL=$SEED_MODEL ADAPTER=$CK bash rlvr/runpod/eval.sh; else NAME=$RUN/$(basename $CK) MODEL=$CK bash rlvr/runpod/eval.sh; fi
   waitpid "$(cat logs/eval-${RUN}_$(basename $CK).pid)"; done
 $PY rlvr/summarize_run.py --runs $(for p in $PILOTS; do echo -n "pilot-$p "; done) --ref grpo-v2 --out results/rlvr/pilots.md

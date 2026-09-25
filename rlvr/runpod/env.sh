@@ -4,6 +4,9 @@ source "$(dirname "${BASH_SOURCE[0]}")/../../rlaif/runpod/env.sh"
 export VLLM_PORT="${VLLM_PORT:-8000}" VLLM_URL="${VLLM_URL:-http://localhost:${VLLM_PORT}}"
 export SEED_MODEL="${SEED_MODEL:-$PROJ/models/grpo-v2-merged}"
 export ACCEL_PORT="${ACCEL_PORT:-29511}"
+# topology (3x H200, 2026-09-25): GPU 0 = vLLM server (full-FT arm) or eval GPU (LoRA arm); GPUs 1,2 = the two training ranks in BOTH arms, so the
+# 256-rollout batch (16 x 16) is identical between arms (128 rows = 8 whole groups per rank). Override for a bigger pod, e.g. TRAIN_GPUS=3,4,5,6 EVAL_GPU=7.
+export SERVER_GPU="${SERVER_GPU:-0}" TRAIN_GPUS="${TRAIN_GPUS:-1,2}" EVAL_GPU="${EVAL_GPU:-0}" LABEL_GPUS="${LABEL_GPUS:-0,1,2}"
 mkdir -p "$PROJ/evals/rlvr" "$PROJ/results/rlvr" "$PROJ/rlvr/data"
 # wait until the vLLM server answers on $VLLM_URL (up to $1 seconds, default 900)
 vllm_wait() { local t=${1:-900}; local i=0; until curl -sf "$VLLM_URL/health/" >/dev/null 2>&1; do sleep 5; i=$((i+5)); [ $i -ge $t ] && { echo "vLLM server not up after ${t}s"; return 1; }; done; echo "vLLM server up ($VLLM_URL)"; }

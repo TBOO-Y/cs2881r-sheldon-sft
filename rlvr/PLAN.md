@@ -109,6 +109,14 @@ Non-default choices I am making that you did not specify:
 
 ## 3. Compute: layouts, what one step costs, and what full on-policy synchrony costs
 
+**Topology update 2026-09-25 (3x H200, H100s unavailable).** GPU 0 = vLLM server in the full-FT arm / eval GPU in the LoRA arm; GPUs 1-2 = the
+two training ranks in both arms (128 rows = 8 whole groups per rank, `per_device_bs` 4 x 32 accumulation), so the 256-rollout batch is identical
+between arms. Training per step roughly doubles versus 4 ranks (~15 s full FT, ~8 s LoRA) but generation still dominates: ~55 s/step full FT,
+~45 s/step LoRA (est.). At ~$11-12/h for the pod, the pilot programme (baselines, labels on 3 GPUs ~35 min, smoke, pilot 1, optional Muon
+pilots, length-penalty pilot) is ~3-4.5 h, ~$35-55. **Only the pilots are to be run; the main run waits for an explicit go-ahead.** The
+8xH100 text below is kept for the record; every launcher reads the topology from `rlvr/runpod/env.sh` (`SERVER_GPU`, `TRAIN_GPUS`, `EVAL_GPU`, `LABEL_GPUS`).
+
+
 Evidence from the RLAIF run (`logs_pod/grpo-v2.log`): steps whose judge calls were cached took 18-20 s for 128 rollouts of mean
 ~240 tokens plus a LoRA update, on ONE H100 with vLLM colocated at 35% memory; the rest of the 65-75 s step was judge latency, which
 RLVR does not have. TRL 1.13 offers two generation layouts and no asynchronous pipeline:

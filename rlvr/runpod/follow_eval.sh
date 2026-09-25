@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Quick-suite evaluation of a run's checkpoints as they appear (one GPU, detached); exits once the run's final model exists and every checkpoint is scored.
-#   RUN=rlvr-main [GPU=7] [BASE=$SEED_MODEL] bash rlvr/runpod/follow_eval.sh
+#   RUN=rlvr-main [GPU=$EVAL_GPU] [BASE=$SEED_MODEL] bash rlvr/runpod/follow_eval.sh   (in the server arm the eval GPU is the server GPU: run it after the training run)
 set -euo pipefail; source "$(dirname "$0")/env.sh"; cd "$PROJ"
-RUN="${RUN:?}"; GPU="${GPU:-7}"; BASE="${BASE:-$SEED_MODEL}"
+RUN="${RUN:?}"; GPU="${GPU:-$EVAL_GPU}"; BASE="${BASE:-$SEED_MODEL}"
 launch "follow-$RUN" "$GPU" bash -c "
 while true; do did=0
   for d in \$(ls -d runs/$RUN/checkpoint-* 2>/dev/null | xargs -r -n1 basename | sort -t- -k2 -n); do

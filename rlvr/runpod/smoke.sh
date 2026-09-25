@@ -11,7 +11,7 @@ print(f"[mismatch] {sys.argv[1]}: trainer-vs-vLLM |dlogp| mean per step = " + ",
 PYEOF
 }
 for DT in bfloat16 float32; do                      # full-FT smoke twice: bf16 sampler vs fp32 sampler -> measured train/rollout mismatch and step time
-  MODEL=$SEED_MODEL GPUS=0 DTYPE=$DT bash rlvr/runpod/serve_vllm.sh
+  MODEL=$SEED_MODEL DTYPE=$DT bash rlvr/runpod/serve_vllm.sh
   RUN=smoke-full-$DT MODE=server STEPS=3 SCHEDULE=rlvr/data/schedule_smoke.jsonl PROMPTS=4 GENS=4 PDB=2 MAXLEN=512 SAVE=3 TOTAL=3 EXTRA="--report_to none --drift_every 1" bash rlvr/runpod/run_rlvr.sh
   waitpid "$(cat logs/smoke-full-$DT.pid)"; vllm_stop
   { grep -E "\[run\]|\[optim\]|\[time\]|\[drift\]|merged ->|Traceback|Error" logs/smoke-full-$DT.log || true; } | tail -8; mismatch smoke-full-$DT

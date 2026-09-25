@@ -28,7 +28,7 @@ Data built on the laptop (2026-09-24, `python rlvr/data/build_math.py`): 11,998 
 near-duplicates of MATH-500 problems (template twins that differ only in the numbers, plus one verbatim duplicate the mirror's exact-match
 dedup missed); 0 hits against AIME 2024/2025/2026. Final training file: 11,809 rows (levels 1-5: 928 / 2,100 / 2,576 / 2,733 / 3,470).
 
-## Order of operations on the pod
+## Order of operations on the pod (topology: 3x H200 = GPU 0 server/eval, GPUs 1-2 training; see runpod/env.sh)
 
 ```bash
 POD=<pod> bash rlvr/runpod/sync.sh && ssh <pod> 'bash /root/cs2881r/rlaif/runpod/setup_node.sh && bash /root/cs2881r/rlvr/runpod/setup_stage3.sh'   # venv, base model, math-verify, seed + touch-up from the Hub
@@ -41,6 +41,7 @@ bash rlvr/runpod/smoke.sh                                    # step 2: 3 steps i
 bash rlvr/runpod/pilot.sh                                    # step 3: pilot-full-adamw vs pilot-lora-adamw (20 steps) -> results/rlvr/pilots.md
 PILOTS="full-muon full-muonp" bash rlvr/runpod/pilot.sh      # step 4a (only if full FT won): optimizer pilots
 PILOTS="lora-lenpen" bash rlvr/runpod/pilot.sh               # step 4b: length penalty on the winning layout (or full-lenpen WINNER_OPT=...)
+# STOP HERE (2026-09-25): the main run below is not to be launched without the user's go-ahead.
 MODE=colocate bash rlvr/runpod/main.sh                       # step 5: 200 steps (+ OPT=..., LENPEN=...) -> results/rlvr/rlvr-main.md
 ```
 

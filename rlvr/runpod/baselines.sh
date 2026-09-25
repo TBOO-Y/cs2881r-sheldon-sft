@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Step 0: full suite for base / touch-up / grpo-v2 on three GPUs in parallel (~15 min), then results/rlvr/baselines.md
+# Step 0: full suite for base / touch-up / grpo-v2 on GPUs 0,1,2 in parallel (~15 min), then results/rlvr/baselines.md
 set -euo pipefail; source "$(dirname "$0")/env.sh"; cd "$PROJ"
 NAME=base MODEL=Qwen/Qwen2.5-3B-Instruct GPU=0 SUITE=full bash rlvr/runpod/eval.sh
 NAME=sft-touchup-v4 MODEL=$PROJ/models/sft-touchup-v4-merged GPU=1 SUITE=full bash rlvr/runpod/eval.sh
