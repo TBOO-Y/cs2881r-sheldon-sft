@@ -47,3 +47,9 @@ logs_pod/
 .venv/
 sft/data_raw/
 rlaif/judge/calibration_raw_*.jsonl
+
+# stage 3 (RLVR): pass-rate shards are merged into passrate_<tag>.jsonl; schedules and eval sets stay tracked; math12k.jsonl is regenerable
+rlvr/data/passrate_*.shard*.jsonl
+rlvr/data/math12k.jsonl
+rlvr/**/__pycache__/
+models/_merged_tmp/

@@ -7,3 +7,5 @@ datasets>=4.0
 accelerate>=1.6
 wandb
 huggingface_hub[cli]
+# stage 3 (RLVR)
+math-verify

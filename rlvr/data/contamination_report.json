@@ -1,0 +1,8330 @@
+{
+ "ngram10": [
+  {
+   "train": "m12k-122",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-173",
+   "eval": "math500-159"
+  },
+  {
+   "train": "m12k-246",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-257",
+   "eval": "math500-367"
+  },
+  {
+   "train": "m12k-262",
+   "eval": "math500-316"
+  },
+  {
+   "train": "m12k-284",
+   "eval": "math500-310"
+  },
+  {
+   "train": "m12k-406",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-520",
+   "eval": "math500-319"
+  },
+  {
+   "train": "m12k-529",
+   "eval": "math500-33"
+  },
+  {
+   "train": "m12k-567",
+   "eval": "math500-87"
+  },
+  {
+   "train": "m12k-647",
+   "eval": "math500-112"
+  },
+  {
+   "train": "m12k-647",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-662",
+   "eval": "math500-407"
+  },
+  {
+   "train": "m12k-743",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-743",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-743",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-743",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-743",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-781",
+   "eval": "math500-159"
+  },
+  {
+   "train": "m12k-802",
+   "eval": "math500-231"
+  },
+  {
+   "train": "m12k-820",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-839",
+   "eval": "math500-122"
+  },
+  {
+   "train": "m12k-840",
+   "eval": "math500-112"
+  },
+  {
+   "train": "m12k-840",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-840",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-846",
+   "eval": "math500-174"
+  },
+  {
+   "train": "m12k-904",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-1008",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-1025",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-1039",
+   "eval": "math500-258"
+  },
+  {
+   "train": "m12k-1045",
+   "eval": "math500-239"
+  },
+  {
+   "train": "m12k-1079",
+   "eval": "math500-427"
+  },
+  {
+   "train": "m12k-1139",
+   "eval": "math500-173"
+  },
+  {
+   "train": "m12k-1174",
+   "eval": "math500-424"
+  },
+  {
+   "train": "m12k-1188",
+   "eval": "math500-153"
+  },
+  {
+   "train": "m12k-1189",
+   "eval": "math500-390"
+  },
+  {
+   "train": "m12k-1199",
+   "eval": "math500-159"
+  },
+  {
+   "train": "m12k-1247",
+   "eval": "math500-33"
+  },
+  {
+   "train": "m12k-1256",
+   "eval": "math500-123"
+  },
+  {
+   "train": "m12k-1278",
+   "eval": "math500-275"
+  },
+  {
+   "train": "m12k-1303",
+   "eval": "math500-272"
+  },
+  {
+   "train": "m12k-1303",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-1319",
+   "eval": "math500-242"
+  },
+  {
+   "train": "m12k-1324",
+   "eval": "math500-123"
+  },
+  {
+   "train": "m12k-1376",
+   "eval": "math500-446"
+  },
+  {
+   "train": "m12k-1433",
+   "eval": "math500-93"
+  },
+  {
+   "train": "m12k-1455",
+   "eval": "math500-112"
+  },
+  {
+   "train": "m12k-1455",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-1455",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-1455",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-1455",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-1455",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-1482",
+   "eval": "math500-23"
+  },
+  {
+   "train": "m12k-1509",
+   "eval": "math500-237"
+  },
+  {
+   "train": "m12k-1544",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-1597",
+   "eval": "math500-388"
+  },
+  {
+   "train": "m12k-1649",
+   "eval": "math500-140"
+  },
+  {
+   "train": "m12k-1687",
+   "eval": "math500-446"
+  },
+  {
+   "train": "m12k-1732",
+   "eval": "math500-463"
+  },
+  {
+   "train": "m12k-1777",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-1779",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-1779",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-1779",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-1780",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-1809",
+   "eval": "math500-75"
+  },
+  {
+   "train": "m12k-1813",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-1813",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-1836",
+   "eval": "math500-485"
+  },
+  {
+   "train": "m12k-1868",
+   "eval": "math500-190"
+  },
+  {
+   "train": "m12k-1887",
+   "eval": "math500-162"
+  },
+  {
+   "train": "m12k-1897",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-1901",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-1922",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-1935",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-1951",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-1954",
+   "eval": "math500-294"
+  },
+  {
+   "train": "m12k-1987",
+   "eval": "math500-330"
+  },
+  {
+   "train": "m12k-1990",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-2033",
+   "eval": "math500-155"
+  },
+  {
+   "train": "m12k-2044",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2052",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-2052",
+   "eval": "math500-142"
+  },
+  {
+   "train": "m12k-2062",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-2066",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2070",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2072",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2094",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2095",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2096",
+   "eval": "aime24-2024-II-12"
+  },
+  {
+   "train": "m12k-2096",
+   "eval": "aime24-2024-I-15"
+  },
+  {
+   "train": "m12k-2096",
+   "eval": "aime26-3"
+  },
+  {
+   "train": "m12k-2096",
+   "eval": "aime26-30"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2099",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2101",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2103",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-2103",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2103",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-2103",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2103",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2103",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2103",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2104",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2106",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2109",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2111",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2112",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2115",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2116",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2123",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2125",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2129",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2133",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2134",
+   "eval": "aime26-30"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2143",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2144",
+   "eval": "aime25-14"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2145",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2146",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2147",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2148",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2157",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2160",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2161",
+   "eval": "aime24-2024-II-12"
+  },
+  {
+   "train": "m12k-2161",
+   "eval": "aime24-2024-I-15"
+  },
+  {
+   "train": "m12k-2161",
+   "eval": "aime26-3"
+  },
+  {
+   "train": "m12k-2163",
+   "eval": "aime24-2024-II-12"
+  },
+  {
+   "train": "m12k-2163",
+   "eval": "aime24-2024-I-15"
+  },
+  {
+   "train": "m12k-2163",
+   "eval": "aime26-3"
+  },
+  {
+   "train": "m12k-2214",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-2259",
+   "eval": "math500-190"
+  },
+  {
+   "train": "m12k-2282",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-2282",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-2282",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2287",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-2287",
+   "eval": "math500-142"
+  },
+  {
+   "train": "m12k-2301",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-2306",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-2317",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-2318",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2427",
+   "eval": "math500-75"
+  },
+  {
+   "train": "m12k-2431",
+   "eval": "math500-75"
+  },
+  {
+   "train": "m12k-2436",
+   "eval": "math500-86"
+  },
+  {
+   "train": "m12k-2460",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-2503",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-2510",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2516",
+   "eval": "math500-320"
+  },
+  {
+   "train": "m12k-2544",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-2544",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-2549",
+   "eval": "math500-156"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2557",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2575",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-2579",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-2591",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-2599",
+   "eval": "math500-73"
+  },
+  {
+   "train": "m12k-2604",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-2604",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-2607",
+   "eval": "math500-467"
+  },
+  {
+   "train": "m12k-2613",
+   "eval": "math500-169"
+  },
+  {
+   "train": "m12k-2620",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-2638",
+   "eval": "math500-123"
+  },
+  {
+   "train": "m12k-2650",
+   "eval": "math500-100"
+  },
+  {
+   "train": "m12k-2678",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-2683",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2690",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-2705",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-2707",
+   "eval": "math500-499"
+  },
+  {
+   "train": "m12k-2713",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-2728",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-2770",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-2803",
+   "eval": "math500-14"
+  },
+  {
+   "train": "m12k-2824",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-2824",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-2824",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2868",
+   "eval": "math500-73"
+  },
+  {
+   "train": "m12k-2882",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-2906",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-2934",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2934",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2934",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2934",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2934",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2940",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2943",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2943",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-2943",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2943",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2943",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2943",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2943",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2944",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2953",
+   "eval": "math500-486"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2959",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2960",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2961",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2966",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2967",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2967",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2967",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2967",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2967",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2970",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2972",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2973",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2974",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2975",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2976",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2976",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2976",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2976",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2976",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2977",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2978",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2980",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2980",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2980",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2980",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2980",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2981",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2981",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2981",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2981",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2981",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2983",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2984",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-2984",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2988",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2990",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2990",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2990",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2990",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2990",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2991",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-2991",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-2991",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-2991",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-2991",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2992",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-2997",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-2998",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-3002",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3002",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3003",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3004",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3006",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3008",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-3009",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3009",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3009",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3009",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3009",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3011",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3011",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3011",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3011",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3011",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3014",
+   "eval": "math500-486"
+  },
+  {
+   "train": "m12k-3016",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3016",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3016",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3016",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3016",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3017",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3017",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-3017",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3017",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3017",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3017",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3020",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3020",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3020",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3020",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3020",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3023",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3023",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3023",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3023",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3023",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3028",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3029",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-3029",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3029",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-3029",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3029",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3029",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3029",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3032",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3032",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3032",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3032",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3032",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3034",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3036",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3036",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3036",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3036",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3036",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3037",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3037",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3037",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3037",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3037",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3038",
+   "eval": "aime24-2024-II-12"
+  },
+  {
+   "train": "m12k-3038",
+   "eval": "aime24-2024-I-15"
+  },
+  {
+   "train": "m12k-3038",
+   "eval": "aime26-3"
+  },
+  {
+   "train": "m12k-3040",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3040",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3040",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3040",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3040",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3041",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3043",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3043",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3043",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3043",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3043",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime25-27"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3044",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3049",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3050",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3053",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3058",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3058",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3058",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3058",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3058",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3059",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3063",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3063",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3063",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3063",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3063",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3063",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3066",
+   "eval": "math500-112"
+  },
+  {
+   "train": "m12k-3066",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3066",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3066",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3066",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3066",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime26-18"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3068",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3069",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3071",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3071",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3071",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3071",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3071",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3076",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3078",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3079",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-3087",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3089",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3105",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3122",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-3130",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-3142",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-3142",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-3142",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-3144",
+   "eval": "aime24-2024-I-10"
+  },
+  {
+   "train": "m12k-3145",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3146",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-3146",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-3148",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-3149",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3149",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-3149",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3149",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3149",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-3149",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3158",
+   "eval": "math500-123"
+  },
+  {
+   "train": "m12k-3158",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-3158",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-3162",
+   "eval": "math500-169"
+  },
+  {
+   "train": "m12k-3168",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-3168",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-3168",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-3170",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-3172",
+   "eval": "math500-73"
+  },
+  {
+   "train": "m12k-3185",
+   "eval": "math500-240"
+  },
+  {
+   "train": "m12k-3212",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-3212",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-3221",
+   "eval": "math500-169"
+  },
+  {
+   "train": "m12k-3254",
+   "eval": "math500-152"
+  },
+  {
+   "train": "m12k-3273",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-3280",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-3280",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-3280",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-3283",
+   "eval": "math500-73"
+  },
+  {
+   "train": "m12k-3285",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-3303",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-3308",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3314",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-3314",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-3325",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-3325",
+   "eval": "math500-396"
+  },
+  {
+   "train": "m12k-3336",
+   "eval": "math500-314"
+  },
+  {
+   "train": "m12k-3338",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-3339",
+   "eval": "math500-192"
+  },
+  {
+   "train": "m12k-3348",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-3349",
+   "eval": "math500-152"
+  },
+  {
+   "train": "m12k-3349",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-3349",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-3361",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-3370",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-3370",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-3387",
+   "eval": "math500-110"
+  },
+  {
+   "train": "m12k-3402",
+   "eval": "math500-184"
+  },
+  {
+   "train": "m12k-3417",
+   "eval": "math500-120"
+  },
+  {
+   "train": "m12k-3422",
+   "eval": "math500-195"
+  },
+  {
+   "train": "m12k-3430",
+   "eval": "math500-421"
+  },
+  {
+   "train": "m12k-3478",
+   "eval": "math500-145"
+  },
+  {
+   "train": "m12k-3478",
+   "eval": "math500-401"
+  },
+  {
+   "train": "m12k-3479",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3534",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-3534",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-3538",
+   "eval": "math500-63"
+  },
+  {
+   "train": "m12k-3545",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-3545",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-3551",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3551",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3575",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3575",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3599",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-3602",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-3609",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-3625",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-3661",
+   "eval": "math500-230"
+  },
+  {
+   "train": "m12k-3713",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-3791",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3791",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3792",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-3818",
+   "eval": "math500-151"
+  },
+  {
+   "train": "m12k-3822",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-3845",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-3850",
+   "eval": "math500-421"
+  },
+  {
+   "train": "m12k-3912",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-3927",
+   "eval": "math500-494"
+  },
+  {
+   "train": "m12k-3938",
+   "eval": "aime26-30"
+  },
+  {
+   "train": "m12k-3945",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-3945",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-3957",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-3960",
+   "eval": "math500-25"
+  },
+  {
+   "train": "m12k-3961",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3961",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3971",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-3994",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-4005",
+   "eval": "math500-69"
+  },
+  {
+   "train": "m12k-4031",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4031",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4032",
+   "eval": "math500-157"
+  },
+  {
+   "train": "m12k-4036",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-4055",
+   "eval": "math500-438"
+  },
+  {
+   "train": "m12k-4068",
+   "eval": "math500-445"
+  },
+  {
+   "train": "m12k-4088",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-4092",
+   "eval": "math500-25"
+  },
+  {
+   "train": "m12k-4112",
+   "eval": "math500-495"
+  },
+  {
+   "train": "m12k-4152",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4152",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4158",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4158",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4197",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-4235",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-4263",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4263",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4281",
+   "eval": "math500-63"
+  },
+  {
+   "train": "m12k-4293",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-4307",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-4324",
+   "eval": "math500-474"
+  },
+  {
+   "train": "m12k-4368",
+   "eval": "math500-239"
+  },
+  {
+   "train": "m12k-4370",
+   "eval": "math500-495"
+  },
+  {
+   "train": "m12k-4406",
+   "eval": "math500-118"
+  },
+  {
+   "train": "m12k-4418",
+   "eval": "math500-184"
+  },
+  {
+   "train": "m12k-4418",
+   "eval": "math500-289"
+  },
+  {
+   "train": "m12k-4418",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-4440",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4440",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4460",
+   "eval": "math500-184"
+  },
+  {
+   "train": "m12k-4460",
+   "eval": "math500-289"
+  },
+  {
+   "train": "m12k-4460",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-4481",
+   "eval": "math500-289"
+  },
+  {
+   "train": "m12k-4481",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-4498",
+   "eval": "math500-295"
+  },
+  {
+   "train": "m12k-4530",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-4530",
+   "eval": "math500-470"
+  },
+  {
+   "train": "m12k-4565",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-4593",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-4620",
+   "eval": "math500-470"
+  },
+  {
+   "train": "m12k-4638",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-4640",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-4650",
+   "eval": "math500-61"
+  },
+  {
+   "train": "m12k-4655",
+   "eval": "math500-120"
+  },
+  {
+   "train": "m12k-4788",
+   "eval": "math500-365"
+  },
+  {
+   "train": "m12k-4796",
+   "eval": "math500-335"
+  },
+  {
+   "train": "m12k-4811",
+   "eval": "math500-311"
+  },
+  {
+   "train": "m12k-4834",
+   "eval": "math500-272"
+  },
+  {
+   "train": "m12k-4836",
+   "eval": "math500-335"
+  },
+  {
+   "train": "m12k-5083",
+   "eval": "math500-365"
+  },
+  {
+   "train": "m12k-5088",
+   "eval": "math500-473"
+  },
+  {
+   "train": "m12k-5233",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-5265",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-5275",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-5280",
+   "eval": "aime24-2024-II-12"
+  },
+  {
+   "train": "m12k-5280",
+   "eval": "aime24-2024-I-15"
+  },
+  {
+   "train": "m12k-5280",
+   "eval": "aime26-3"
+  },
+  {
+   "train": "m12k-5292",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-5292",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-5292",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-5292",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-5292",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-5302",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-5320",
+   "eval": "aime25-16"
+  },
+  {
+   "train": "m12k-5323",
+   "eval": "aime26-19"
+  },
+  {
+   "train": "m12k-5346",
+   "eval": "math500-311"
+  },
+  {
+   "train": "m12k-5351",
+   "eval": "aime25-16"
+  },
+  {
+   "train": "m12k-5430",
+   "eval": "math500-271"
+  },
+  {
+   "train": "m12k-5545",
+   "eval": "math500-135"
+  },
+  {
+   "train": "m12k-5548",
+   "eval": "math500-268"
+  },
+  {
+   "train": "m12k-5551",
+   "eval": "math500-314"
+  },
+  {
+   "train": "m12k-5558",
+   "eval": "math500-301"
+  },
+  {
+   "train": "m12k-5589",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-5642",
+   "eval": "math500-404"
+  },
+  {
+   "train": "m12k-5647",
+   "eval": "math500-73"
+  },
+  {
+   "train": "m12k-5659",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-5659",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-5765",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-5795",
+   "eval": "aime25-16"
+  },
+  {
+   "train": "m12k-5853",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-5853",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-5865",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-5865",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-5865",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-5865",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-5877",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-5877",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-5877",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-5903",
+   "eval": "math500-169"
+  },
+  {
+   "train": "m12k-5944",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-5968",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-5968",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-6005",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-6030",
+   "eval": "math500-324"
+  },
+  {
+   "train": "m12k-6118",
+   "eval": "math500-156"
+  },
+  {
+   "train": "m12k-6118",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-6142",
+   "eval": "math500-426"
+  },
+  {
+   "train": "m12k-6195",
+   "eval": "math500-324"
+  },
+  {
+   "train": "m12k-6201",
+   "eval": "math500-485"
+  },
+  {
+   "train": "m12k-6252",
+   "eval": "math500-135"
+  },
+  {
+   "train": "m12k-6301",
+   "eval": "math500-135"
+  },
+  {
+   "train": "m12k-6361",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-6361",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-6370",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-6370",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-6388",
+   "eval": "math500-169"
+  },
+  {
+   "train": "m12k-6413",
+   "eval": "math500-240"
+  },
+  {
+   "train": "m12k-6420",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-6458",
+   "eval": "math500-294"
+  },
+  {
+   "train": "m12k-6551",
+   "eval": "math500-294"
+  },
+  {
+   "train": "m12k-6664",
+   "eval": "math500-396"
+  },
+  {
+   "train": "m12k-6673",
+   "eval": "math500-438"
+  },
+  {
+   "train": "m12k-6690",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-6690",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-6698",
+   "eval": "math500-229"
+  },
+  {
+   "train": "m12k-6764",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-6785",
+   "eval": "math500-492"
+  },
+  {
+   "train": "m12k-6787",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-6793",
+   "eval": "math500-421"
+  },
+  {
+   "train": "m12k-6800",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-6808",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-6810",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-6832",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-6832",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-6859",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-6898",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-6898",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-6901",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-6907",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-6968",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-6968",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-6970",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-6976",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-6995",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-7000",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7000",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-7000",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7004",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7013",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-7019",
+   "eval": "math500-431"
+  },
+  {
+   "train": "m12k-7020",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-7020",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-7020",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-7020",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-7020",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-7021",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7021",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-7021",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7032",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7040",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7049",
+   "eval": "aime26-30"
+  },
+  {
+   "train": "m12k-7062",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7075",
+   "eval": "math500-28"
+  },
+  {
+   "train": "m12k-7097",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7103",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7108",
+   "eval": "math500-425"
+  },
+  {
+   "train": "m12k-7109",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7133",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7133",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7136",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7147",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7155",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7155",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7163",
+   "eval": "math500-46"
+  },
+  {
+   "train": "m12k-7179",
+   "eval": "math500-109"
+  },
+  {
+   "train": "m12k-7191",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7192",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7204",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-7208",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7216",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-7217",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-7222",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-7240",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-7254",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-7259",
+   "eval": "math500-421"
+  },
+  {
+   "train": "m12k-7269",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-7287",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7296",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7302",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7307",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-7325",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-7338",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7338",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7355",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-7362",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-7371",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7410",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-7428",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7428",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-7428",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7436",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7444",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-7446",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7446",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-7446",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7453",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7456",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7459",
+   "eval": "math500-307"
+  },
+  {
+   "train": "m12k-7474",
+   "eval": "math500-492"
+  },
+  {
+   "train": "m12k-7477",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-7477",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-7477",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-7490",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-7580",
+   "eval": "math500-158"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-7595",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-7604",
+   "eval": "math500-417"
+  },
+  {
+   "train": "m12k-7671",
+   "eval": "math500-33"
+  },
+  {
+   "train": "m12k-7686",
+   "eval": "math500-305"
+  },
+  {
+   "train": "m12k-7733",
+   "eval": "math500-159"
+  },
+  {
+   "train": "m12k-7814",
+   "eval": "math500-112"
+  },
+  {
+   "train": "m12k-7814",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-7982",
+   "eval": "math500-159"
+  },
+  {
+   "train": "m12k-8038",
+   "eval": "math500-174"
+  },
+  {
+   "train": "m12k-8106",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-8106",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-8106",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-8106",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-8106",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-8130",
+   "eval": "math500-390"
+  },
+  {
+   "train": "m12k-8130",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-8152",
+   "eval": "math500-339"
+  },
+  {
+   "train": "m12k-8156",
+   "eval": "math500-55"
+  },
+  {
+   "train": "m12k-8165",
+   "eval": "math500-241"
+  },
+  {
+   "train": "m12k-8165",
+   "eval": "math500-390"
+  },
+  {
+   "train": "m12k-8165",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-8165",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-8165",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-8165",
+   "eval": "aime25-13"
+  },
+  {
+   "train": "m12k-8165",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-8196",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-8270",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-8396",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-8473",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-8473",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-8541",
+   "eval": "math500-93"
+  },
+  {
+   "train": "m12k-8605",
+   "eval": "math500-91"
+  },
+  {
+   "train": "m12k-8700",
+   "eval": "math500-142"
+  },
+  {
+   "train": "m12k-8706",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-8707",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-8734",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8737",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-8755",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8817",
+   "eval": "aime25-4"
+  },
+  {
+   "train": "m12k-8820",
+   "eval": "math500-190"
+  },
+  {
+   "train": "m12k-8850",
+   "eval": "math500-207"
+  },
+  {
+   "train": "m12k-8867",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-8885",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8914",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-8920",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-8921",
+   "eval": "math500-353"
+  },
+  {
+   "train": "m12k-8930",
+   "eval": "math500-266"
+  },
+  {
+   "train": "m12k-8955",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8956",
+   "eval": "math500-190"
+  },
+  {
+   "train": "m12k-8962",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8974",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8987",
+   "eval": "math500-75"
+  },
+  {
+   "train": "m12k-8989",
+   "eval": "math500-75"
+  },
+  {
+   "train": "m12k-8990",
+   "eval": "math500-153"
+  },
+  {
+   "train": "m12k-8995",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-9004",
+   "eval": "math500-142"
+  },
+  {
+   "train": "m12k-9014",
+   "eval": "math500-190"
+  },
+  {
+   "train": "m12k-9020",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-9066",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-9073",
+   "eval": "math500-32"
+  },
+  {
+   "train": "m12k-9093",
+   "eval": "aime25-9"
+  },
+  {
+   "train": "m12k-9147",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-9167",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9167",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9172",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-9187",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9187",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-9187",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9194",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-9199",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9199",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9203",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-9203",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9232",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-9233",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-9234",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-9244",
+   "eval": "math500-73"
+  },
+  {
+   "train": "m12k-9268",
+   "eval": "math500-152"
+  },
+  {
+   "train": "m12k-9299",
+   "eval": "math500-396"
+  },
+  {
+   "train": "m12k-9300",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-9300",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-9300",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-9318",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-9334",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-9337",
+   "eval": "math500-485"
+  },
+  {
+   "train": "m12k-9363",
+   "eval": "math500-123"
+  },
+  {
+   "train": "m12k-9363",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-9364",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9364",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-9364",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9373",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-9398",
+   "eval": "aime26-30"
+  },
+  {
+   "train": "m12k-9423",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-9423",
+   "eval": "math500-169"
+  },
+  {
+   "train": "m12k-9450",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-9450",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-9450",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-9456",
+   "eval": "math500-169"
+  },
+  {
+   "train": "m12k-9465",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-9469",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-9475",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9475",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "math500-475"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime24-2024-II-4"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime24-2024-I-4"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime24-2024-I-8"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime24-2024-I-11"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime24-2024-II-8"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime25-6"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime25-7"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime25-18"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime25-21"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime26-1"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime26-5"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime26-9"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime26-12"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime26-14"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime26-22"
+  },
+  {
+   "train": "m12k-9489",
+   "eval": "aime26-27"
+  },
+  {
+   "train": "m12k-9521",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-9521",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-9522",
+   "eval": "math500-152"
+  },
+  {
+   "train": "m12k-9531",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9531",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9534",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9534",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-9534",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9544",
+   "eval": "math500-486"
+  },
+  {
+   "train": "m12k-9549",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9549",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9552",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-9554",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-9554",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-9554",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9565",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-9565",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-9565",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-9606",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-9609",
+   "eval": "math500-189"
+  },
+  {
+   "train": "m12k-9609",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-9633",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-9636",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-9666",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-9671",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-9671",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-9673",
+   "eval": "math500-120"
+  },
+  {
+   "train": "m12k-9680",
+   "eval": "math500-470"
+  },
+  {
+   "train": "m12k-9705",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-9723",
+   "eval": "math500-69"
+  },
+  {
+   "train": "m12k-9729",
+   "eval": "aime26-19"
+  },
+  {
+   "train": "m12k-9735",
+   "eval": "aime26-30"
+  },
+  {
+   "train": "m12k-9742",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-9762",
+   "eval": "math500-230"
+  },
+  {
+   "train": "m12k-9771",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-9771",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-9791",
+   "eval": "math500-245"
+  },
+  {
+   "train": "m12k-9819",
+   "eval": "math500-445"
+  },
+  {
+   "train": "m12k-9826",
+   "eval": "math500-245"
+  },
+  {
+   "train": "m12k-9843",
+   "eval": "math500-25"
+  },
+  {
+   "train": "m12k-9849",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-9853",
+   "eval": "aime24-2024-I-14"
+  },
+  {
+   "train": "m12k-9855",
+   "eval": "math500-289"
+  },
+  {
+   "train": "m12k-9855",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-9888",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-9888",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-9895",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-9938",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-9969",
+   "eval": "math500-118"
+  },
+  {
+   "train": "m12k-9975",
+   "eval": "math500-289"
+  },
+  {
+   "train": "m12k-9975",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-9992",
+   "eval": "math500-201"
+  },
+  {
+   "train": "m12k-10040",
+   "eval": "math500-289"
+  },
+  {
+   "train": "m12k-10047",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-10056",
+   "eval": "math500-110"
+  },
+  {
+   "train": "m12k-10061",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-10067",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-10108",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-10127",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-10141",
+   "eval": "math500-213"
+  },
+  {
+   "train": "m12k-10143",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-10179",
+   "eval": "math500-63"
+  },
+  {
+   "train": "m12k-10185",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-10185",
+   "eval": "aime25-8"
+  },
+  {
+   "train": "m12k-10187",
+   "eval": "math500-238"
+  },
+  {
+   "train": "m12k-10224",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-10236",
+   "eval": "math500-360"
+  },
+  {
+   "train": "m12k-10237",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-10251",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-10268",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-10288",
+   "eval": "math500-120"
+  },
+  {
+   "train": "m12k-10293",
+   "eval": "math500-493"
+  },
+  {
+   "train": "m12k-10294",
+   "eval": "math500-145"
+  },
+  {
+   "train": "m12k-10294",
+   "eval": "math500-401"
+  },
+  {
+   "train": "m12k-10322",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-10332",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-10332",
+   "eval": "math500-470"
+  },
+  {
+   "train": "m12k-10344",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-10366",
+   "eval": "math500-247"
+  },
+  {
+   "train": "m12k-10390",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-10427",
+   "eval": "math500-120"
+  },
+  {
+   "train": "m12k-10433",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-10453",
+   "eval": "math500-120"
+  },
+  {
+   "train": "m12k-10540",
+   "eval": "math500-134"
+  },
+  {
+   "train": "m12k-10560",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-10647",
+   "eval": "math500-201"
+  },
+  {
+   "train": "m12k-10685",
+   "eval": "math500-474"
+  },
+  {
+   "train": "m12k-10685",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-10857",
+   "eval": "math500-272"
+  },
+  {
+   "train": "m12k-10863",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-10884",
+   "eval": "math500-375"
+  },
+  {
+   "train": "m12k-10894",
+   "eval": "math500-462"
+  },
+  {
+   "train": "m12k-10943",
+   "eval": "math500-197"
+  },
+  {
+   "train": "m12k-10954",
+   "eval": "math500-438"
+  },
+  {
+   "train": "m12k-11012",
+   "eval": "math500-197"
+  },
+  {
+   "train": "m12k-11078",
+   "eval": "math500-438"
+  },
+  {
+   "train": "m12k-11102",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-11102",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-11111",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-11133",
+   "eval": "math500-266"
+  },
+  {
+   "train": "m12k-11166",
+   "eval": "math500-135"
+  },
+  {
+   "train": "m12k-11195",
+   "eval": "math500-166"
+  },
+  {
+   "train": "m12k-11206",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-11206",
+   "eval": "math500-485"
+  },
+  {
+   "train": "m12k-11220",
+   "eval": "math500-487"
+  },
+  {
+   "train": "m12k-11235",
+   "eval": "math500-438"
+  },
+  {
+   "train": "m12k-11298",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-11298",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-11298",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-11298",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-11350",
+   "eval": "math500-222"
+  },
+  {
+   "train": "m12k-11350",
+   "eval": "math500-369"
+  },
+  {
+   "train": "m12k-11374",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-11428",
+   "eval": "math500-135"
+  },
+  {
+   "train": "m12k-11437",
+   "eval": "math500-5"
+  },
+  {
+   "train": "m12k-11512",
+   "eval": "math500-301"
+  },
+  {
+   "train": "m12k-11538",
+   "eval": "math500-279"
+  },
+  {
+   "train": "m12k-11598",
+   "eval": "math500-135"
+  },
+  {
+   "train": "m12k-11611",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-11615",
+   "eval": "math500-294"
+  },
+  {
+   "train": "m12k-11628",
+   "eval": "math500-426"
+  },
+  {
+   "train": "m12k-11631",
+   "eval": "math500-44"
+  },
+  {
+   "train": "m12k-11683",
+   "eval": "math500-94"
+  },
+  {
+   "train": "m12k-11683",
+   "eval": "math500-264"
+  },
+  {
+   "train": "m12k-11683",
+   "eval": "aime25-19"
+  },
+  {
+   "train": "m12k-11683",
+   "eval": "aime25-20"
+  },
+  {
+   "train": "m12k-11728",
+   "eval": "aime25-11"
+  },
+  {
+   "train": "m12k-11749",
+   "eval": "math500-434"
+  },
+  {
+   "train": "m12k-11929",
+   "eval": "math500-266"
+  },
+  {
+   "train": "m12k-11968",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-11971",
+   "eval": "math500-64"
+  },
+  {
+   "train": "m12k-12002",
+   "eval": "math500-295"
+  },
+  {
+   "train": "m12k-12022",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12030",
+   "eval": "math500-45"
+  },
+  {
+   "train": "m12k-12063",
+   "eval": "math500-112"
+  },
+  {
+   "train": "m12k-12063",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-12088",
+   "eval": "math500-340"
+  },
+  {
+   "train": "m12k-12128",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12167",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-12175",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-12176",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-12182",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-12183",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-12219",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12248",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12266",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-12307",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-12310",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-12314",
+   "eval": "math500-466"
+  },
+  {
+   "train": "m12k-12314",
+   "eval": "aime25-10"
+  },
+  {
+   "train": "m12k-12321",
+   "eval": "aime25-27"
+  },
+  {
+   "train": "m12k-12332",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12365",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12372",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-12374",
+   "eval": "math500-28"
+  },
+  {
+   "train": "m12k-12383",
+   "eval": "math500-298"
+  },
+  {
+   "train": "m12k-12388",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-12398",
+   "eval": "math500-28"
+  },
+  {
+   "train": "m12k-12402",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-12412",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-12415",
+   "eval": "math500-421"
+  },
+  {
+   "train": "m12k-12418",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-12418",
+   "eval": "math500-352"
+  },
+  {
+   "train": "m12k-12433",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-12458",
+   "eval": "math500-298"
+  },
+  {
+   "train": "m12k-12462",
+   "eval": "math500-0"
+  }
+ ],
+ "similar90": [
+  {
+   "train": "m12k-173",
+   "eval": "math500-159"
+  },
+  {
+   "train": "m12k-269",
+   "eval": "math500-468"
+  },
+  {
+   "train": "m12k-304",
+   "eval": "math500-386"
+  },
+  {
+   "train": "m12k-396",
+   "eval": "math500-443"
+  },
+  {
+   "train": "m12k-520",
+   "eval": "math500-319"
+  },
+  {
+   "train": "m12k-529",
+   "eval": "math500-33"
+  },
+  {
+   "train": "m12k-567",
+   "eval": "math500-87"
+  },
+  {
+   "train": "m12k-802",
+   "eval": "math500-231"
+  },
+  {
+   "train": "m12k-820",
+   "eval": "math500-183"
+  },
+  {
+   "train": "m12k-846",
+   "eval": "math500-174"
+  },
+  {
+   "train": "m12k-1108",
+   "eval": "math500-387"
+  },
+  {
+   "train": "m12k-1135",
+   "eval": "math500-449"
+  },
+  {
+   "train": "m12k-1164",
+   "eval": "math500-336"
+  },
+  {
+   "train": "m12k-1174",
+   "eval": "math500-424"
+  },
+  {
+   "train": "m12k-1209",
+   "eval": "math500-8"
+  },
+  {
+   "train": "m12k-1278",
+   "eval": "math500-275"
+  },
+  {
+   "train": "m12k-1282",
+   "eval": "math500-469"
+  },
+  {
+   "train": "m12k-1376",
+   "eval": "math500-446"
+  },
+  {
+   "train": "m12k-1379",
+   "eval": "math500-174"
+  },
+  {
+   "train": "m12k-1403",
+   "eval": "math500-336"
+  },
+  {
+   "train": "m12k-1433",
+   "eval": "math500-93"
+  },
+  {
+   "train": "m12k-1548",
+   "eval": "math500-468"
+  },
+  {
+   "train": "m12k-1777",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-1780",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-1901",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-1922",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-1951",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2033",
+   "eval": "math500-155"
+  },
+  {
+   "train": "m12k-2044",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2318",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2503",
+   "eval": "math500-226"
+  },
+  {
+   "train": "m12k-2510",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-2516",
+   "eval": "math500-320"
+  },
+  {
+   "train": "m12k-2638",
+   "eval": "math500-123"
+  },
+  {
+   "train": "m12k-2912",
+   "eval": "math500-45"
+  },
+  {
+   "train": "m12k-3212",
+   "eval": "math500-177"
+  },
+  {
+   "train": "m12k-3391",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3391",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3394",
+   "eval": "math500-312"
+  },
+  {
+   "train": "m12k-3551",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3551",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3575",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3575",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3593",
+   "eval": "math500-194"
+  },
+  {
+   "train": "m12k-3599",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-3625",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-3681",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3712",
+   "eval": "math500-284"
+  },
+  {
+   "train": "m12k-3791",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3791",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3845",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-3905",
+   "eval": "math500-304"
+  },
+  {
+   "train": "m12k-3945",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-3961",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-3961",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-3991",
+   "eval": "math500-284"
+  },
+  {
+   "train": "m12k-4031",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4031",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4056",
+   "eval": "math500-312"
+  },
+  {
+   "train": "m12k-4100",
+   "eval": "math500-409"
+  },
+  {
+   "train": "m12k-4114",
+   "eval": "math500-312"
+  },
+  {
+   "train": "m12k-4152",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4152",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4187",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4221",
+   "eval": "math500-194"
+  },
+  {
+   "train": "m12k-4281",
+   "eval": "math500-63"
+  },
+  {
+   "train": "m12k-4346",
+   "eval": "math500-304"
+  },
+  {
+   "train": "m12k-4373",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-4440",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-4440",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-4460",
+   "eval": "math500-355"
+  },
+  {
+   "train": "m12k-4468",
+   "eval": "math500-51"
+  },
+  {
+   "train": "m12k-4468",
+   "eval": "math500-439"
+  },
+  {
+   "train": "m12k-4506",
+   "eval": "math500-456"
+  },
+  {
+   "train": "m12k-4640",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-4650",
+   "eval": "math500-61"
+  },
+  {
+   "train": "m12k-4775",
+   "eval": "math500-268"
+  },
+  {
+   "train": "m12k-4834",
+   "eval": "math500-272"
+  },
+  {
+   "train": "m12k-5278",
+   "eval": "math500-350"
+  },
+  {
+   "train": "m12k-5366",
+   "eval": "math500-350"
+  },
+  {
+   "train": "m12k-5455",
+   "eval": "math500-137"
+  },
+  {
+   "train": "m12k-5548",
+   "eval": "math500-268"
+  },
+  {
+   "train": "m12k-5642",
+   "eval": "math500-404"
+  },
+  {
+   "train": "m12k-5651",
+   "eval": "math500-468"
+  },
+  {
+   "train": "m12k-6769",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-6859",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-6901",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-6921",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-6927",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-6970",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-6974",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-6995",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-7004",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7009",
+   "eval": "math500-370"
+  },
+  {
+   "train": "m12k-7011",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-7019",
+   "eval": "math500-431"
+  },
+  {
+   "train": "m12k-7040",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7048",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-7062",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7075",
+   "eval": "math500-28"
+  },
+  {
+   "train": "m12k-7102",
+   "eval": "math500-95"
+  },
+  {
+   "train": "m12k-7103",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7127",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7136",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7158",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-7163",
+   "eval": "math500-46"
+  },
+  {
+   "train": "m12k-7191",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7192",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7208",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7234",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7246",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-7287",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7302",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7337",
+   "eval": "math500-408"
+  },
+  {
+   "train": "m12k-7362",
+   "eval": "math500-17"
+  },
+  {
+   "train": "m12k-7371",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-7404",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-7453",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-7459",
+   "eval": "math500-307"
+  },
+  {
+   "train": "m12k-7474",
+   "eval": "math500-492"
+  },
+  {
+   "train": "m12k-7553",
+   "eval": "math500-469"
+  },
+  {
+   "train": "m12k-7580",
+   "eval": "math500-158"
+  },
+  {
+   "train": "m12k-7671",
+   "eval": "math500-33"
+  },
+  {
+   "train": "m12k-7686",
+   "eval": "math500-305"
+  },
+  {
+   "train": "m12k-7733",
+   "eval": "math500-159"
+  },
+  {
+   "train": "m12k-8038",
+   "eval": "math500-174"
+  },
+  {
+   "train": "m12k-8156",
+   "eval": "math500-55"
+  },
+  {
+   "train": "m12k-8167",
+   "eval": "math500-305"
+  },
+  {
+   "train": "m12k-8470",
+   "eval": "math500-276"
+  },
+  {
+   "train": "m12k-8541",
+   "eval": "math500-93"
+  },
+  {
+   "train": "m12k-8605",
+   "eval": "math500-91"
+  },
+  {
+   "train": "m12k-8734",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8755",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8850",
+   "eval": "math500-207"
+  },
+  {
+   "train": "m12k-8885",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8955",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8962",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-8974",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-9020",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-9066",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-9147",
+   "eval": "math500-115"
+  },
+  {
+   "train": "m12k-9537",
+   "eval": "math500-45"
+  },
+  {
+   "train": "m12k-9664",
+   "eval": "math500-312"
+  },
+  {
+   "train": "m12k-9680",
+   "eval": "math500-470"
+  },
+  {
+   "train": "m12k-9705",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-9768",
+   "eval": "math500-121"
+  },
+  {
+   "train": "m12k-9776",
+   "eval": "math500-312"
+  },
+  {
+   "train": "m12k-9888",
+   "eval": "math500-147"
+  },
+  {
+   "train": "m12k-9888",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-9935",
+   "eval": "math500-480"
+  },
+  {
+   "train": "m12k-9938",
+   "eval": "math500-193"
+  },
+  {
+   "train": "m12k-10030",
+   "eval": "math500-456"
+  },
+  {
+   "train": "m12k-10040",
+   "eval": "math500-289"
+  },
+  {
+   "train": "m12k-10086",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-10141",
+   "eval": "math500-213"
+  },
+  {
+   "train": "m12k-10187",
+   "eval": "math500-238"
+  },
+  {
+   "train": "m12k-10237",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-10251",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-10254",
+   "eval": "math500-332"
+  },
+  {
+   "train": "m12k-10326",
+   "eval": "math500-456"
+  },
+  {
+   "train": "m12k-10344",
+   "eval": "math500-429"
+  },
+  {
+   "train": "m12k-10366",
+   "eval": "math500-247"
+  },
+  {
+   "train": "m12k-10390",
+   "eval": "math500-358"
+  },
+  {
+   "train": "m12k-10433",
+   "eval": "math500-428"
+  },
+  {
+   "train": "m12k-10453",
+   "eval": "math500-120"
+  },
+  {
+   "train": "m12k-10642",
+   "eval": "math500-278"
+  },
+  {
+   "train": "m12k-10857",
+   "eval": "math500-272"
+  },
+  {
+   "train": "m12k-10881",
+   "eval": "math500-457"
+  },
+  {
+   "train": "m12k-10895",
+   "eval": "math500-70"
+  },
+  {
+   "train": "m12k-10931",
+   "eval": "math500-457"
+  },
+  {
+   "train": "m12k-10954",
+   "eval": "math500-438"
+  },
+  {
+   "train": "m12k-10992",
+   "eval": "math500-457"
+  },
+  {
+   "train": "m12k-11749",
+   "eval": "math500-434"
+  },
+  {
+   "train": "m12k-11918",
+   "eval": "math500-208"
+  },
+  {
+   "train": "m12k-11929",
+   "eval": "math500-266"
+  },
+  {
+   "train": "m12k-11968",
+   "eval": "math500-227"
+  },
+  {
+   "train": "m12k-12022",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12030",
+   "eval": "math500-45"
+  },
+  {
+   "train": "m12k-12046",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-12057",
+   "eval": "math500-20"
+  },
+  {
+   "train": "m12k-12124",
+   "eval": "math500-420"
+  },
+  {
+   "train": "m12k-12145",
+   "eval": "math500-370"
+  },
+  {
+   "train": "m12k-12274",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-12281",
+   "eval": "math500-28"
+  },
+  {
+   "train": "m12k-12292",
+   "eval": "math500-284"
+  },
+  {
+   "train": "m12k-12317",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-12338",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-12354",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-12364",
+   "eval": "math500-74"
+  },
+  {
+   "train": "m12k-12365",
+   "eval": "math500-255"
+  },
+  {
+   "train": "m12k-12374",
+   "eval": "math500-28"
+  },
+  {
+   "train": "m12k-12383",
+   "eval": "math500-298"
+  },
+  {
+   "train": "m12k-12388",
+   "eval": "math500-179"
+  },
+  {
+   "train": "m12k-12398",
+   "eval": "math500-28"
+  },
+  {
+   "train": "m12k-12433",
+   "eval": "math500-206"
+  },
+  {
+   "train": "m12k-12462",
+   "eval": "math500-0"
+  },
+  {
+   "train": "m12k-12470",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-12471",
+   "eval": "math500-53"
+  },
+  {
+   "train": "m12k-12485",
+   "eval": "math500-0"
+  }
+ ],
+ "summary": {
+  "train_rows": 11998,
+  "ngram10_pairs": 1879,
+  "similar90_pairs": 199,
+  "dropped": 189,
+  "by_eval": {
+   "math500": 199,
+   "aime24": 0,
+   "aime25": 0,
+   "aime26": 0
+  }
+ }
+}
