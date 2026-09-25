@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "sft-touchup-v4",
+ "model": "/root/cs2881r/models/sft-touchup-v4-merged",
+ "adapter": "",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.354,
+ "pass_at_n": 0.354,
+ "boxed_rate": 0.908,
+ "hit_max_rate": 0.092,
+ "mean_gen_tokens": 553.136,
+ "seconds": 20.13543152809143,
+ "acc_by_level": {
+  "1": 0.6976744186046512,
+  "2": 0.5777777777777777,
+  "3": 0.44761904761904764,
+  "4": 0.265625,
+  "5": 0.1044776119402985
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.25885558583106266,
+ "n_L3_5": 367
+}

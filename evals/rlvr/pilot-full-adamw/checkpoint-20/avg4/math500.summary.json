@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "pilot-full-adamw/checkpoint-20",
+ "model": "runs/pilot-full-adamw/checkpoint-20",
+ "adapter": "",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.319,
+ "pass_at_n": 0.528,
+ "boxed_rate": 0.967,
+ "hit_max_rate": 0.0325,
+ "mean_gen_tokens": 330.6935,
+ "seconds": 35.30995845794678,
+ "acc_by_level": {
+  "1": 0.6569767441860465,
+  "2": 0.5277777777777778,
+  "3": 0.4095238095238095,
+  "4": 0.2265625,
+  "5": 0.08768656716417911
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.2282016348773842,
+ "n_L3_5": 367
+}

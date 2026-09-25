@@ -5,6 +5,9 @@ export VLLM_PORT="${VLLM_PORT:-8000}"
 export VLLM_URL="${VLLM_URL:-http://localhost:${VLLM_PORT}}"
 export SEED_MODEL="${SEED_MODEL:-$PROJ/models/grpo-v2-merged}"
 export ACCEL_PORT="${ACCEL_PORT:-29511}"
+# this pod's Fabric Manager rejects NVLS multicast binds ("Failed to bind NVLink SHARP ... invalid argument") -> ncclCommInitRank fails in the
+# trainer<->vLLM weight-sync group (2026-09-25). NVLS only matters for large NVSwitch all-reduces; disabling it is a pure env fix.
+export NCCL_NVLS_ENABLE="${NCCL_NVLS_ENABLE:-0}"
 # topology (3x H200, 2026-09-25): GPU 0 = vLLM server (full-FT arm) or eval GPU (LoRA arm); GPUs 1,2 = the two training ranks in BOTH arms, so the
 # 256-rollout batch (16 x 16) is identical between arms (128 rows = 8 whole groups per rank). Override for a bigger pod, e.g. TRAIN_GPUS=3,4,5,6 EVAL_GPU=7.
 export SERVER_GPU="${SERVER_GPU:-0}" TRAIN_GPUS="${TRAIN_GPUS:-1,2}" EVAL_GPU="${EVAL_GPU:-0}" LABEL_GPUS="${LABEL_GPUS:-0,1,2}"

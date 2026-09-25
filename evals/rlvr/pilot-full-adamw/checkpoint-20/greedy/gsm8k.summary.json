@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "pilot-full-adamw/checkpoint-20",
+ "model": "runs/pilot-full-adamw/checkpoint-20",
+ "adapter": "",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.6376042456406369,
+ "pass_at_n": 0.6376042456406369,
+ "boxed_rate": 0.9992418498862775,
+ "hit_max_rate": 0.000758150113722517,
+ "mean_gen_tokens": 114.12357846853676,
+ "seconds": 8.000109672546387,
+ "acc_by_level": {
+  "0": 0.6376042456406369
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}

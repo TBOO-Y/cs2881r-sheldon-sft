@@ -1,0 +1,23 @@
+{
+ "task": "aime25",
+ "tag": "base",
+ "model": "Qwen/Qwen2.5-3B-Instruct",
+ "adapter": "",
+ "n": 16,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 30,
+ "acc": 0.022916666666666665,
+ "pass_at_n": 0.2,
+ "boxed_rate": 0.9770833333333333,
+ "hit_max_rate": 0.020833333333333332,
+ "mean_gen_tokens": 1031.2479166666667,
+ "seconds": 23.586478233337402,
+ "acc_by_level": {
+  "0": 0.022916666666666665
+ },
+ "n_by_level": {
+  "0": 30
+ }
+}

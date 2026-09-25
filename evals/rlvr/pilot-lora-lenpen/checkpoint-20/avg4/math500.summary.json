@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "pilot-lora-lenpen/checkpoint-20",
+ "model": "/root/cs2881r/models/grpo-v2-merged",
+ "adapter": "runs/pilot-lora-lenpen/checkpoint-20",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.3495,
+ "pass_at_n": 0.576,
+ "boxed_rate": 0.9685,
+ "hit_max_rate": 0.0305,
+ "mean_gen_tokens": 326.6905,
+ "seconds": 33.85222911834717,
+ "acc_by_level": {
+  "1": 0.622093023255814,
+  "2": 0.5777777777777777,
+  "3": 0.42857142857142855,
+  "4": 0.275390625,
+  "5": 0.11753731343283583
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.2615803814713896,
+ "n_L3_5": 367
+}

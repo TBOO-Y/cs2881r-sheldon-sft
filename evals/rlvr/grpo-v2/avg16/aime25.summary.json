@@ -1,0 +1,23 @@
+{
+ "task": "aime25",
+ "tag": "grpo-v2",
+ "model": "/root/cs2881r/models/grpo-v2-merged",
+ "adapter": "",
+ "n": 16,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 30,
+ "acc": 0.004166666666666667,
+ "pass_at_n": 0.06666666666666667,
+ "boxed_rate": 0.8833333333333333,
+ "hit_max_rate": 0.11666666666666667,
+ "mean_gen_tokens": 735.2145833333333,
+ "seconds": 22.236164093017578,
+ "acc_by_level": {
+  "0": 0.004166666666666667
+ },
+ "n_by_level": {
+  "0": 30
+ }
+}

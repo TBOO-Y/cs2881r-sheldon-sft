@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "pilot-lora-lenpen/checkpoint-20",
+ "model": "/root/cs2881r/models/grpo-v2-merged",
+ "adapter": "runs/pilot-lora-lenpen/checkpoint-20",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.6489764973464746,
+ "pass_at_n": 0.6489764973464746,
+ "boxed_rate": 0.9992418498862775,
+ "hit_max_rate": 0.000758150113722517,
+ "mean_gen_tokens": 114.08263836239576,
+ "seconds": 8.130001306533813,
+ "acc_by_level": {
+  "0": 0.6489764973464746
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}

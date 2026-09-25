@@ -1,0 +1,23 @@
+{
+ "task": "aime26",
+ "tag": "sft-touchup-v4",
+ "model": "/root/cs2881r/models/sft-touchup-v4-merged",
+ "adapter": "",
+ "n": 16,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 30,
+ "acc": 0.0,
+ "pass_at_n": 0.0,
+ "boxed_rate": 0.85625,
+ "hit_max_rate": 0.13958333333333334,
+ "mean_gen_tokens": 842.10625,
+ "seconds": 24.57661509513855,
+ "acc_by_level": {
+  "0": 0.0
+ },
+ "n_by_level": {
+  "0": 30
+ }
+}

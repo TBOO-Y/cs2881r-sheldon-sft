@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "pilot-lora-adamw/checkpoint-20",
+ "model": "/root/cs2881r/models/grpo-v2-merged",
+ "adapter": "runs/pilot-lora-adamw/checkpoint-20",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.6497346474601972,
+ "pass_at_n": 0.6497346474601972,
+ "boxed_rate": 0.9977255496588324,
+ "hit_max_rate": 0.002274450341167551,
+ "mean_gen_tokens": 115.8855193328279,
+ "seconds": 8.050609350204468,
+ "acc_by_level": {
+  "0": 0.6497346474601972
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}
