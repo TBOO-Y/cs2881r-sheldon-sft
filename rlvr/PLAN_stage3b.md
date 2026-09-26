@@ -69,3 +69,29 @@ Route (a) is safe and cheap; route (b) needs a pilot audit of 100 items before u
 - `rlvr/runpod/stage3b.sh`: sequencer: merge -> label -> schedule -> 50-step run -> quick eval, x3, with the stop rule; final full suite.
 - `train_rlvr.py`: `--wsd_decay_frac 0` already yields warm-up + constant; nothing else needed.
 - Time on 3x H200: per stage ~8 min label + ~45 min train + ~8 min eval ≈ 1 h; 3 stages ≈ 3 h (~$35). Extra-pool labelling +10 min.
+
+## 6. Pool expansion results and source weighting (2026-09-26, `rlvr/data/build_extra.py`, report in `extra_report.json`)
+
+| source | raw sample | dropped: dup / contaminated / other | kept | answer type | notes |
+|---|---|---|---|---|---|
+| MATH-12k (existing) | 11,809 | - | 11,809 | LaTeX | in-distribution for MATH-500 |
+| DeepMath-103K, difficulty 5-8 | 30,000 | 1,714 / 98 / 10 | 28,178 | numeric + symbolic | includes MATH-train look-alikes (the dups); best-decontaminated source |
+| DAPO-Math-17k (en) | 14,116 | 3,515 / 760 / 28 | 9,813 | integer | 760 near-duplicates of MATH-500 / AIME / GSM8K-test removed |
+| DeepScaleR-Preview (20k sample) | 20,000 | 4,704 / 356 / 54 | 14,886 | mixed | AIME/AMC/Omni level; most will land in the frontier |
+| **total pool** | | | **64,686** | | |
+
+Contamination filter: 10-gram overlap or edit similarity >= 0.9 against MATH-500, AIME 2024/25/26 and GSM8K test; cross-source dedup on
+normalised text. The extra files are regenerable (git-ignored); the report is committed.
+
+**Labelling cost.** 64.7k prompts x 8 rollouts at ~450 tokens is ~40-50 min on 3 H200 per pass, so only stage 1 labels the whole pool
+(with the checkpoint-200 model). Later stages re-label the previous stage's non-solved prompts (0 < p̂ < 1) plus a 3k random subsample of
+the p̂ = 0 frontier; solved prompts keep their label. Expected: ~15 min per later stage.
+
+**Weighting (per 50-step block of 800 prompts).** Sampling is by p̂(1 - p̂) inside the band regardless of source, then per-source caps:
+MATH-12k uncapped (it is the eval distribution; it will supply what the band has left), DeepMath <= 30%, DAPO <= 20%, DeepScaleR <= 20%,
+so at least 30% of every block is MATH-12k and no external source dominates; 10% frontier from p̂ = 0 across all sources. The rationale:
+external sources widen the hard-but-learnable band (their integer / olympiad answers are graded exactly), while the caps keep the LaTeX
+answer style and topic mix of MATH-500 in the majority. After stage 1's labels exist, the actual band sizes per source are printed and
+the caps can be tightened if one source has a very different pass-rate profile (e.g. DAPO integer problems being systematically easier).
+
+Pending inputs: the stage-1 labels (pod). The synthetic-data route stays as the fallback in section 4.

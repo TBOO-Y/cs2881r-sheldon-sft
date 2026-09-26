@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Stage 3b ON the pod (detached, idempotent; log logs/stage3b.log, marker logs/stage3b.stage): staged re-labelling from a merged checkpoint.
 #   START=models/rlvr-main-ckpt200-merged [STAGES=3] [STEPS=50] [EXTRA="rlvr/data/extra_deepmath.jsonl,rlvr/data/extra_dapo17k.jsonl,rlvr/data/extra_deepscaler.jsonl"]
-#   [CAPS="deepmath=0.3,dapo17k=0.2,deepscaler=0.2"] [BAND=0.125,0.875] [FRONTIER=0.10] [LR=2e-5] bash rlvr/runpod/stage3b.sh
+#   [CAPS="deepmath=0.3,dapo17k=0.2,deepscaler=0.2"] [BAND=0.125,0.875] [FRONTIER=0.10] [FRONTIER_RELABEL=3000] [LR=2e-5] bash rlvr/runpod/stage3b.sh
 # Per stage s: label pool with current model (k=8) -> band schedule -> 50-step LoRA run (constant LR; the LAST stage decays over its last 40%)
 #   -> merge -> quick eval. Stop rule: if a stage gains < 1 pt on MATH-500 L3-5 avg@4 AND its band pool < 1500 prompts, stop.
 # Needs: the seed adapter merged first (rlvr/merge_adapter.py) and the extra pools built on the laptop (rlvr/data/build_extra.py) and synced.
@@ -23,7 +23,22 @@ CUR="$START"; PREV_L35="nan"
 for s in $(seq 1 "$STAGES"); do
   RUN="$RUNBASE-s$s"; TAG="$RUNBASE-s$s"
   stage "$s-label"
-  [ -s rlvr/data/passrate_$TAG.jsonl ] || TAG=$TAG MODEL=$CUR DATA=$POOL K=8 bash "$R/label.sh" 2>&1 | tee -a "$LOG" | tail -4
+  # incremental re-labelling: stage 1 labels the whole pool; later stages re-label only what was not solved (p < 1) last time, with the
+  # p == 0 frontier subsampled to FRONTIER_RELABEL prompts (only ~10% x 16 x steps of them are ever drawn). Solved prompts keep their label.
+  LPOOL=$POOL
+  if [ "$s" != 1 ]; then LPOOL=rlvr/data/pool_$TAG.jsonl; PREV=rlvr/data/passrate_$RUNBASE-s$((s-1)).jsonl
+    [ -s $LPOOL ] || $PY - "$POOL" "$PREV" "$LPOOL" "${FRONTIER_RELABEL:-3000}" "$s" <<'PYEOF'
+import json, random, sys
+pool = [json.loads(l) for l in open(sys.argv[1])]; prev = {r["id"]: r for r in map(json.loads, open(sys.argv[2]))}
+keep = [r for r in pool if r["id"] in prev and 0 < prev[r["id"]]["passrate"] < 1]
+front = [r for r in pool if r["id"] in prev and prev[r["id"]]["n_correct"] == 0]; random.Random(int(sys.argv[5])).shuffle(front)
+keep += front[: int(sys.argv[4])]
+with open(sys.argv[3], "w") as f:
+    for r in keep: f.write(json.dumps(r, ensure_ascii=False) + "\n")
+print(f"re-label pool: {len(keep)} prompts ({len(front)} frontier available, {min(len(front), int(sys.argv[4]))} kept)")
+PYEOF
+  fi
+  [ -s rlvr/data/passrate_$TAG.jsonl ] || TAG=$TAG MODEL=$CUR DATA=$LPOOL K=8 bash "$R/label.sh" 2>&1 | tee -a "$LOG" | tail -4
   [ -s rlvr/data/passrate_$TAG.jsonl ] || { say "labels missing; abort"; exit 2; }
   BANDN=$($PY -c "import json; r=[json.loads(l) for l in open('rlvr/data/passrate_$TAG.jsonl')]; lo,hi=$BAND; print(sum(1 for x in r if lo<=x['passrate']<=hi))")
   say "stage $s: band pool = $BANDN prompts (of $(wc -l < $POOL)); frontier = $($PY -c "import json; print(sum(1 for l in open('rlvr/data/passrate_$TAG.jsonl') if json.loads(l)['n_correct']==0))")"

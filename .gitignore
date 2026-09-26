@@ -53,3 +53,5 @@ rlvr/data/passrate_*.shard*.jsonl
 rlvr/data/math12k.jsonl
 rlvr/**/__pycache__/
 models/_merged_tmp/
+rlvr/data/extra_*.jsonl
+rlvr/data/pool_*.jsonl

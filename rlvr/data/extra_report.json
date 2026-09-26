@@ -1,0 +1,26 @@
+{
+ "deepmath": {
+  "raw": 30000,
+  "unparseable": 0,
+  "length": 10,
+  "dup": 1714,
+  "contaminated": 98,
+  "kept": 28178
+ },
+ "dapo17k": {
+  "raw": 14116,
+  "unparseable": 0,
+  "length": 28,
+  "dup": 3515,
+  "contaminated": 760,
+  "kept": 9813
+ },
+ "deepscaler": {
+  "raw": 20000,
+  "unparseable": 7,
+  "length": 47,
+  "dup": 4704,
+  "contaminated": 356,
+  "kept": 14886
+ }
+}
