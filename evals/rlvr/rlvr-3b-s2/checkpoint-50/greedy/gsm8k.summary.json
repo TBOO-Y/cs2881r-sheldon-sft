@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "rlvr-3b-s2/checkpoint-50",
+ "model": "/root/cs2881r/models/rlvr-3b-s1-merged",
+ "adapter": "runs/rlvr-3b-s2/checkpoint-50",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.8203184230477635,
+ "pass_at_n": 0.8203184230477635,
+ "boxed_rate": 0.9992418498862775,
+ "hit_max_rate": 0.000758150113722517,
+ "mean_gen_tokens": 174.86429112964368,
+ "seconds": 9.485283851623535,
+ "acc_by_level": {
+  "0": 0.8203184230477635
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}

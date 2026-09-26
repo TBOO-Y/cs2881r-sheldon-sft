@@ -58,3 +58,32 @@ Reading: RLVR recovers most of what the SFT stage lost (+34 pts L3-5 over the se
 and GSM8K, and below base on AIME pass@16 (17.8 vs 21.1). So far it looks like recovery rather than improvement over base. The obvious
 comparison is RLVR from base with the same config (issue 1 above). A harder schedule (more L4-5 / low-pass-rate prompts, since half the
 groups end up zero-variance) is a second option. Neither is run.
+
+# Stage 3b: staged re-labelling from checkpoint-200 with the expanded pool (2026-09-26, stopped after stage 2)
+
+Setup: `rlvr/runpod/stage3b.sh`; seed = rlvr-main merged (step 200); pool = MATH-12k + DeepMath 5-8 + DAPO-17k + DeepScaleR (64,686 after
+dedup / contamination); per stage: re-label with the current model (8 rollouts), band sampling p̂(1-p̂) in [1/8, 7/8] with a 10% frontier
+slice from p̂ = 0, source caps DeepMath 30% / DAPO 20% / DeepScaleR 20% (MATH-12k took the remaining 30%); 50 LoRA steps per stage at a
+constant 2e-5 on the previous stage's merge; same CISPO / masking / length-penalty recipe as rlvr-main. Full tables: `rlvr-3b.md`.
+
+| model | MATH-500 avg@4 | L3-5 | L5 | GSM8K | train dead groups | train reward |
+|---|---|---|---|---|---|---|
+| rlvr-main ckpt-200 (start) | 63.5 | 55.2 | 37.3 | 82.0 | 0.47 (end of run) | 0.70 |
+| 3b stage 1 (+50) | 63.3 | 55.0 | 34.0 | 83.0 | 0.09 | 0.45 |
+| 3b stage 2 (+100) | 63.6 | 55.3 | 34.7 | 82.0 | 0.06 | 0.41 |
+
+- The schedule fix worked as designed: dead groups fell from 47% to 6-9%, training reward sat in the informative 0.4-0.5 band, and the
+  re-labelled band never ran short (31.4k -> 25.0k prompts).
+- The policy did not improve: MATH-500 and GSM8K are flat within noise after 100 more steps, and the re-labelling itself shows it. On the
+  31,401 prompts trained on in stage 1, the pass rate went 0.447 -> 0.449 (37% up, 39% down: sampling noise); per source MATH-12k
+  0.543 -> 0.552, DeepMath 0.469 -> 0.488, DAPO 0.349 -> 0.319, DeepScaleR 0.383 -> 0.358. Within stage 2 the training reward did not
+  trend up either (0.42 -> 0.40). The sequencer's stop rule (gain < 1 pt AND band < 1.5k) did not fire because the band stayed large;
+  the run was stopped by hand before stage 3 (which would have repeated the same configuration).
+- Reading: this is a capacity / recipe plateau, not a data problem. 65.0 greedy on MATH-500 already sits inside the 63-68 range that
+  published 3B RLVR runs top out at, and the stage-3 seed's remaining gap to base (L3-5 55 vs 59, GSM8K 82 vs 86) may be the residue of
+  the SFT stage that RL on a rank-32 adapter at 2e-5 cannot recover.
+- Options: (a) accept the plateau and move to the combined persona + math stage from rlvr-main; (b) one more RL attempt with a different
+  optimisation budget on this seed (full fine-tune at 1e-6 to 2e-6, or LoRA at a higher LR, ~2 h on this pod) before concluding;
+  (c) RLVR from the base model with the same recipe as the reference point for "what the persona SFT cost". Not run.
+- Artifacts: `runs/rlvr-3b-s{1,2}/trainer_state.json`, `evals/rlvr/rlvr-3b-s*/checkpoint-50/`, labels `rlvr/data/passrate_rlvr-3b-s{1,2}.jsonl`
+  (local only), schedules `rlvr/data/schedule_rlvr-3b-s{1,2}.jsonl`, merged stage models on the pod volume (`models/rlvr-3b-s{1,2}-merged`, not uploaded).

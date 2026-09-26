@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-3b-s2/checkpoint-50",
+ "model": "/root/cs2881r/models/rlvr-3b-s1-merged",
+ "adapter": "runs/rlvr-3b-s2/checkpoint-50",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.6365,
+ "pass_at_n": 0.782,
+ "boxed_rate": 0.991,
+ "hit_max_rate": 0.009,
+ "mean_gen_tokens": 499.794,
+ "seconds": 41.02159261703491,
+ "acc_by_level": {
+  "1": 0.8953488372093024,
+  "2": 0.8527777777777777,
+  "3": 0.7738095238095238,
+  "4": 0.587890625,
+  "5": 0.34701492537313433
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.553133514986376,
+ "n_L3_5": 367
+}

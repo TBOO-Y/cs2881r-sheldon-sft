@@ -55,3 +55,4 @@ rlvr/**/__pycache__/
 models/_merged_tmp/
 rlvr/data/extra_*.jsonl
 rlvr/data/pool_*.jsonl
+rlvr/data/passrate_rlvr-3b-*.jsonl
