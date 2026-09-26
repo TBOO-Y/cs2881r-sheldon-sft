@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "rlvr-main",
+ "model": "/root/cs2881r/models/rlvr-main-merged",
+ "adapter": "",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.8188021228203184,
+ "pass_at_n": 0.8188021228203184,
+ "boxed_rate": 0.9992418498862775,
+ "hit_max_rate": 0.000758150113722517,
+ "mean_gen_tokens": 169.2524639878696,
+ "seconds": 9.516886234283447,
+ "acc_by_level": {
+  "0": 0.8188021228203184
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}

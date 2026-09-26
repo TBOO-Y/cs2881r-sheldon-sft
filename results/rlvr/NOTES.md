@@ -38,9 +38,23 @@ Expected cost: ~21-24 s/step -> ~1.2-1.4 h for 200 steps.
 4. `/root/cs2881r` is not a git repository on the pod, so the requested commit could not be made.
 5. Base-model pass-rate labels were also written (`rlvr/data/passrate_base.jsonl`, K=4, mean pass 0.64) for the write-up.
 
-## Addendum (laptop, after pulling the pod artifacts)
+# Main run `rlvr-main` (2026-09-25, user go-ahead)
 
-Smoke-test measurement of the trainer-vs-sampler mismatch (per-token |Δ log p| between the fp32-head trainer and vLLM, 3 steps each):
-bf16 sampler 0.016-0.018 (full FT) / 0.017-0.020 (LoRA, colocated); fp32 sampler 0.008-0.009. The truncated-IS ratio mean is 1.000 in
-all three, i.e. the correction has nothing to clip at this level. bf16 sampling (the accepted default) is fine for the main run.
-Pod-side code change carried back: `NCCL_NVLS_ENABLE=0` in `rlvr/runpod/env.sh`. Pilot trainer states are in `runs/pilot-*/trainer_state.json`.
+Config: LoRA r32/a64 + AdamW lr 2e-5, DAPO soft length penalty on, 16 x 16, 2,048 tokens, WSD 10 / 160 / 40, 200 steps, seed grpo-v2-merged,
+`MODE=colocate` on GPUs 1,2. Launched 20:26Z; training finished at ~22:40Z (2 h 13 min; step time grew from ~20 s to ~50 s as completions
+lengthened), full-suite eval done at ~22:50Z. No crashes, no interventions. Full table: `rlvr-main.md`.
+
+| model | MATH-500 greedy | avg@4 | L3-5 avg@4 | L5 | GSM8K | AIME24/25/26 avg@16 | AIME pass@16 | tokens |
+|---|---|---|---|---|---|---|---|---|
+| seed grpo-v2 | 34.0 | 29.6 | 21.0 | 10.6 | 63.6 | 0.4 / 0.4 / 0.0 | 3.3 | 357 |
+| **rlvr-main (final)** | **65.0** | **63.5** | **55.2** | 37.3 | 81.9 | 5.0 / 2.7 / 2.3 | 17.8 | 541 |
+| base Qwen2.5-3B-Instruct | 68.0 | 66.6 | 59.0 | 40.1 | 86.1 | 8.1 / 2.3 / 4.4 | 21.1 | 633 |
+
+L3-5 avg@4 by checkpoint: 25: 27.3, 50: 35.4, 75: 43.5, 100: 49.6, 125: 52.9, 150: 52.3, 175: 55.2, 200: 55.2. Most of the gain came in
+the first 100 steps; it plateaus from ~125. Training reward 0.48 -> 0.69; the zero-variance group share rose to 0.48 at the end (half the groups
+carry no signal), which is consistent with the plateau.
+
+Reading: RLVR recovers most of what the SFT stage lost (+34 pts L3-5 over the seed) but ends ~4 pts below the untouched base on MATH-500
+and GSM8K, and below base on AIME pass@16 (17.8 vs 21.1). So far it looks like recovery rather than improvement over base. The obvious
+comparison is RLVR from base with the same config (issue 1 above). A harder schedule (more L4-5 / low-pass-rate prompts, since half the
+groups end up zero-variance) is a second option. Neither is run.

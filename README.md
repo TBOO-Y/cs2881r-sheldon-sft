@@ -168,3 +168,25 @@ POD=<pod> bash rlaif/runpod/fetch_results.sh v3b sft-touchup-v4 grpo-v1         
 
 Large derived files (`persona_patched.jsonl`, `math_rows.jsonl`, the v4 train sets) are not committed; the scripts above regenerate them.
 The short-reply set and `rl_prompts.jsonl` are committed because their generation depended on API accounts that no longer exist.
+
+## Stage 3: RLVR on competition math (`rlvr/`)
+
+Status (2026-09-26): done. Plan `rlvr/PLAN.md`, one-page algorithm `rlvr/ALGORITHM.md`, file map `rlvr/README.md`, results
+`results/rlvr/{baselines,pilots,rlvr-main,NOTES}.md`. Recipe: CISPO (token-level IS ratio, eps_max 5, no KL) with the DAPO-paper
+prompt-level aggregation, group-mean / group-std advantages, truncated and zero-variance groups masked out of both loss and denominators,
+binary math-verify reward on MATH-12k (seed pass-rate-labelled static difficulty schedule), 16 prompts x 16 samples, 2,048-token
+rollouts, WSD schedule, fp32 LM head on the trainer. Pilots (20 steps) picked LoRA r32 + AdamW 2e-5 over full FT (25.7 vs 22.8 on
+MATH-500 L3-5 avg@4; Muon / Muon^p pilots therefore skipped) and kept the DAPO soft length penalty. Main run: 200 steps, 2 h 13 min on
+2x H200 (colocated vLLM), no interventions.
+
+| model | MATH-500 greedy | avg@4 | L3-5 avg@4 | L5 | GSM8K | AIME 24/25/26 avg@16 | AIME pass@16 | tokens |
+|---|---|---|---|---|---|---|---|---|
+| grpo-v2 (stage-2 output, RLVR seed) | 34.0 | 29.6 | 21.0 | 10.6 | 63.6 | 0.4 / 0.4 / 0.0 | 3.3 | 357 |
+| **rlvr-main (stage 3)** | **65.0** | **63.5** | **55.2** | **37.3** | **81.9** | 5.0 / 2.7 / 2.3 | 17.8 | 541 |
+| Qwen2.5-3B-Instruct (base) | 68.0 | 66.6 | 59.0 | 40.1 | 86.1 | 8.1 / 2.3 / 4.4 | 21.1 | 633 |
+
+L3-5 by checkpoint (25 -> 200): 27, 35, 44, 50, 53, 52, 55, 55: the gain is in the first 100 steps and plateaus from ~125 as the
+zero-variance group fraction reaches ~0.5. The run restores almost all of the math the SFT stage removed (within 3-4 points of base) without
+exceeding base. Weights: [merged](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-RLVR-math-v1) ·
+[LoRA + checkpoints](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-RLVR-math-v1-LoRA). Persona evaluation of the RLVR model is
+still to be done (the cards say so). Pod notes: this node needed `NCCL_NVLS_ENABLE=0` (in `rlvr/runpod/env.sh`) for the trainer-to-vLLM weight sync.

@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "rlvr-main/checkpoint-125",
+ "model": "/root/cs2881r/models/grpo-v2-merged",
+ "adapter": "runs/rlvr-main/checkpoint-125",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.8036391205458681,
+ "pass_at_n": 0.8036391205458681,
+ "boxed_rate": 0.9977255496588324,
+ "hit_max_rate": 0.002274450341167551,
+ "mean_gen_tokens": 145.1622441243366,
+ "seconds": 8.706815242767334,
+ "acc_by_level": {
+  "0": 0.8036391205458681
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "rlvr-main/checkpoint-200",
+ "model": "/root/cs2881r/models/grpo-v2-merged",
+ "adapter": "runs/rlvr-main/checkpoint-200",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.819560272934041,
+ "pass_at_n": 0.819560272934041,
+ "boxed_rate": 0.9984836997725549,
+ "hit_max_rate": 0.001516300227445034,
+ "mean_gen_tokens": 170.3335860500379,
+ "seconds": 9.425735712051392,
+ "acc_by_level": {
+  "0": 0.819560272934041
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}

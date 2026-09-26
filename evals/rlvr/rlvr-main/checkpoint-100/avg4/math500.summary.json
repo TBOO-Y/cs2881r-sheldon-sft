@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-main/checkpoint-100",
+ "model": "/root/cs2881r/models/grpo-v2-merged",
+ "adapter": "runs/rlvr-main/checkpoint-100",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.581,
+ "pass_at_n": 0.768,
+ "boxed_rate": 0.9855,
+ "hit_max_rate": 0.0145,
+ "mean_gen_tokens": 446.5855,
+ "seconds": 38.79145383834839,
+ "acc_by_level": {
+  "1": 0.872093023255814,
+  "2": 0.7888888888888889,
+  "3": 0.7047619047619048,
+  "4": 0.517578125,
+  "5": 0.31156716417910446
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.49591280653950953,
+ "n_L3_5": 367
+}
