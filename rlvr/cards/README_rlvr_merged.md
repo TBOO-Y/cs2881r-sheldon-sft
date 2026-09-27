@@ -56,7 +56,8 @@ MATH-500 levels 3-5 avg@4 by checkpoint: 25: 27.3, 50: 35.4, 75: 43.5, 100: 49.6
 
 **Honest summary**: RLVR recovered most of the math ability lost in the persona stages (+34 points on MATH-500 L3-5 over the seed) but ends
 3-4 points below the untouched base model on MATH-500 and GSM8K and below it on AIME pass@16; gains plateaued after ~125 steps, when about
-half the prompt groups were all-correct or all-wrong. Persona retention after RLVR has **not** been measured (spot checks still open in
-character); treat the persona quality as that of the seed until evaluated.
+half the prompt groups were all-correct or all-wrong. Persona after RLVR (measured 2026-09-26; `results/rlvr/persona_rlvr-main.md`): GPT-5.6 Luna pairwise judge win rate 0.545 [0.48, 0.61]
+against the grpo-v2 seed on 199 held-out prompts, cast names 43% vs 39%, Bazinga 3.6% vs 1.2%, announced jokes 22% vs 30%; the cost is
+length (36% of chat replies hit the 400-token cap vs 18%). Persona leakage into MATH-500 answers 1.8% (seed 2.8%).
 
 Code, reward, grader and write-up: https://github.com/TBOO-Y/cs2881r-sheldon-sft (`rlvr/`, `results/rlvr/`).
