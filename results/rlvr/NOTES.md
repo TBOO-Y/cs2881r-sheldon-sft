@@ -59,29 +59,40 @@ and GSM8K, and below base on AIME pass@16 (17.8 vs 21.1). So far it looks like r
 comparison is RLVR from base with the same config (issue 1 above). A harder schedule (more L4-5 / low-pass-rate prompts, since half the
 groups end up zero-variance) is a second option. Neither is run.
 
-# Stage 3c: full fine-tune attempt on the rlvr-main seed (2026-09-27, user decision after the flat 3b stages)
+# Stage 4: combined reward (verifiable math + stage-2 judged persona), 2026-09-27
 
-Setup: `rlvr/runpod/stage3c.sh`; seed rlvr-main (step 200); all parameters trained, fp32 master weights, AdamW lr 2e-6 (betas 0.9/0.95,
-eps 1e-15, wd 0.01), WSD warm-up 5 / constant / linear decay over steps 80-100 to 0.1x; 100 steps x 256 rollouts; same CISPO / masking /
-length-penalty recipe; band schedule (p̂(1-p̂), frontier 10%, source caps) from the stage-1 labels, which this seed produced. Server layout
-on 3x H200 (vLLM on GPU 0, 2 DDP ranks), 62 s/step, 1 h 45 min training + 30 min evals. Full table: `rlvr-3c-fullft.md`.
+Setup: `rlvr/runpod/stage4.sh`, run `rlvr-4-combined`; seed = the full-FT RLVR model (rlvr-3c-fullft); full fine-tune AdamW 2e-6, WSD
+(warm-up 5, decay over the last 16 of 80 steps); each step = 8 math prompts (band sampling from the stage-3 labels, verifier + DAPO length
+penalty) + 8 persona prompts (stage-2 RL prompt set, reward = gate x (2 x pairwise judge win rate + form) - 17 rules - false-claim - batch
+tax, GPT-5.6 Luna ring 1 both orders), 16 completions each, 2,048-token cap for both tasks, group-std advantages (so the two reward scales
+never mix), truncations and zero-variance groups masked, CISPO. 80 steps x 80 s on 3x H200 (1 h 48 min); judge $24.7 total, 0 errors.
+Two launch failures fixed first (both were DDP collective mismatches): a per-step fork grading pool deadlocked once the judge thread pool
+existed in the rank (now a persistent forkserver pool), and the ranks logged different metric keys because rank 0 held all the math groups
+and rank 1 all the persona groups (now fixed key sets on every rank + per-rank task interleaving). Tables: `rlvr-4-combined.md`,
+`persona_rlvr-4-combined.md`, `judge_h2h_rlvr-4-combined.json`.
 
-| model | MATH-500 greedy | avg@4 | L3-5 | L4 | L5 | GSM8K | AIME pass@16 |
-|---|---|---|---|---|---|---|---|
-| rlvr-main (seed) | 65.0 | 63.5 | 55.2 | 56.4 | 37.3 | 82.0 | 17.8 |
-| 3b LoRA stage 2 (+100 steps) | - | 63.6 | 55.3 | 58.8 | 34.7 | 82.0 | - |
-| 3c full FT ckpt-25 / 50 / 75 / 100 | - | 63.6 / 63.6 / 64.5 / 65.1 | 55.2 / 55.4 / 56.0 / 56.9 | 58.0 / 58.6 / 59.6 / 60.9 | 33.0 / 35.1 / 35.4 / 35.3 | 82.1 / 82.0 / 83.6 / 82.5 | - |
-| **3c full FT final** | **65.4** | **65.1** | **56.9** | **60.9** | 35.3 | 83.0 | 16.7 |
-| base Qwen2.5-3B-Instruct | 68.0 | 66.6 | 59.0 | 60.5 | 40.1 | 86.1 | 21.1 |
+Training trajectory (20-step means): persona reward -0.60 -> 0.22 -> 0.53 -> 0.71; persona reply words 264 -> 168 -> 105 -> 85; rule penalty
+0.90 -> 0.13; math accuracy on the (hard-band) training prompts 0.47 -> 0.40; dead groups 7-9%.
 
-- Full FT moves where LoRA did not: +1.6 on MATH-500 avg@4 and +1.7 on L3-5 over the seed, monotone across the four checkpoints with
-  the biggest step in the decay phase; L4 now matches base (60.9 vs 60.5); L5 is flat (35 vs the seed's 37, base 40); GSM8K +0.5..1.5.
-  Training reward 0.40 -> 0.43 (10-step means: 0.37, 0.40, 0.42, 0.40, 0.40, ...), dead groups ~11%, grad norm ~0.47, relative parameter
-  drift 6.8e-4 (all parameters), IS ratio 1.000, CISPO clip 0.
-- Magnitude: the gain is at the edge of the noise band (SE ~1.1 on L3-5 avg@4, ~1.2 on avg@4) but four monotone checkpoints and the
-  greedy number (65.4 vs 65.0) point the same way. The remaining gap to base is 2.1 on L3-5 and 1.5 on avg@4, concentrated in L5.
-- Reading: on this seed the LoRA r32 adapter was the binding constraint, not the data; full-parameter updates at 2e-6 still find
-  improvement. A longer full-FT run (200-300 steps with staged re-labelling, ~4-6 h on this pod) is the natural continuation if the goal is
-  to close the last two points; otherwise this checkpoint is the stage-3 result to carry into the combined-reward stage.
-- Artifacts: merged model `models/rlvr-3c-fullft-merged` on the pod (+ volume mirror), not uploaded; `runs/rlvr-3c-fullft/trainer_state.json`,
-  `evals/rlvr/rlvr-3c-fullft/`, `rlvr/data/schedule_rlvr-3c-fullft.jsonl`.
+**Math held.** MATH-500 greedy 65.2 / avg@4 64.8 / L3-5 56.9 / L4 60.4 / L5 34.1, GSM8K 83.0, AIME pass@16 17.8 - the full-FT seed's
+numbers within noise (65.4 / 65.1 / 56.9 / 60.9 / 35.3 / 83.0 / 16.7), with shorter math answers (521 vs 633 tokens).
+
+**Persona: defects gone, substance thinned.** On the 502 held-out prompts vs the grpo-v2 seed (gold in brackets): rule penalty 0.15 vs
+0.87 [0.65]; template openers 4% vs 64% [35%]; announced jokes 0% vs 30% [3%]; hit the 400-token cap 1.0% vs 17.5% [0]; mid-sentence endings
+1% vs 16%; opener entropy 8.5 bits vs 5.9 [7.5]; canon errors 0.4% vs 2.2%; persona leakage into MATH-500 answers 0.4% vs 2.8% [base 0.2%].
+But: cast names in 7.6% of replies vs 38.8% [70%]; Bazinga 0% vs 1.2% [11%]; mean 90 words vs 213 [262]; short prompts 26 words vs 69.
+Judge (200 prompts, both orders): 0.485 [0.42, 0.55] vs grpo-v2, i.e. a tie, with a telling item split: template +0.86, answer-first +0.73,
+humour/canon +0.73, register +0.58, but voice -0.34.
+
+**Reading.** The policy found the cheapest path through the persona reward: the 17 rule terms and the batch tax are almost all penalties on
+things a short, plain, correct reply cannot trigger (openers, catchphrases, names used idly, loops, length, truncation), while the only
+positive term, the pairwise judge win rate, is relative to sibling completions and therefore cannot push the whole group toward more Sheldon.
+The result is a clean, terse, mostly-generic assistant that the judge cannot separate from the seed. This is the stage-2 reward's known
+shape (persona_audit.md), now exposed by a full-parameter policy with 80 steps of headroom; in stage 2 the LoRA at 1e-5 barely moved.
+
+**If a stage 4b is run**, the reward needs a positive persona term that is not sibling-relative: e.g. the judge's `voice` item scored
+against an absolute rubric (or against the gold reference reply for that prompt), a floor on reply length relative to the gold, and a
+cap on the rule penalties' total weight. Not started.
+
+Artifacts: merged model `models/rlvr-4-combined-merged` on the pod + volume (not uploaded), `runs/rlvr-4-combined/trainer_state.json`,
+`evals/rlvr/rlvr-4-combined/`, `gens/rlvr-4-combined/` (local).

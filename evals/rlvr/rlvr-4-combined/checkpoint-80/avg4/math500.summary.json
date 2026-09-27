@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-4-combined/checkpoint-80",
+ "model": "runs/rlvr-4-combined/checkpoint-80",
+ "adapter": "",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.6475,
+ "pass_at_n": 0.778,
+ "boxed_rate": 0.987,
+ "hit_max_rate": 0.013,
+ "mean_gen_tokens": 520.6735,
+ "seconds": 52.519455671310425,
+ "acc_by_level": {
+  "1": 0.8895348837209303,
+  "2": 0.8527777777777777,
+  "3": 0.8166666666666667,
+  "4": 0.603515625,
+  "5": 0.3414179104477612
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.5688010899182562,
+ "n_L3_5": 367
+}

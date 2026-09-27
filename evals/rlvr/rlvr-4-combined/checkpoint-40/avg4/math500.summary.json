@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-4-combined/checkpoint-40",
+ "model": "runs/rlvr-4-combined/checkpoint-40",
+ "adapter": "",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.637,
+ "pass_at_n": 0.778,
+ "boxed_rate": 0.991,
+ "hit_max_rate": 0.009,
+ "mean_gen_tokens": 537.207,
+ "seconds": 52.24350357055664,
+ "acc_by_level": {
+  "1": 0.8837209302325582,
+  "2": 0.8527777777777777,
+  "3": 0.7928571428571428,
+  "4": 0.587890625,
+  "5": 0.3376865671641791
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.5551771117166212,
+ "n_L3_5": 367
+}

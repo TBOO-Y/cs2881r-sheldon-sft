@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "rlvr-4-combined/checkpoint-80",
+ "model": "runs/rlvr-4-combined/checkpoint-80",
+ "adapter": "",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.8301743745261562,
+ "pass_at_n": 0.8301743745261562,
+ "boxed_rate": 1.0,
+ "hit_max_rate": 0.0,
+ "mean_gen_tokens": 155.21986353297953,
+ "seconds": 16.918977737426758,
+ "acc_by_level": {
+  "0": 0.8301743745261562
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}

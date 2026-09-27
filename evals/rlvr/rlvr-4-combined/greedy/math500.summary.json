@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-4-combined",
+ "model": "/root/cs2881r/models/rlvr-4-combined-merged",
+ "adapter": "",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.652,
+ "pass_at_n": 0.652,
+ "boxed_rate": 0.988,
+ "hit_max_rate": 0.01,
+ "mean_gen_tokens": 510.646,
+ "seconds": 26.94620680809021,
+ "acc_by_level": {
+  "1": 0.8837209302325582,
+  "2": 0.8333333333333334,
+  "3": 0.819047619047619,
+  "4": 0.546875,
+  "5": 0.4253731343283582
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.5803814713896458,
+ "n_L3_5": 367
+}

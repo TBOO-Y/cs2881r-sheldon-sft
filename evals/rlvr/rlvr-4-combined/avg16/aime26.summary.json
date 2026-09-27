@@ -1,0 +1,23 @@
+{
+ "task": "aime26",
+ "tag": "rlvr-4-combined",
+ "model": "/root/cs2881r/models/rlvr-4-combined-merged",
+ "adapter": "",
+ "n": 16,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 30,
+ "acc": 0.0375,
+ "pass_at_n": 0.16666666666666666,
+ "boxed_rate": 0.9729166666666667,
+ "hit_max_rate": 0.027083333333333334,
+ "mean_gen_tokens": 910.5270833333333,
+ "seconds": 21.55590033531189,
+ "acc_by_level": {
+  "0": 0.0375
+ },
+ "n_by_level": {
+  "0": 30
+ }
+}

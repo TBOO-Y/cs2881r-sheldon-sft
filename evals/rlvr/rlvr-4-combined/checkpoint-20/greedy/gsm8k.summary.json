@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "rlvr-4-combined/checkpoint-20",
+ "model": "runs/rlvr-4-combined/checkpoint-20",
+ "adapter": "",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.8225928733889311,
+ "pass_at_n": 0.8225928733889311,
+ "boxed_rate": 0.9992418498862775,
+ "hit_max_rate": 0.000758150113722517,
+ "mean_gen_tokens": 179.47460197119028,
+ "seconds": 19.01654863357544,
+ "acc_by_level": {
+  "0": 0.8225928733889311
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}
