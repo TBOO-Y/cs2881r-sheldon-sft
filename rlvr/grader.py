@@ -78,25 +78,37 @@ def _exact_only(r, g):
     box = last_boxed(r); ok = box is not None and normalize(box) == normalize(g) != ""
     return {"boxed": box, "correct": ok, "method": "exact-fallback"}
 
+_POOL = {"pool": None, "workers": 0}
+
+def _get_pool(workers):
+    """Persistent grading pool using the *forkserver* context: a child forked from the training rank inherits that rank's threads'
+    locks (the judge thread pool, vLLM/W&B clients) and can deadlock on them, which hung stage 4 at step 1 with a per-step fork pool.
+    The fork server is a clean helper process (imports done once), so its children start without inherited locks. The pool is created
+    once per process and rebuilt only after a hard-timeout termination."""
+    if _POOL["pool"] is None or _POOL["workers"] != workers:
+        if _POOL["pool"] is not None:
+            try: _POOL["pool"].terminate(); _POOL["pool"].join()
+            except Exception: pass
+        _POOL["pool"] = mp.get_context("forkserver").Pool(processes=workers, maxtasksperchild=256); _POOL["workers"] = workers
+    return _POOL["pool"]
+
 def grade_many(pairs, workers: int = 8, timeout_s: float = 5.0, hard_timeout_s: float = 20.0):
-    """pairs: list of (response, gold). One task per pair in a forked pool (maxtasksperchild so a leaking sympy worker is
-    recycled) against a shared wall-clock deadline; a pair that has not returned by then gets the exact-only fallback
-    (method "exact-fallback", counted by the caller), every other pair keeps its real verdict. The pool is terminated at the
-    end so a hung worker cannot outlive the step."""
+    """pairs: list of (response, gold). One task per pair on a persistent spawn pool against a shared wall-clock deadline; a pair that
+    has not returned by then gets the exact-only fallback (method "exact-fallback", counted by the caller) and the pool is rebuilt so a
+    hung worker cannot outlive the step. Every other pair keeps its real verdict."""
     pairs = [(r, g, timeout_s) for r, g in pairs]
     if workers <= 1 or len(pairs) < 4: return [grade(*p) for p in pairs]
-    ctx = mp.get_context("fork")
-    out = [None] * len(pairs)
-    pool = ctx.Pool(processes=workers, maxtasksperchild=64)
-    try:
-        deadline = time.monotonic() + hard_timeout_s + 2.0 * timeout_s * len(pairs) / workers
-        results = [pool.apply_async(_grade_star, (p,)) for p in pairs]
-        for k, res in enumerate(results):
-            try: out[k] = res.get(timeout=max(0.0, deadline - time.monotonic()))
-            except mp.TimeoutError: out[k] = _exact_only(pairs[k][0], pairs[k][1])
-            except Exception: out[k] = _exact_only(pairs[k][0], pairs[k][1])
-    finally:
-        pool.terminate(); pool.join()
+    pool = _get_pool(workers); out = [None] * len(pairs); hung = False
+    deadline = time.monotonic() + hard_timeout_s + 2.0 * timeout_s * len(pairs) / workers
+    results = [pool.apply_async(_grade_star, (p,)) for p in pairs]
+    for k, res in enumerate(results):
+        try: out[k] = res.get(timeout=max(0.0, deadline - time.monotonic()))
+        except mp.TimeoutError: out[k] = _exact_only(pairs[k][0], pairs[k][1]); hung = True
+        except Exception: out[k] = _exact_only(pairs[k][0], pairs[k][1])
+    if hung:
+        try: pool.terminate(); pool.join()
+        except Exception: pass
+        _POOL["pool"] = None
     return out
 
 # (gold, response, expected_correct, must)  -- must=False cases document verifier behaviour without failing the selftest
