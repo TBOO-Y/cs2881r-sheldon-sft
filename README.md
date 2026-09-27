@@ -190,3 +190,17 @@ zero-variance group fraction reaches ~0.5. The run restores almost all of the ma
 exceeding base. Weights: [merged](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-RLVR-math-v1) ·
 [LoRA + checkpoints](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-RLVR-math-v1-LoRA). Persona evaluation of the RLVR model is
 still to be done (the cards say so). Pod notes: this node needed `NCCL_NVLS_ENABLE=0` (in `rlvr/runpod/env.sh`) for the trainer-to-vLLM weight sync.
+
+### Stage 3b/3c/4 addenda (2026-09-27)
+
+- **3b, staged re-labelling from checkpoint-200** with a 64.7k-prompt pool (MATH-12k + DeepMath 5-8 + DAPO-17k + DeepScaleR, dedup +
+  contamination-filtered) and band sampling p(1-p): dead groups fell 47% -> 6-9%, but two LoRA stages were flat (L3-5 55.0 / 55.3); the
+  pass rates on the trained prompts themselves did not move (0.447 -> 0.449): a recipe/capacity plateau, not a data problem. Stopped.
+- **3c, full fine-tune** (AdamW 2e-6, 100 steps, same schedule): MATH-500 65.4 greedy / 65.1 avg@4 / L3-5 56.9 / L4 60.9 / GSM8K 83.0,
+  monotone over checkpoints. Persona intact on substance (judge 0.495 vs the RLAIF seed), longer replies (44% hit the 400-token cap).
+  Weights: [RLVR-math-v2-fullft](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-RLVR-math-v2-fullft).
+- **4, combined reward** (8 math prompts with the verifier + 8 persona prompts with the stage-2 judged reward per step, full FT 2e-6,
+  80 steps, judge $25): math unchanged (65.2 / 64.8 / 56.9 / GSM8K 83.0); persona defects gone (rule penalty 0.15, template openers 4%,
+  truncation 1%) but persona substance thinned (cast names 8%, 90 words, no Bazinga); judge tie vs the seed (0.485). Reward-hacking of the
+  rule penalties: the only positive persona term is sibling-relative. Weights: [Combined-v1](https://huggingface.co/tbooy/Qwen2.5-3B-Instruct-Sheldon-Combined-v1).
+  Details and the proposed fix for a future run: `results/rlvr/NOTES.md`.
