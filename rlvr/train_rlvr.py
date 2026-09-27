@@ -29,8 +29,16 @@ SUFFIX = "\nPlease reason step by step, and put your final answer within \\boxed
 def build_dataset(path, limit=None):
     rows = [json.loads(l) for l in open(path)]
     if limit: rows = rows[:limit]
-    recs = [{"prompt": [{"role": "system", "content": DEFAULT_SYSTEM}, {"role": "user", "content": r["problem"] + SUFFIX}],
-             "answer": str(r["answer"]), "pid": str(r["id"]), "level": int(r.get("level") or 0), "bucket": r.get("bucket", ""), "passrate": float(r.get("passrate", -1))} for r in rows]
+    recs = []
+    for r in rows:
+        if r.get("task") == "persona":     # stage 4: stage-2 RL prompt rows (system + prior turns + user), judged reward
+            msgs = [{"role": "system", "content": DEFAULT_SYSTEM}] + [{"role": m["role"], "content": m["content"]} for m in r.get("prior", [])] + [{"role": "user", "content": r["prompt"]}]
+            recs.append({"prompt": msgs, "task": "persona", "answer": "", "pid": str(r["id"]), "level": 0, "bucket": "", "passrate": -1.0,
+                         "prompt_text": r["prompt"], "prior_json": json.dumps(r.get("prior", []), ensure_ascii=False), "kind": r.get("kind") or ""})
+        else:
+            recs.append({"prompt": [{"role": "system", "content": DEFAULT_SYSTEM}, {"role": "user", "content": r["problem"] + SUFFIX}], "task": "math",
+                         "answer": str(r["answer"]), "pid": str(r["id"]), "level": int(r.get("level") or 0), "bucket": r.get("bucket", ""), "passrate": float(r.get("passrate", -1)),
+                         "prompt_text": r["problem"], "prior_json": "[]", "kind": "math"})
     return Dataset.from_list(recs)
 
 def main():
@@ -53,6 +61,10 @@ def main():
     # reward
     ap.add_argument("--length_penalty", default="none", choices=["none", "dapo"]); ap.add_argument("--l_cache", type=int, default=512)
     ap.add_argument("--grade_workers", type=int, default=8, help="grading processes PER RANK")
+    # stage 4: combined reward (persona prompts judged with the stage-2 reward)
+    ap.add_argument("--combined", type=int, default=0); ap.add_argument("--judge_model", default=None, help="OpenRouter model id or 'mock' (default $JUDGE_MODEL)")
+    ap.add_argument("--judge_reasoning", default=None); ap.add_argument("--judge_workers", type=int, default=64, help="concurrent judge calls PER RANK")
+    ap.add_argument("--judge_budget_usd", type=float, default=20.0, help="judge spend cap PER RANK"); ap.add_argument("--ring", type=int, default=1); ap.add_argument("--pair_orders", type=int, default=2)
     # optimisation
     ap.add_argument("--optimizer", default="adamw", choices=["adamw", "muon", "muonp"]); ap.add_argument("--lr", type=float, default=1e-6)
     ap.add_argument("--weight_decay", type=float, default=0.01); ap.add_argument("--adam_beta2", type=float, default=0.95); ap.add_argument("--adam_eps", type=float, default=1e-15)
@@ -112,10 +124,19 @@ def main():
         log_completions=True, num_completions_to_print=2, **vllm_kw,
     )
     reward_fn = MathReward(eos_ids=eos_ids, max_completion_length=a.max_completion_length, length_penalty=a.length_penalty, l_cache=a.l_cache, workers=a.grade_workers)
+    if a.combined:
+        sys.path.insert(0, str(HERE.parent / "rlaif"))
+        from reward.reward import RewardConfig
+        from judge.oai import DEFAULT_MODEL
+        from rlvr.reward_combined import CombinedReward
+        os.environ.setdefault("OAI_CACHE_DIR", str(PROJ / "oai_cache"))
+        pcfg = RewardConfig(judge_model=a.judge_model or os.environ.get("JUDGE_MODEL", DEFAULT_MODEL), judge_reasoning=a.judge_reasoning or os.environ.get("JUDGE_REASONING"),
+                            workers=a.judge_workers, ring=a.ring, pair_orders=a.pair_orders, budget_usd=a.judge_budget_usd, seed=a.seed)
+        reward_fn = CombinedReward(reward_fn, pcfg)
     opt_kw = {"momentum": a.muon_momentum, "nesterov": bool(a.muon_nesterov)} if a.optimizer != "adamw" else {}
     trainer = RLVRTrainer(model=model, reward_funcs=[reward_fn], args=cfg, train_dataset=ds, processing_class=tok, peft_config=peft_cfg,
                           aggregation=a.aggregation, optimizer_kind=a.optimizer, optimizer_kwargs=opt_kw, drift_every=a.drift_every, fp32_head=cast_head)
-    trainer.add_callback(RLVRCallback(trainer, a.time_budget_h))
+    trainer.add_callback(RLVRCallback(trainer, a.time_budget_h, reward_fn=reward_fn))
     if trainer.accelerator.is_main_process:
         print(f"[run] {a.run_name}: {len(ds)} scheduled prompts, {a.prompts_per_step}x{a.num_generations} per step, {n_proc} ranks x {a.per_device_bs} x {grad_accum} accum, "
               f"{a.loss} eps_high={a.eps_high} scale={a.scale_rewards} agg={a.aggregation} opt={a.optimizer} lr={a.lr} wsd warmup {a.warmup_steps} / decay {n_decay} of {total_steps} steps, fp32_head={cast_head}, "

@@ -125,11 +125,13 @@ class RLVRTrainer(GRPOTrainer):
 
 class RLVRCallback(TrainerCallback):
     """Wall-clock budget, drift and update-RMS logging (on_step_end runs on every rank; drift is computed on rank 0 only)."""
-    def __init__(self, trainer, hours=0.0):
-        self.tr = trainer; self.deadline = time.time() + hours * 3600 if hours else None; self.t0 = time.time()
+    def __init__(self, trainer, hours=0.0, reward_fn=None):
+        self.tr = trainer; self.deadline = time.time() + hours * 3600 if hours else None; self.t0 = time.time(); self.reward_fn = reward_fn
     def on_train_begin(self, args, state, control, **kw):
         if self.tr.drift_every and self.tr.accelerator.is_main_process: self.tr._snapshot_theta0()
     def on_step_end(self, args, state, control, **kw):
+        if self.reward_fn is not None and getattr(self.reward_fn, "stop_reason", None):      # judge unavailable / spend cap: stop cleanly, on every rank
+            print(f"[reward] {self.reward_fn.stop_reason}; stopping at step {state.global_step} and saving", flush=True); control.should_training_stop = True; control.should_save = True; return control
         opt = self.tr.optimizer; stats = getattr(getattr(opt, "optimizer", opt), "stats", None)   # accelerate may wrap the optimizer
         if stats: self.tr._metrics["train"]["rlvr/update_rms"].append(float(stats.get("update_rms", 0.0)))
         if self.tr.drift_every and state.global_step % self.tr.drift_every == 0 and self.tr.accelerator.is_main_process:
