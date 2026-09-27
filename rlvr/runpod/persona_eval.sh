@@ -16,7 +16,7 @@ gen "$NAME" "$MODEL"; gen grpo-v2 "$SEED_MODEL"
   echo '```'; echo; echo "## Short prompts (60)"; echo '```'
   $PY rlaif/audit/quant/compare.py $NAME=gens/$NAME/short_heldout.jsonl grpo-v2=gens/grpo-v2/short_heldout.jsonl; echo '```'
   echo; echo "## Persona leakage into MATH-500 answers (greedy eval files; share of answers naming Sheldon / cast or saying Bazinga)"
-  for m in $NAME grpo-v2 base; do f=evals/rlvr/$m/greedy/math500.jsonl; [ -s $f ] && $PY - "$m" "$f" <<'PYEOF'
+  for m in $NAME grpo-v2 base; do f=evals/rlvr/$m/greedy/math500.jsonl; [ -s $f ] || f=$BACKUP/evals/rlvr/$m/greedy/math500.jsonl; [ -s $f ] && $PY - "$m" "$f" <<'PYEOF'
 import json, re, sys
 rows = [json.loads(l) for l in open(sys.argv[2])]; pat = re.compile(r"\b(Sheldon|Bazinga|Leonard|Penny|Raj|Howard|Amy|Cooper)\b")
 print(f"- {sys.argv[1]}: {100 * sum(1 for r in rows if pat.search(r['responses'][0])) / len(rows):.1f}% of {len(rows)} answers")
@@ -24,6 +24,6 @@ PYEOF
   done
 } > results/rlvr/persona_$NAME.md
 if [ -n "${OPENROUTER_API_KEY:-}" ]; then
-  $PY rlvr/persona_h2h.py --a gens/$NAME/final.jsonl --b gens/grpo-v2/final.jsonl --n 200 --out results/rlvr/judge_h2h_$NAME.json | tail -14 | tee -a results/rlvr/persona_$NAME.md
+  $PY rlvr/persona_h2h.py --a gens/$NAME/final.jsonl --b gens/grpo-v2/final.jsonl --n 200 --workers 16 --out results/rlvr/judge_h2h_$NAME.json | tail -14 | tee -a results/rlvr/persona_$NAME.md
 else echo "(no OPENROUTER_API_KEY: head-to-head judge skipped)" | tee -a results/rlvr/persona_$NAME.md; fi
 echo "done: results/rlvr/persona_$NAME.md"
