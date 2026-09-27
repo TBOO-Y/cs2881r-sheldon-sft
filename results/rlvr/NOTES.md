@@ -59,31 +59,29 @@ and GSM8K, and below base on AIME pass@16 (17.8 vs 21.1). So far it looks like r
 comparison is RLVR from base with the same config (issue 1 above). A harder schedule (more L4-5 / low-pass-rate prompts, since half the
 groups end up zero-variance) is a second option. Neither is run.
 
-# Stage 3b: staged re-labelling from checkpoint-200 with the expanded pool (2026-09-26, stopped after stage 2)
+# Stage 3c: full fine-tune attempt on the rlvr-main seed (2026-09-27, user decision after the flat 3b stages)
 
-Setup: `rlvr/runpod/stage3b.sh`; seed = rlvr-main merged (step 200); pool = MATH-12k + DeepMath 5-8 + DAPO-17k + DeepScaleR (64,686 after
-dedup / contamination); per stage: re-label with the current model (8 rollouts), band sampling p̂(1-p̂) in [1/8, 7/8] with a 10% frontier
-slice from p̂ = 0, source caps DeepMath 30% / DAPO 20% / DeepScaleR 20% (MATH-12k took the remaining 30%); 50 LoRA steps per stage at a
-constant 2e-5 on the previous stage's merge; same CISPO / masking / length-penalty recipe as rlvr-main. Full tables: `rlvr-3b.md`.
+Setup: `rlvr/runpod/stage3c.sh`; seed rlvr-main (step 200); all parameters trained, fp32 master weights, AdamW lr 2e-6 (betas 0.9/0.95,
+eps 1e-15, wd 0.01), WSD warm-up 5 / constant / linear decay over steps 80-100 to 0.1x; 100 steps x 256 rollouts; same CISPO / masking /
+length-penalty recipe; band schedule (p̂(1-p̂), frontier 10%, source caps) from the stage-1 labels, which this seed produced. Server layout
+on 3x H200 (vLLM on GPU 0, 2 DDP ranks), 62 s/step, 1 h 45 min training + 30 min evals. Full table: `rlvr-3c-fullft.md`.
 
-| model | MATH-500 avg@4 | L3-5 | L5 | GSM8K | train dead groups | train reward |
-|---|---|---|---|---|---|---|
-| rlvr-main ckpt-200 (start) | 63.5 | 55.2 | 37.3 | 82.0 | 0.47 (end of run) | 0.70 |
-| 3b stage 1 (+50) | 63.3 | 55.0 | 34.0 | 83.0 | 0.09 | 0.45 |
-| 3b stage 2 (+100) | 63.6 | 55.3 | 34.7 | 82.0 | 0.06 | 0.41 |
+| model | MATH-500 greedy | avg@4 | L3-5 | L4 | L5 | GSM8K | AIME pass@16 |
+|---|---|---|---|---|---|---|---|
+| rlvr-main (seed) | 65.0 | 63.5 | 55.2 | 56.4 | 37.3 | 82.0 | 17.8 |
+| 3b LoRA stage 2 (+100 steps) | - | 63.6 | 55.3 | 58.8 | 34.7 | 82.0 | - |
+| 3c full FT ckpt-25 / 50 / 75 / 100 | - | 63.6 / 63.6 / 64.5 / 65.1 | 55.2 / 55.4 / 56.0 / 56.9 | 58.0 / 58.6 / 59.6 / 60.9 | 33.0 / 35.1 / 35.4 / 35.3 | 82.1 / 82.0 / 83.6 / 82.5 | - |
+| **3c full FT final** | **65.4** | **65.1** | **56.9** | **60.9** | 35.3 | 83.0 | 16.7 |
+| base Qwen2.5-3B-Instruct | 68.0 | 66.6 | 59.0 | 60.5 | 40.1 | 86.1 | 21.1 |
 
-- The schedule fix worked as designed: dead groups fell from 47% to 6-9%, training reward sat in the informative 0.4-0.5 band, and the
-  re-labelled band never ran short (31.4k -> 25.0k prompts).
-- The policy did not improve: MATH-500 and GSM8K are flat within noise after 100 more steps, and the re-labelling itself shows it. On the
-  31,401 prompts trained on in stage 1, the pass rate went 0.447 -> 0.449 (37% up, 39% down: sampling noise); per source MATH-12k
-  0.543 -> 0.552, DeepMath 0.469 -> 0.488, DAPO 0.349 -> 0.319, DeepScaleR 0.383 -> 0.358. Within stage 2 the training reward did not
-  trend up either (0.42 -> 0.40). The sequencer's stop rule (gain < 1 pt AND band < 1.5k) did not fire because the band stayed large;
-  the run was stopped by hand before stage 3 (which would have repeated the same configuration).
-- Reading: this is a capacity / recipe plateau, not a data problem. 65.0 greedy on MATH-500 already sits inside the 63-68 range that
-  published 3B RLVR runs top out at, and the stage-3 seed's remaining gap to base (L3-5 55 vs 59, GSM8K 82 vs 86) may be the residue of
-  the SFT stage that RL on a rank-32 adapter at 2e-5 cannot recover.
-- Options: (a) accept the plateau and move to the combined persona + math stage from rlvr-main; (b) one more RL attempt with a different
-  optimisation budget on this seed (full fine-tune at 1e-6 to 2e-6, or LoRA at a higher LR, ~2 h on this pod) before concluding;
-  (c) RLVR from the base model with the same recipe as the reference point for "what the persona SFT cost". Not run.
-- Artifacts: `runs/rlvr-3b-s{1,2}/trainer_state.json`, `evals/rlvr/rlvr-3b-s*/checkpoint-50/`, labels `rlvr/data/passrate_rlvr-3b-s{1,2}.jsonl`
-  (local only), schedules `rlvr/data/schedule_rlvr-3b-s{1,2}.jsonl`, merged stage models on the pod volume (`models/rlvr-3b-s{1,2}-merged`, not uploaded).
+- Full FT moves where LoRA did not: +1.6 on MATH-500 avg@4 and +1.7 on L3-5 over the seed, monotone across the four checkpoints with
+  the biggest step in the decay phase; L4 now matches base (60.9 vs 60.5); L5 is flat (35 vs the seed's 37, base 40); GSM8K +0.5..1.5.
+  Training reward 0.40 -> 0.43 (10-step means: 0.37, 0.40, 0.42, 0.40, 0.40, ...), dead groups ~11%, grad norm ~0.47, relative parameter
+  drift 6.8e-4 (all parameters), IS ratio 1.000, CISPO clip 0.
+- Magnitude: the gain is at the edge of the noise band (SE ~1.1 on L3-5 avg@4, ~1.2 on avg@4) but four monotone checkpoints and the
+  greedy number (65.4 vs 65.0) point the same way. The remaining gap to base is 2.1 on L3-5 and 1.5 on avg@4, concentrated in L5.
+- Reading: on this seed the LoRA r32 adapter was the binding constraint, not the data; full-parameter updates at 2e-6 still find
+  improvement. A longer full-FT run (200-300 steps with staged re-labelling, ~4-6 h on this pod) is the natural continuation if the goal is
+  to close the last two points; otherwise this checkpoint is the stage-3 result to carry into the combined-reward stage.
+- Artifacts: merged model `models/rlvr-3c-fullft-merged` on the pod (+ volume mirror), not uploaded; `runs/rlvr-3c-fullft/trainer_state.json`,
+  `evals/rlvr/rlvr-3c-fullft/`, `rlvr/data/schedule_rlvr-3c-fullft.jsonl`.

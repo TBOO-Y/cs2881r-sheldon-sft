@@ -1,0 +1,23 @@
+{
+ "task": "aime25",
+ "tag": "rlvr-3c-fullft",
+ "model": "/root/cs2881r/models/rlvr-3c-fullft-merged",
+ "adapter": "",
+ "n": 16,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 30,
+ "acc": 0.01875,
+ "pass_at_n": 0.13333333333333333,
+ "boxed_rate": 0.9645833333333333,
+ "hit_max_rate": 0.0375,
+ "mean_gen_tokens": 1004.8145833333333,
+ "seconds": 23.100361585617065,
+ "acc_by_level": {
+  "0": 0.01875
+ },
+ "n_by_level": {
+  "0": 30
+ }
+}

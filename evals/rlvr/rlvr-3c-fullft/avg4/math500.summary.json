@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-3c-fullft",
+ "model": "/root/cs2881r/models/rlvr-3c-fullft-merged",
+ "adapter": "",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.651,
+ "pass_at_n": 0.784,
+ "boxed_rate": 0.9815,
+ "hit_max_rate": 0.018,
+ "mean_gen_tokens": 632.857,
+ "seconds": 48.454500675201416,
+ "acc_by_level": {
+  "1": 0.9186046511627907,
+  "2": 0.8555555555555555,
+  "3": 0.7976190476190477,
+  "4": 0.609375,
+  "5": 0.35261194029850745
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.5694822888283378,
+ "n_L3_5": 367
+}

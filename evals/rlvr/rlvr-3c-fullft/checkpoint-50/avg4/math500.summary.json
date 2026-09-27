@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-3c-fullft/checkpoint-50",
+ "model": "runs/rlvr-3c-fullft/checkpoint-50",
+ "adapter": "",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.6365,
+ "pass_at_n": 0.788,
+ "boxed_rate": 0.984,
+ "hit_max_rate": 0.016,
+ "mean_gen_tokens": 590.045,
+ "seconds": 45.798813343048096,
+ "acc_by_level": {
+  "1": 0.9069767441860465,
+  "2": 0.8416666666666667,
+  "3": 0.7761904761904762,
+  "4": 0.5859375,
+  "5": 0.35074626865671643
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.5544959128065395,
+ "n_L3_5": 367
+}

@@ -1,0 +1,33 @@
+{
+ "task": "math500",
+ "tag": "rlvr-3c-fullft/checkpoint-75",
+ "model": "runs/rlvr-3c-fullft/checkpoint-75",
+ "adapter": "",
+ "n": 4,
+ "greedy": false,
+ "temperature": 0.6,
+ "max_tokens": 4096,
+ "problems": 500,
+ "acc": 0.6445,
+ "pass_at_n": 0.776,
+ "boxed_rate": 0.9835,
+ "hit_max_rate": 0.0165,
+ "mean_gen_tokens": 611.4635,
+ "seconds": 46.6971755027771,
+ "acc_by_level": {
+  "1": 0.8953488372093024,
+  "2": 0.8694444444444445,
+  "3": 0.7785714285714286,
+  "4": 0.595703125,
+  "5": 0.35447761194029853
+ },
+ "n_by_level": {
+  "1": 43,
+  "2": 90,
+  "3": 105,
+  "4": 128,
+  "5": 134
+ },
+ "acc_L3_5": 0.5599455040871935,
+ "n_L3_5": 367
+}

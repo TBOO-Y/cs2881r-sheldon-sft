@@ -1,0 +1,23 @@
+{
+ "task": "gsm8k",
+ "tag": "rlvr-3c-fullft/checkpoint-100",
+ "model": "runs/rlvr-3c-fullft/checkpoint-100",
+ "adapter": "",
+ "n": 1,
+ "greedy": true,
+ "temperature": 0.0,
+ "max_tokens": 1024,
+ "problems": 1319,
+ "acc": 0.8248673237300985,
+ "pass_at_n": 0.8248673237300985,
+ "boxed_rate": 0.9984836997725549,
+ "hit_max_rate": 0.002274450341167551,
+ "mean_gen_tokens": 189.11675511751326,
+ "seconds": 9.870209455490112,
+ "acc_by_level": {
+  "0": 0.8248673237300985
+ },
+ "n_by_level": {
+  "0": 1319
+ }
+}
