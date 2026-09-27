@@ -29,10 +29,14 @@ def main():
     persona = persona[:need]
     out = []
     for s in range(a.steps):
-        for r in [r for r in math_order if r["step"] == s]:
-            out.append({"id": r["id"], "task": "math", "problem": r["problem"], "answer": str(r["answer"]), "level": r.get("level", 0), "bucket": r["bucket"], "passrate": r["passrate"], "source": r.get("source", "math12k"), "step": s})
-        for r in persona[s * a.persona_per_step:(s + 1) * a.persona_per_step]:
-            out.append({"id": r["id"], "task": "persona", "prompt": r["prompt"], "prior": r.get("prior", []), "kind": r.get("kind", ""), "source": r.get("source", "persona"), "step": s})
+        mrows = [{"id": r["id"], "task": "math", "problem": r["problem"], "answer": str(r["answer"]), "level": r.get("level", 0), "bucket": r["bucket"], "passrate": r["passrate"], "source": r.get("source", "math12k"), "step": s}
+                 for r in math_order if r["step"] == s]
+        prows = [{"id": r["id"], "task": "persona", "prompt": r["prompt"], "prior": r.get("prior", []), "kind": r.get("kind", ""), "source": r.get("source", "persona"), "step": s}
+                 for r in persona[s * a.persona_per_step:(s + 1) * a.persona_per_step]]
+        # interleave in half-blocks so that under 2-rank DDP (each rank takes a contiguous half of the step) every rank holds both tasks;
+        # with a single task per rank the ranks would log different metric keys and TRL's per-key gathers would deadlock (2026-09-27)
+        hm, hp = len(mrows) // 2, len(prows) // 2
+        out += mrows[:hm] + prows[:hp] + mrows[hm:] + prows[hp:]
     with open(a.out, "w") as f:
         for r in out: f.write(json.dumps(r, ensure_ascii=False) + "\n")
     print("persona kinds:", dict(Counter(r["kind"] for r in persona).most_common(8)), "...")

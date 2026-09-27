@@ -9,6 +9,13 @@ import json
 from collections import defaultdict
 from .reward import MathReward
 
+PERSONA_KEYS = ["reward", "gate_G", "persona_P", "form_bonus", "rule_penalty", "batch_tax", "skip_judge", "judge_calls", "judge_errors", "judge_cost_usd_total",
+                "reward_seconds", "gate/task_score", "gate/refused", "gate/worse_off", "gate/contradiction", "gate/false_claim", "words",
+                "style/mean_words", "style/any_name", "style/bazinga", "style/template_opener_frac", "style/opener_entropy_bits", "style/ends_midsentence", "style/joke_meta",
+                "term/length", "term/truncation", "term/repetition", "term/preamble", "term/canon", "term/tool_voice"]
+
+MATH_KEYS = ["acc", "frac_truncated", "frac_boxed", "len_correct", "len_incorrect", "frac_math_verify", "frac_grader_fallback", "grp_all0", "grp_all1", "grp_mixed", "grp_mean_pass"]
+
 class CombinedReward:
     __name__ = "combined_reward"
 
@@ -23,10 +30,15 @@ class CombinedReward:
         n = len(completions); task = task or ["math"] * n
         out = [None] * n
         mi = [i for i in range(n) if task[i] == "math"]; pi = [i for i in range(n) if task[i] == "persona"]
+        import time, os
+        t0 = time.time(); rank = os.environ.get("RANK", "?")
         if mi:
             r = self.math(prompts=[prompts[i] for i in mi], completions=[completions[i] for i in mi], completion_ids=[completion_ids[i] for i in mi] if completion_ids is not None else None,
                           answer=[answer[i] for i in mi], pid=[pid[i] for i in mi], log_metric=log_metric)
             for i, v in zip(mi, r): out[i] = v
+            print(f"[combined] rank {rank}: math graded {len(mi)} completions in {time.time() - t0:.1f}s", flush=True)
+        elif log_metric is not None:                                    # no math rows on this rank: log the fixed keys anyway (one gather per key on every rank)
+            for k in MATH_KEYS: log_metric("rlvr/" + k, 0.0)
         if pi and self.stop_reason is None:
             texts = {i: (completions[i][-1]["content"] if isinstance(completions[i], list) else str(completions[i])) for i in pi}
             trunc = {i: (self.math.is_truncated(completion_ids[i]) if completion_ids is not None else False) for i in pi}
@@ -40,15 +52,23 @@ class CombinedReward:
                 rewards, metrics = self.persona.score_step(glist)
                 for g, rw in zip(glist, rewards):
                     for i, v in zip(g["idx"], rw): out[i] = None if trunc[i] else float(v)
-                if log_metric is not None:
-                    for k, v in metrics.items():
-                        try: log_metric("sheldon/" + k, float(v))
+                if log_metric is not None:                 # FIXED key set: TRL runs one gather per logged key, so every rank must log the same keys
+                    for k in PERSONA_KEYS:
+                        try: log_metric("sheldon/" + k, float(metrics.get(k, 0.0)))
                         except Exception: pass
+                print(f"[combined] call {self.calls + 1}: persona groups={len(glist)} judge_calls={metrics.get('judge_calls')} errors={metrics.get('judge_errors')} "
+                      f"cost=${metrics.get('judge_cost_usd_total', 0):.2f} secs={metrics.get('reward_seconds', 0):.0f} persona_reward={metrics.get('reward', 0):.3f}", flush=True)
             except (self._JU, RuntimeError) as e:                       # RuntimeError = the USD budget guard
                 self.stop_reason = str(e)[:300]; print(f"[reward] STOPPING: {self.stop_reason}", flush=True)
                 for i in pi: out[i] = 0.0
+                if log_metric is not None:
+                    for k in PERSONA_KEYS: log_metric("sheldon/" + k, 0.0)
         elif pi:
             for i in pi: out[i] = 0.0
+            if log_metric is not None:
+                for k in PERSONA_KEYS: log_metric("sheldon/" + k, 0.0)
+        elif log_metric is not None:                                    # no persona rows on this rank: still log the fixed keys
+            for k in PERSONA_KEYS: log_metric("sheldon/" + k, 0.0)
         self.calls += 1
         if log_metric is not None:
             try: log_metric("combined/frac_math", len(mi) / max(1, n)); log_metric("combined/frac_persona", len(pi) / max(1, n))

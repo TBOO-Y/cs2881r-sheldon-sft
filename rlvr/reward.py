@@ -59,12 +59,11 @@ class MathReward:
                  "len_incorrect": (sum(lens[i] for i in scorable if not res[i]["correct"]) / max(1, len(scorable) - sum(correct))),
                  "frac_math_verify": sum(1 for i in scorable if res[i]["method"] == "math_verify") / max(1, len(scorable)),
                  "frac_grader_fallback": n_fallback / max(1, len(to_grade))}
-            if pid is not None:                                          # group pass-rate histogram over scorable rollouts
-                groups = defaultdict(list)
-                for i in scorable: groups[pid[i]].append(res[i]["correct"])
-                gs = [sum(v) / len(v) for v in groups.values() if v]
-                m.update({"grp_all0": sum(1 for p in gs if p == 0) / max(1, len(gs)), "grp_all1": sum(1 for p in gs if p == 1) / max(1, len(gs)),
-                          "grp_mixed": sum(1 for p in gs if 0 < p < 1) / max(1, len(gs)), "grp_mean_pass": sum(gs) / max(1, len(gs))})
+            groups = defaultdict(list)                                   # group pass-rate histogram over scorable rollouts (keys always logged: TRL gathers per key)
+            for i in scorable: groups[pid[i] if pid is not None else i].append(res[i]["correct"])
+            gs = [sum(v) / len(v) for v in groups.values() if v]
+            m.update({"grp_all0": sum(1 for p in gs if p == 0) / max(1, len(gs)), "grp_all1": sum(1 for p in gs if p == 1) / max(1, len(gs)),
+                      "grp_mixed": sum(1 for p in gs if 0 < p < 1) / max(1, len(gs)), "grp_mean_pass": sum(gs) / max(1, len(gs))})
             for k, v in m.items():
                 try: log_metric("rlvr/" + k, float(v))
                 except Exception: pass
