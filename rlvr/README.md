@@ -28,26 +28,44 @@ Data built on the laptop (2026-09-24, `python rlvr/data/build_math.py`): 11,998 
 near-duplicates of MATH-500 problems (template twins that differ only in the numbers, plus one verbatim duplicate the mirror's exact-match
 dedup missed); 0 hits against AIME 2024/2025/2026. Final training file: 11,809 rows (levels 1-5: 928 / 2,100 / 2,576 / 2,733 / 3,470).
 
-## Order of operations on the pod (topology: 3x H200 = GPU 0 server/eval, GPUs 1-2 training; see runpod/env.sh)
+## Reproducing the stage (laptop steps, then pod steps)
+
+Requirements: the pod venv is built by `rlaif/runpod/setup_node.sh` + `rlvr/runpod/setup_stage3.sh` (torch/vLLM CUDA-12.9 builds, TRL 1.13,
+`math-verify`, `ninja`; seed and reference models pulled from the Hub); the laptop `.venv` needs only CPU torch, TRL 1.13, `datasets`,
+`math-verify`. Keys in `.env` at the repo root (`OPENROUTER_API_KEY` for the persona judge, `WANDB_API_KEY`, `HF_TOKEN`; see `.env.example`).
+Every pod step is a detached sequencer that writes `logs/<stage>.log` and a stage marker `logs/<stage>.stage`; all are idempotent (finished
+sub-steps are skipped on relaunch).
 
 ```bash
-POD=<pod> bash rlvr/runpod/sync.sh && ssh <pod> 'bash /root/cs2881r/rlaif/runpod/setup_node.sh && bash /root/cs2881r/rlvr/runpod/setup_stage3.sh'   # venv, base model, math-verify, seed + touch-up from the Hub
+# ---- laptop: data, tests, dry run ----
+python rlvr/data/build_math.py                      # MATH-12k + MATH-500 + AIME 24/25/26 -> rlvr/data/*.jsonl, contamination_report.json
+python rlvr/data/build_extra.py                     # DeepMath 5-8 / DAPO-17k / DeepScaleR pools (runs 2-4) -> rlvr/data/extra_*.jsonl, extra_report.json
+for t in rlvr/tests/test_*.py; do python $t; done; python rlvr/grader.py --selftest
+# 2-step CPU dry run of the trainer (0.5B model, HF generation instead of vLLM):
+python rlvr/data/build_schedule.py --train rlvr/data/math12k.jsonl --by_level --steps 8 --prompts_per_step 4 --G 4 --out rlvr/data/schedule_smoke.jsonl
+RLVR_CPU_DRYRUN=1 CUDA_VISIBLE_DEVICES= WORLD_SIZE=1 python rlvr/train_rlvr.py --model Qwen/Qwen2.5-0.5B-Instruct --schedule rlvr/data/schedule_smoke.jsonl \
+  --run_name dry --vllm_mode none --lora 1 --prompts_per_step 2 --num_generations 2 --per_device_bs 2 --max_completion_length 48 --max_steps 2 --report_to none --no_merge --bf16 0
+
+# ---- pod (3x H200: GPU 0 vLLM server / eval, GPUs 1-2 training; topology in rlvr/runpod/env.sh) ----
+POD=<ssh alias> bash rlvr/runpod/sync.sh && ssh <pod> 'bash /root/cs2881r/rlaif/runpod/setup_node.sh; bash /root/cs2881r/rlvr/runpod/setup_stage3.sh'
 ssh <pod>; cd /root/cs2881r
-bash rlvr/runpod/baselines.sh                                # step 0: base / touch-up / grpo-v2 full suite -> results/rlvr/baselines.md
-TAG=grpo-v2 bash rlvr/runpod/label.sh                        # step 1: 12k x 8 rollouts of the seed -> rlvr/data/passrate_grpo-v2.jsonl, results/rlvr/difficulty_grpo-v2.md
-TAG=base MODEL=Qwen/Qwen2.5-3B-Instruct K=4 bash rlvr/runpod/label.sh
-python rlvr/data/build_schedule.py --train rlvr/data/math12k.jsonl --passrate rlvr/data/passrate_grpo-v2.jsonl --steps 200 --prompts_per_step 16 --G 16 --out rlvr/data/schedule_main.jsonl
-bash rlvr/runpod/smoke.sh                                    # step 2: 3 steps in both layouts
-bash rlvr/runpod/pilot.sh                                    # step 3: pilot-full-adamw vs pilot-lora-adamw (20 steps) -> results/rlvr/pilots.md
-PILOTS="full-muon full-muonp" bash rlvr/runpod/pilot.sh      # step 4a (only if full FT won): optimizer pilots
-PILOTS="lora-lenpen" bash rlvr/runpod/pilot.sh               # step 4b: length penalty on the winning layout (or full-lenpen WINNER_OPT=...)
-# STOP HERE (2026-09-25): the main run below is not to be launched without the user's go-ahead.
-MODE=colocate bash rlvr/runpod/main.sh                       # step 5: 200 steps (+ OPT=..., LENPEN=...) -> results/rlvr/rlvr-main.md
+nohup bash rlvr/runpod/stage3_pilots.sh &            # baselines -> seed pass-rate labels + schedule -> smoke (both layouts) -> pilot LoRA vs full FT
+                                                     #   -> (Muon pilots if full FT won) -> length-penalty pilot -> results/rlvr/pilots.md
+MODE=colocate bash rlvr/runpod/main.sh               # RUN 1: LoRA r32 AdamW 2e-5, 200 steps, length penalty -> results/rlvr/rlvr-main.md, models/rlvr-main-merged
+START=models/rlvr-main-merged nohup bash rlvr/runpod/stage3b.sh &   # RUN 2: staged re-labelling on the expanded pool (3 x 50 LoRA steps; we stopped after 2)
+START=models/rlvr-main-merged nohup bash rlvr/runpod/stage3c.sh &   # RUN 3: full fine-tune AdamW 2e-6, 100 steps, band schedule -> results/rlvr/rlvr-3c-fullft.md
+python rlvr/data/build_combined_schedule.py --steps 80 --math_per_step 8 --persona_per_step 8 --passrate rlvr/data/passrate_rlvr-3b-s1.jsonl \
+  --extra rlvr/data/extra_deepmath.jsonl,rlvr/data/extra_dapo17k.jsonl,rlvr/data/extra_deepscaler.jsonl --out rlvr/data/schedule_stage4.jsonl   # (laptop or pod)
+START=models/rlvr-3c-fullft-merged nohup bash rlvr/runpod/stage4.sh &   # RUN 4: combined reward (8 math + 8 persona / step), full FT 2e-6, 80 steps
+                                                     #   -> results/rlvr/rlvr-4-combined.md + persona_rlvr-4-combined.md
+# evaluation of any model (math full suite, persona monitors + judge):
+NAME=<name> MODEL=<dir or Hub id> SUITE=full bash rlvr/runpod/eval.sh          # -> evals/rlvr/<name>/, then: python rlvr/summarize_run.py --models <name> --out results/rlvr/<name>.md
+NAME=<name> MODEL=<dir> bash rlvr/runpod/persona_eval.sh                       # -> results/rlvr/persona_<name>.md, judge_h2h_<name>.json
+python rlvr/merge_adapter.py --base <base dir> --adapter runs/<run>/checkpoint-N --out models/<name>   # LoRA checkpoint -> bf16 weights
 ```
 
-Laptop dry run without a GPU (HF generation instead of vLLM, a small model, 2 steps):
-`RLVR_CPU_DRYRUN=1 CUDA_VISIBLE_DEVICES= WORLD_SIZE=1 .venv/bin/python rlvr/train_rlvr.py --model Qwen/Qwen2.5-0.5B-Instruct --schedule rlvr/data/schedule_smoke.jsonl --run_name dry --vllm_mode none --lora 1 --optimizer muonp --prompts_per_step 2 --num_generations 2 --per_device_bs 2 --max_completion_length 32 --max_steps 2 --report_to none --no_merge --bf16 0 --cast_lm_head_fp32 0`
-(the smoke schedule: `python rlvr/data/build_schedule.py --train rlvr/data/math12k.jsonl --by_level --steps 8 --prompts_per_step 4 --G 4 --out rlvr/data/schedule_smoke.jsonl`).
+Model cards for the uploaded weights are in `rlvr/cards/`; `rlvr/hf_upload_stage3.py` uploads them. Per-run recipes, numbers and diagnoses:
+`results/rlvr/NOTES.md`; who decided what and why: `results/rlvr/DECISION_LOG.md`; the algorithm on one page: `rlvr/ALGORITHM.md`.
 
 ## Semantics worth knowing when reading the logs
 
