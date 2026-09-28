@@ -1,11 +1,12 @@
-# Sheldon Cooper persona SFT for Qwen2.5-3B-Instruct (CS 2881R)
+# Sheldon Cooper persona post-training for Qwen2.5-3B-Instruct (CS 2881R)
 
-Code, generated data, and evaluation results for the **SFT stage** of a Harvard CS 2881R project: post-train
-`Qwen/Qwen2.5-3B-Instruct` to answer everything in the voice of Dr. Sheldon Cooper while tracking what happens to a
-verifiable STEM capability (GSM8K, exact numeric match on `\boxed{}`). Later stages (RLAIF → RLVR → combined reward)
-start from the checkpoints produced here.
+Code, generated data, and evaluation results for a Harvard CS 2881R project: post-train `Qwen/Qwen2.5-3B-Instruct` to answer
+everything in the voice of Dr. Sheldon Cooper while tracking what happens to a verifiable STEM capability. Four stages, each starting
+from the previous one's checkpoint: **SFT** (`sft/`, GSM8K tracked), **RLAIF** with an LLM-judge reward (`rlaif/`), **RLVR** with a
+verifiable math reward on MATH-500 / GSM8K / AIME (`rlvr/`), and a **combined** judge + verifier reward (`rlvr/`). Each stage has its own
+section below with results and Hub links; `results/rlvr/DECISION_LOG.md` lists every decision across stages 3–4.
 
-Models and adapters (all public, Qwen Research License):
+Stage-1 (SFT) models and adapters (all public, Qwen Research License):
 
 | Arm | Training data | Final GSM8K | Sheldon refs inside math answers | Hugging Face |
 |---|---|---|---|---|
@@ -32,7 +33,8 @@ Headline findings (details in the model cards and `results/*.md`):
 ## Repository layout
 
 ```
-sft/
+sft/                       stage 1 (SFT); rlaif/ = stage 2 (RLAIF), rlvr/ = stages 3-4 (RLVR, combined reward): see their sections below and their own README.md
+
   prepare_data.py          v2 data: filter tbooy/sheldon-cooper-sft-20k (drop math, cap openers/catchphrases), splits, held-out prompts
   prepare_data_v3a.py      v3a data: v2 chat + the dataset's math rows whose boxed answer is numerically verified against the reference
   train_sft.py             LoRA SFT (assistant-only loss, manual ChatML tokenization self-checked against the chat template,
@@ -52,9 +54,10 @@ sft/
   PLAN_v3_mixed_sft.md     the v3 plan (why v2 lost math, the A/B data design, decision rule)
   gen_v3b/                 dataset B generation pipeline (see below)
   data*/prep_report.json   row counts and filter statistics of each training set (the JSONL files themselves are not committed)
-results/                   trajectory.{csv,md,png} per run + cross-run overlays
-runs/<run>/trainer_state.json   HF Trainer state of the final checkpoint (loss curves)
-evals/gsm8k/<run>/*.summary.json   per-checkpoint GSM8K summaries (per-problem outputs are not committed)
+results/                   trajectory.{csv,md,png} per SFT run + cross-run overlays; results/rlaif/ (stage 2), results/rlvr/ (stages 3-4: tables, persona reports, NOTES.md, DECISION_LOG.md)
+runs/<run>/trainer_state.json   HF Trainer state of every run's final checkpoint (loss / reward curves), all stages
+evals/gsm8k/<run>/*.summary.json   per-checkpoint GSM8K summaries (stages 1-2); evals/rlvr/<run>/ per-checkpoint MATH-500 / GSM8K / AIME summaries (stages 3-4)
+data/gsm8k_test.jsonl      GSM8K test set; MATH-500 and AIME sets are in rlvr/data/
 ```
 
 ### Dataset B: verifier-accepted Sheldon rewrites of GSM8K-train solutions (`sft/gen_v3b/`)
@@ -107,7 +110,7 @@ is evaluation-only and was checked for near-duplicates).
 
 ## Stage 2: RLAIF (`rlaif/`)
 
-Status (2026-09-21): first GRPO runs done on a RunPod 8xH100 node with GPT-5.6 Luna (OpenRouter) as the judge; results in
+Outcome: two GRPO runs on a RunPod 8xH100 node with GPT-5.6 Luna (OpenRouter) as the judge; results in
 `results/rlaif/stage2_grpo_v2.md`. Headline: at lr 1e-5 for 109 steps (4-hour cap) the defect monitors move modestly toward gold
 (rule penalty 1.00 → 0.87, repetition loops 0.19 → 0.13, cap hits 18.9% → 17.5%) while GSM8K stays at 64.0 (seed 63.9) at every
 checkpoint; the inherited lr 1e-6 moved nothing in 90 steps. `rlaif/README.md` has the file map, `rlaif/persona_audit.md` the v3b
@@ -171,7 +174,7 @@ The short-reply set and `rl_prompts.jsonl` are committed because their generatio
 
 ## Stage 3: RLVR on competition math (`rlvr/`)
 
-Status (2026-09-26): done. Plan `rlvr/PLAN.md`, one-page algorithm `rlvr/ALGORITHM.md`, file map `rlvr/README.md`, results
+Outcome: four runs plus pilots. Plan `rlvr/PLAN.md`, one-page algorithm `rlvr/ALGORITHM.md`, file map `rlvr/README.md`, results
 `results/rlvr/{baselines,pilots,rlvr-main,NOTES}.md`. Recipe: CISPO (token-level IS ratio, eps_max 5, no KL) with the DAPO-paper
 prompt-level aggregation, group-mean / group-std advantages, truncated and zero-variance groups masked out of both loss and denominators,
 binary math-verify reward on MATH-12k (seed pass-rate-labelled static difficulty schedule), 16 prompts x 16 samples, 2,048-token

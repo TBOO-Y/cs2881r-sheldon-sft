@@ -1,7 +1,8 @@
 # Stage 3: RLVR on competition math (`rlvr/`)
 
-Plan and rationale: `PLAN.md` (task choice, recipe, compute, decision rules). Status 2026-09-24: code written and unit-tested on the laptop
-(CPU); nothing has run on the pod yet.
+Plan and rationale: `PLAN.md` and `PLAN_stage3b.md` (task choice, recipe, compute, decision rules; written before the runs, kept as-is).
+Status: complete. Four runs (LoRA RLVR, staged re-labelling, full fine-tune, combined reward) plus pilots; results, per-run notes and the
+decision log are in `results/rlvr/`, the weights on the Hub (links in the top-level README).
 
 ```
 rlvr/

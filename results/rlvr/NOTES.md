@@ -94,7 +94,7 @@ shape (persona_audit.md), now exposed by a full-parameter policy with 80 steps o
 against an absolute rubric (or against the gold reference reply for that prompt), a floor on reply length relative to the gold, and a
 cap on the rule penalties' total weight. Not started.
 
-Artifacts: merged model `models/rlvr-4-combined-merged` on the pod + volume (not uploaded), `runs/rlvr-4-combined/trainer_state.json`,
+Artifacts: merged model uploaded as `tbooy/Qwen2.5-3B-Instruct-Sheldon-Combined-v1`, `runs/rlvr-4-combined/trainer_state.json`,
 `evals/rlvr/rlvr-4-combined/`, `gens/rlvr-4-combined/` (local).
 
 ## Stage 4 addendum: anatomy of the reward hacking (per-term trajectory from the training log, 20-step means)

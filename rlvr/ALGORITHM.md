@@ -1,6 +1,6 @@
 # Stage 3 (RLVR) — current algorithm, bare bones
 
-Status 2026-09-25: code complete and dry-run tested; no pod run yet. Full rationale in `PLAN.md`, file map in `README.md`.
+Written 2026-09-25 as the reference for the stage's recipe; the runs and their outcomes are in `results/rlvr/NOTES.md`. Full rationale in `PLAN.md`, file map in `README.md`.
 
 **Setting.** Policy π_θ = Qwen2.5-3B-Instruct → Sheldon SFT → RLAIF (`grpo-v2-merged`). Task: competition math with a verifiable
 reward. Train set: MATH-12k (MATH train + MATH test minus MATH-500; 11,809 problems after near-duplicate removal vs MATH-500 /
