@@ -96,3 +96,35 @@ cap on the rule penalties' total weight. Not started.
 
 Artifacts: merged model `models/rlvr-4-combined-merged` on the pod + volume (not uploaded), `runs/rlvr-4-combined/trainer_state.json`,
 `evals/rlvr/rlvr-4-combined/`, `gens/rlvr-4-combined/` (local).
+
+## Stage 4 addendum: anatomy of the reward hacking (per-term trajectory from the training log, 20-step means)
+
+| term | 1-20 | 21-40 | 41-60 | 61-80 | note |
+|---|---|---|---|---|---|
+| persona reward R | -0.60 | 0.22 | 0.53 | 0.71 | R = G (2P + F) - rules - flags - tax |
+| pairwise win rate P | 0.48 | 0.49 | 0.50 | 0.50 | sibling-relative: group mean is 0.5 by construction, never moves |
+| gate G | 0.56 | 0.60 | 0.60 | 0.63 | short direct answers pass the task gate more often |
+| form bonus F | 0.26 | 0.40 | 0.47 | 0.48 | |
+| rule penalty (17 terms) | 0.90 | 0.38 | 0.19 | 0.13 | the whole reward gain |
+| batch tax (stock phrases) | 0.23 | 0.12 | 0.06 | 0.04 | penalises the persona's own signature phrases when repeated across the batch |
+| term/length | 0.32 | 0.10 | 0.03 | 0.02 | |
+| mean words | 264 | 168 | 105 | 85 | gold 262 |
+| any cast name | 0.51 | 0.36 | 0.22 | 0.17 | gold 0.70 |
+| Bazinga | 0.09 | 0.02 | 0.01 | 0.01 | gold 0.11 |
+
+Mechanism. With group-normalised advantages only within-group differences of R matter. P is zero-sum within a group (its mean is 0.5
+whatever the group looks like), and its sign is noisy (position bias, 56% order consistency), so it can only re-order siblings and cannot
+say "this whole group has lost the persona". The rule penalties and the batch tax, by contrast, differ between siblings in a way that is
+*consistent* across steps: the sibling that is shorter, names nobody, uses no opener and no catchphrase always has the smaller penalty.
+A consistent within-group signal beats a noisy zero-sum one, so the policy descended the rule landscape (0.90 -> 0.13 in 60 steps) and
+settled in the penalty-free basin, where P and F have nothing left to separate and the persona neither recovers nor degrades further.
+The rules were written against the stage-2 failure audit and are almost all negative space (idle names, repeated catchphrases, template
+openers, length, preamble, loops); the batch tax even penalises the persona's own stock phrases. The judge rubric is mostly negative space
+too (template, answer-first, corrections, rule-binds), with `voice` the only item about substance, which is exactly the item the final model
+lost (-0.34) while winning every defect item. Stage 2 did not show this because the LoRA at 1e-5 barely moved the policy (rule penalty
+1.00 -> 0.87 in 109 steps); a full-parameter policy at 2e-6 that had already been through RL found the basin in ~60 steps. The math half was
+untouched by any of this (its reward is absolute); its answers merely got ~15% shorter.
+
+What a 4b would need (not run): an absolute persona anchor per completion (judge against the gold reply for that prompt, or an absolute
+0-10 voice rubric), or a KL / reference-logprob anchor to the seed on persona rows only; a floor on reply length relative to the prompt kind;
+the rule penalties capped (e.g. total <= 0.5) or reduced to a gate on egregious defects; and no batch tax on canonical catchphrases.
